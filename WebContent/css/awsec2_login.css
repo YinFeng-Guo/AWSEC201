@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	text-align:center;
+	background-color:#3F3F3F;
+}
+/*mount design for class tag*/
+.email{
+	font-weight:bold;
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	/**font: bold 14px Arial;**/
+	text-align:left;
+	margin-left:30px;
+	color:#7F7F7F;
+}
+.emailtext{
+	font-size:17px;
+	text-align:center;
+	width:280px;
+	height:30px;
+	text-align:left;
+	background-color:transparent;	 
+	border-style:solid;
+	border-color:#999;
+	border-width:2px;
+	margin-top:13px;
+	margin-left:10px;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+}
+.password{
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+	font-weight:bold;
+	font-size:17px;
+	margin-left:30px;
+	color:#7F7F7F;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+}
+.passwordtext{
+	width:280px;
+	height:30px;
+	text-align:left;
+	background-color:transparent;
+	border:2px #999 solid;
+	margin-top:13px;
+	margin-left:10px;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+}
+/*mount design for id tag*/
+#contain{
+	width:912px;
+	margin:0 auto;
+	margin-top:20px;
+}
+#systemname{
+	height:10px;
+	text-align:left;
+	font-size: 28pt;
+	font-weight:blod;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+	color:#C3C3C3;
+	width:912px;
+	margin-top:100px;
+}
+#applesqmlogin{
+	float:left;
+	text-align:center;
+	width:912px;
+	height:460px;
+	background-color:#000000;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+}
+#subbody{
+	float:left;
+	margin-top:10px;
+	width:910px;
+	height:388px;
+	background-color:#fff;
+	border:1px #525252 solid;
+}
+#largeLogo {
+	float:left;
+	width:400px;
+	height:390px;
+}
+#loginForm{
+	width:506px;
+	height:390px;
+	float:left;
+	text-align:left;
+}
+#formTitle{
+	padding-left:326px;
+	padding-bottom:30px;
+	font-size: 28pt;
+	font-weight:blod;
+	color:#7F7F7F;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+}
+#formBody{
+	float:left;
+}
+#loginTable{
+	width:500px;
+	padding-top:60px;
+}
+#logoPic{
+	width:500px;
+	padding-top:120px;
+}
+#footwords{
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+	padding-left:706px;
+	padding-top:420px;
+	color:#7F7F7F;
+}	
