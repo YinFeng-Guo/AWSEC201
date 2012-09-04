@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+	<package name="product" extends="default" namespace="/product">
+	<!-- 
+		<action name="unspecial" class="UserAction" method="unspecial">
+			<result>/WEB-INF/pages/admin/user/unspecial.jsp</result>
+		</action>
+	-->
+		<action name="loadProducts" class="ProductAction" method="loadProds">
+			<result>/WEB-INF/pages/product/product.jsp</result>
+		</action>
+	
+	</package>
+</struts>
