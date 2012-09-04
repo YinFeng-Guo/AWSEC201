@@ -39,4 +39,5 @@
     </bean>       
     <bean id="LoginAction" class="com.awsec2.web.action.shared.LoginAction" scope="prototype"/>
     <bean id="UserAction" class="com.awsec2.web.action.admin.UserAction" scope="prototype"/>
+    <bean id="ProductAction" class="com.awsec2.web.action.admin.ProductAction" scope="prototype"/>
 </beans>

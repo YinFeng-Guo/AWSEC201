@@ -1,5 +1,9 @@
 package com.awsec2.persistence;
 
-public interface ProductMapper {
+import java.util.List;
 
+import com.awsec2.domain.Product;
+
+public interface ProductMapper {
+	List<Product> getProductsByUserId(int userId);
 }
