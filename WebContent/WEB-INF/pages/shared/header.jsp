@@ -28,7 +28,7 @@ a:hover{text-decoration:underline;}
 }
 
 .menu_navcc{width:100%; margin:0 auto;}
-.menu_nav{width:100%;height:48px;background:url(images/nav_bg.gif) repeat-x;float:left;margin-top:18px;}
+.menu_nav{width:100%;height:48px;background:url(images/nav_bg.gif) repeat-x;float:left;margin-top:0px;}
 .menu_nav .nav_content{padding-left:25px;background:url(images/nav_l_bg.gif) no-repeat;float:left;}
 .menu_nav .nav_content li{width:88px;height:48px;padding-left:15px;padding-right:13px;background:url(images/nav_li_right.gif) no-repeat right center;float:left;line-height:48px;text-align:center;font-size:14px;font-weight:bold;}
 .menu_nav .nav_content li a{color:#fff;width:88px;height:48px;display:block;}
@@ -46,7 +46,9 @@ margin-bottom:15px}
 
 </head>
 <body style="text-align:center">
-	<div style="height:100px;text-align:left;"><img src="images/logo.png"/></div>
+	<div style="height:100px;text-align:left;margin-top:2px;" >
+		<div style="text-align:center;"><img width="179px" src="images/logo.png" style="float:left;"/><img src="images/banner.gif"/></div>
+	</div>
 <!-- 	<div style="clear:both"></div> -->
 	<!--nav,start-->
 	<div class="menu_navcc">
