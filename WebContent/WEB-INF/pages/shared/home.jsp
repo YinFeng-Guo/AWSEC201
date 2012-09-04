@@ -7,8 +7,15 @@
 <title>Home Page</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
-<a href="<%=request.getContextPath() %>/user/unspecial.action">System User</a>
-<jsp:include page="footer.jsp" />
+<div id="headerDiv">
+	<jsp:include page="header.jsp" />
+</div>
+<%-- <a href="<%=request.getContextPath() %>/user/unspecial.action">System User</a> --%>
+<div id="bodyDiv">
+	
+</div>
+<div id="footerDiv">
+	<jsp:include page="footer.jsp" />
+</div>
 </body>
 </html>
