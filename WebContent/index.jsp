@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Welcome ITBconsult</title>
+<link rel="Shortcut Icon" href="images/ico.ico">
 <link href="<%=request.getContextPath()%>/css/awsec2_login.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
