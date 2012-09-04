@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.awsec2.persistence.MovementMapper">	
+	<!-- 
+	<select id="queryUser" parameterType="User" resultType="User">
+		select 
+		*
+		from 
+		mount_user
+	</select>
+	
+	<select id="loadUserByEmailId" parameterType="java.lang.String" resultType="User">
+		select *
+		from mount_user where email_id=#{email_id}
+	</select> 
+	-->
+</mapper>

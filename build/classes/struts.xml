@@ -19,7 +19,8 @@
     <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />    
        
     <include file="/struts-modules/struts-system.xml" />  
-         
+    <include file="/struts-modules/struts-product.xml" />  
+    <include file="/struts-modules/struts-movement.xml" />       
     <package name="default" extends="struts-default">	
 		<action name="login" class="LoginAction" method="login">
             <result>/WEB-INF/pages/shared/home.jsp</result>
