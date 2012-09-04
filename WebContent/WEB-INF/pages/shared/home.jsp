@@ -7,6 +7,8 @@
 <title>Home Page</title>
 </head>
 <body>
+<jsp:include page="header.jsp" />
 <a href="<%=request.getContextPath() %>/user/unspecial.action">System User</a>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

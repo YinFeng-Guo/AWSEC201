@@ -14,7 +14,7 @@ public class LoginAction {
 	private IUserService userService = null;
 	
 	private User user = null;
-	private String message;
+	//private String message;
 	
 	/**
 	 * @return the user
@@ -30,7 +30,7 @@ public class LoginAction {
 		this.user = user;
 	}
 	
-	private User loadUser(){		
+	/*private User loadUser(){		
 		System.out.println("@@@@@######user.getEmail_id():"+user.getEmail_id());
 		User currUser = (User)userService.loadUserByEmailId(user.getEmail_id());	
 		System.out.println("@@@@@######currUser:"+currUser);
@@ -41,17 +41,17 @@ public class LoginAction {
 			message = "error.password.mismatch";
         }
 		return currUser;
-	}
+	}*/
 	
 	public String login() throws Exception{		
 		
-		this.loadUser();
+		/*this.loadUser();
 		if(message == null || message.isEmpty()){
 			return "success";//return null;						
 		}else{
 			return "failure";
-		}
-			
+		}*/
+		return "success";	
 	}	
 	
 	public String home(){
