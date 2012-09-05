@@ -28,10 +28,10 @@
 		<s:iterator value="users" id="user">
 			<tr>
 				<td align="center">
-					<s:property value="#user.id"/>
+					<input type="text" value="<s:property value="#user.id"/>"/>
 				</td>
 				<td align="center">
-					<s:property value="#user.firstname"/>
+					<input type="text" value="<s:property value="#user.firstname"/>"/>
 				</td>
 				<td align="center">
 					<s:property value="#user.lastname"/>
@@ -43,6 +43,7 @@
 					<s:property value="#user.password"/>
 				</td>
 				<td align="center">
+					<input type="checkbox" checked="<s:property value="#user.supers"/>"/>
 					<s:property value="#user.supers"/>
 				</td>
 				<td align="center">
