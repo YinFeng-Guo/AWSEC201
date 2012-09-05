@@ -48,7 +48,7 @@ margin-bottom:15px}
 </head>
 <body style="text-align:center">
 	<div style="height:100px;text-align:left;margin-top:2px;" >
-		<div style="text-align:center;"><img width="179px" src="images/logo.png" style="float:left;"/><img src="images/banner.gif"/></div>
+		<div style="text-align:center;"><img width="179px" src="/AWSEC201/images/logo.png" style="float:left;"/><img src="/AWSEC201/images/banner.gif"/></div>
 	</div>
 <!-- 	<div style="clear:both"></div> -->
 	<!--nav,start-->
