@@ -7,15 +7,27 @@
 <!-- START SNIPPET: xworkSample -->
 <struts>
 	<package name="product" extends="default" namespace="/product">
-	<!-- 
-		<action name="unspecial" class="UserAction" method="unspecial">
-			<result>/WEB-INF/pages/admin/user/unspecial.jsp</result>
-		</action>
-	-->
+		<!-- <action name="unspecial" class="UserAction" method="unspecial"> <result>/WEB-INF/pages/admin/user/unspecial.jsp</result> 
+			</action> -->
 		<action name="loadProducts" class="ProductAction" method="loadProds">
-			<result name ="success">/WEB-INF/pages/product/product.jsp</result>
-			<result name ="error">/WEB-INF/pages/shared/error.jsp</result>
+			<result name="success">/WEB-INF/pages/product/product.jsp</result>
+			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
-	
+		<action name="addProducts" class="ProductAction" method="addProds">
+			<result name="success">/WEB-INF/pages/product/addProds.jsp</result>
+			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
+		</action>
+		<action name="commitAdd" class="ProductAction" method="commitAddProds">
+			<result name="success">/WEB-INF/pages/product/addProds.jsp</result>
+			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
+		</action>
+		<action name="modifyProducts" class="ProductAction" method="modifyProds">
+			<result name="success">/WEB-INF/pages/product/product.jsp</result>
+			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
+		</action>
+		<action name="deleteProducts" class="ProductAction" method="deleteProds">
+			<result name="success">/WEB-INF/pages/product/product.jsp</result>
+			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
+		</action>
 	</package>
 </struts>

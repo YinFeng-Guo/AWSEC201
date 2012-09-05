@@ -44,8 +44,88 @@ public class ProductAction  extends BaseAction implements Preparable{
 		// TODO Auto-generated method stub
 		
 	}
-	
+	/**
+	 * This method is used to load products by a given user's id
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-04
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
 	public String loadProds() throws Exception {
+		products = productService.getProductsByUserId(1);
+		return SUCCESS;
+	}
+	
+	
+	
+	/**
+	 * This method is used to add products
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-05
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-05 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
+	public String addProds() throws Exception {
+//		products = productService.getProductsByUserId(1);
+//		if(products != null) {
+//			for(Product prod: products) {
+//				System.out.println(prod.getName());
+//			}
+//		}
+		return SUCCESS;
+	}
+	/**
+	 * This method is used to edit products info for a special product
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-05
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-05 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
+	public String commitAddProds() throws Exception {
+//		if(product != null) {
+//			
+//				System.out.println(product.getName());
+//			
+//		}
+		return SUCCESS;
+	}
+	
+	/**
+	 * This method is used to edit products info for a special product
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-05
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-05 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
+	public String modifyProds() throws Exception {
 		products = productService.getProductsByUserId(1);
 		if(products != null) {
 			for(Product prod: products) {
@@ -55,5 +135,27 @@ public class ProductAction  extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	
-
+	/**
+	 * This method is used to delete product
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-05
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-05 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
+	public String deleteProds() throws Exception {
+		products = productService.getProductsByUserId(1);
+		if(products != null) {
+			for(Product prod: products) {
+				System.out.println(prod.getName());
+			}
+		}
+		return SUCCESS;
+	}
 }
