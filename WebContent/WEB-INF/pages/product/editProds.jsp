@@ -28,19 +28,22 @@
 					<th align="center">Active</th>
 				</tr>
 				<tr>
-				<s:property value="product"/>
-				<s:property value= '#product.barcode'/>
-					<td ><input type="text" name="product.name" value="${product.name}"></td>
-					<td ><input type="text" name="product.barcode" value="<s:property value='#product.barcode'/>"></td>
-					<td ><input type="text" value="<s:property value="#product.barcode"/>"/></td>
+					<s:iterator value="product" var="p">
+					<td ><input type="text" name="product.name" value="<s:property value='#p.name' />"></td>
+					<td ><input type="text" name="product.barcode" value="<s:property value='#p.barcode'/>"></td>
 					<td ><input type="text" name="product.price_buy" value="<s:property value='#product.price_buy'/>"></td>
 					<td ><input type="text" name="product.price_sell" value="<s:property value='#product.price_sell'/>"></td>
 					<td ><input type="text" name="product.unit" value="<s:property value='#product.unit'/>"></td>
 					<td ><input type="text" name="product.active" value="<s:property value='#product.active'/>"></td>
+					<td ><s:property value="#p.barcode"/></td>
+					</s:iterator>
 				</tr>
 			</table>
 			<input type="button" value="Submit"  onclick="form.submit()">
 		</form>
+		<s:iterator value="product" var="list_prods">
+			<s:property value="#list_prods.id" />
+		</s:iterator>
 		<s:debug></s:debug>
 	</div>
 
