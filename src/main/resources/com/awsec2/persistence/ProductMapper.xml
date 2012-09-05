@@ -2,18 +2,73 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.awsec2.persistence.ProductMapper">	
-	<!-- 
-	<select id="queryUser" parameterType="User" resultType="User">
-		select 
-		*
-		from 
-		mount_user
+<mapper namespace="com.awsec2.persistence.ProductMapper">
+	<!-- Configuration O-R Mapping here 
+	<resultMap type="Product" id="product_orm">
+		<id property="id" column="id" /> 
+		<result property="name" column="Name" />
+		<result property="barcode" column="Barcode" />
+		<result property="price_buy" column="Price_buy" />
+		<result property="price_sell" column="Price_sell" />
+		<result property="unit" column="Unit" />
+		<result property="active" column="Active" />
+		<result property="organization_id" column="Organization_Id" />
+	</resultMap>
+-->
+	<!-- Define some code segments that can be reused -->
+	<sql id="sql_Pars">
+		name, barcode, price_buy, price_sell, unit, active,
+		organization_id
+	</sql>
+
+	<!-- Define Select operation here -->
+
+	<select id="getProductsByUserId" parameterType="INTEGER"
+		resultType="Product">
+		SELECT
+		Product.id,
+		Product.name,
+		Product.barcode,
+		Product.price_buy,
+		Product.price_sell,
+		Product.unit,
+		Product.active,
+		Product.organization_id
+		FROM Product, Organization, User
+		WHERE Product.organization_id = Organization.Id
+		AND User.organization_id = Organization.Id
+		AND User.Id =#{Id}
+		Order by Product.id
 	</select>
-	
-	<select id="loadUserByEmailId" parameterType="java.lang.String" resultType="User">
-		select *
-		from mount_user where email_id=#{email_id}
-	</select> 
+
+
+	<!-- Define Insert operation here
+
+	<insert id="insertAccount" parameterType="Account">
+		INSERT INTO ACCOUNT
+		(EMAIL, FIRSTNAME, LASTNAME, STATUS, ADDR1, ADDR2, CITY, STATE, ZIP, COUNTRY,
+		PHONE, USERID)
+		VALUES
+		(#{email}, #{firstName}, #{lastName}, #{status}, #{address1},
+		#{address2,jdbcType=VARCHAR}, #{city}, #{state}, #{zip}, #{country},
+		#{phone}, #{username})
+	</insert>
+	 -->
+	 
+	<!-- Define Update operation here 
+
+	<update id="updateProfile" parameterType="Account">
+		UPDATE PROFILE SET
+		LANGPREF = #{languagePreference},
+		FAVCATEGORY = #{favouriteCategoryId}
+		WHERE USERID = #{username}
+	</update>
+	-->
+
+	<!-- Define Delete operation here 
+	<delete id="DelBookById" parameterType="INTEGER">
+		delete from book where
+		id=#id#
+	</delete>
 	-->
 </mapper>

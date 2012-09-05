@@ -1,0 +1,60 @@
+-- Insert to Organization table
+
+INSERT INTO `warehousing`.`organization` (`Name`, `Address`, `Phone`, `Fax`, `Mobile`, `Active`) VALUES ('bin.yuan', 'this is test address', '74874874748', '255155165', '3216851148', '1');
+
+INSERT INTO `warehousing`.`organization` (`Name`, `Address`, `Phone`, `Fax`, `Mobile`, `Active`) VALUES ('bin.yuan.o', 'this is test address', '74874123412348', '123412341', '234123415656', '0');
+
+INSERT INTO `warehousing`.`organization` (`Name`, `Address`, `Phone`, `Fax`, `Mobile`, `Active`) VALUES ('bin.yuan.t', 'this is test address', '9876543', '569541', '325485', '1');
+
+-- Insert to Product table
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test1', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '1');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test2', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '1');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test3', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '1');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test4', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '1');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test5', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '1');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test6', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '1');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test7', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '1');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test8', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '1');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test9', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test10', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test11', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test12', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test13', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test14', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test15', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test16', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test17', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test18', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test19', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test20', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test21', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test22', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test23', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test24', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test25', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test26', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test27', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test28', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test29', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '3');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test30', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test31', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test32', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test33', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test34', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test35', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test36', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test37', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test38', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test39', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test40', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test41', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test42', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test43', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test44', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test45', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test46', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test47', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test48', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test49', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test50', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '2');
+INSERT INTO `warehousing`.`product` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `Unit`, `Active`, `Organization_Id`) VALUES ('test51', 'dsagdjcvberv123', '123.0012', '255.3625', 'ra', '1', '1');
