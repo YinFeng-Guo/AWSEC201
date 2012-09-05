@@ -126,12 +126,6 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * 
 	 */
 	public String modifyProds() throws Exception {
-		products = productService.getProductsByUserId(1);
-		if(products != null) {
-			for(Product prod: products) {
-				System.out.println(prod.getName());
-			}
-		}
 		return SUCCESS;
 	}
 	/**
@@ -149,12 +143,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * 
 	 */
 	public String commitModifyProds() throws Exception {
-		products = productService.getProductsByUserId(1);
-		if(products != null) {
-			for(Product prod: products) {
-				System.out.println(prod.getName());
-			}
-		}
+		productService.updateProd(product);
 		return SUCCESS;
 	}
 	

@@ -8,4 +8,5 @@ public interface ProductMapper {
 	List<Product> getProductsByUserId(int userId);
 	void insertProduct(Product prod);
 	void delProdById(long id);
+	void updateProd(Product prod);
 }

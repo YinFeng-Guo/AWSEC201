@@ -53,15 +53,19 @@
 	</insert>
 	
 	 
-	<!-- Define Update operation here 
+	<!-- Define Update operation here -->
 
-	<update id="updateProfile" parameterType="Account">
-		UPDATE PROFILE SET
-		LANGPREF = #{languagePreference},
-		FAVCATEGORY = #{favouriteCategoryId}
-		WHERE USERID = #{username}
+	<update id="updateProd" parameterType="Product">
+		UPDATE Product SET
+		name = #{name},
+		barcode = #{barcode},
+		price_buy = #{price_buy},
+		price_sell = #{price_sell},
+		unit = #{unit},
+		active = #{active}
+		WHERE id = #{id}
 	</update>
-	-->
+	
 
 	<!-- Define Delete operation here -->
 	<delete id="delProdById" parameterType="INTEGER">

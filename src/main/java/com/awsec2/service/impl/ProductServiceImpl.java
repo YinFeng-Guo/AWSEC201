@@ -26,6 +26,10 @@ public class ProductServiceImpl implements IProductService{
 	public void delProdById(long id) {
 		productMapper.delProdById(id);
 	}
+	@Override
+	public void updateProd(Product prod) {
+		productMapper.updateProd(prod);
+	}
 	
 	
 

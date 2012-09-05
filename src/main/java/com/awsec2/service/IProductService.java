@@ -10,4 +10,6 @@ public interface IProductService {
 	public void insertProduct(Product prod);
 	
 	public void delProdById(long id);
+	
+	public void updateProd(Product prod);
 }
