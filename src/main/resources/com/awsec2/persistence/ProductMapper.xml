@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.awsec2.persistence.ProductMapper">
-	<!-- Configuration O-R Mapping here -->
+	<!-- Configuration O-R Mapping here 
 	<resultMap type="Product" id="product_orm">
 		<id property="id" column="id" /> 
 		<result property="name" column="Name" />
@@ -14,7 +14,7 @@
 		<result property="active" column="Active" />
 		<result property="organization_id" column="Organization_Id" />
 	</resultMap>
-
+-->
 	<!-- Define some code segments that can be reused -->
 	<sql id="sql_Pars">
 		name, barcode, price_buy, price_sell, unit, active,
