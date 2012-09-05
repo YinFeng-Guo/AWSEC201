@@ -13,5 +13,13 @@
         <action name="query" class="UserAction" method="query">
             <result>/WEB-INF/pages/admin/user/list.jsp</result>
         </action>
+        
+        <action name="listAllUser" class="com.awsec2.web.action.admin.UserAction" method="listAllUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
+        
+        <action name="test" class="com.awsec2.web.action.admin.UserAction" method="test">
+        	<result>/WEB-INF/pages/admin/addUser.jsp</result>
+        </action>
     </package>
 </struts>

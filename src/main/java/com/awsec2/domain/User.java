@@ -7,56 +7,77 @@ import java.io.Serializable;
  */
 public class User implements Serializable{
 	private static final long serialVersionUID = 2330041131665145136L;	
-	private String guid;
-	private String email_id;
+	
+	private long id;
+	private String firstname;
+	private String lastname;
+	private String username;
 	private String password;
-	private String type;
-	/**
-	 * @return the guid
-	 */
-	public String getGuid() {
-		return guid;
+	private boolean supers;
+	private boolean active;
+	private long organization_id;
+	
+	public long getId() {
+		return id;
 	}
-	/**
-	 * @param guid the guid to set
-	 */
-	public void setGuid(String guid) {
-		this.guid = guid;
+	
+	public void setId(long id) {
+		this.id = id;
 	}
-	/**
-	 * @return the email_id
-	 */
-	public String getEmail_id() {
-		return email_id;
+	
+	public String getFirstname() {
+		return firstname;
 	}
-	/**
-	 * @param emailId the email_id to set
-	 */
-	public void setEmail_id(String emailId) {
-		email_id = emailId;
+	
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
-	/**
-	 * @return the password
-	 */
+	
+	public String getLastname() {
+		return lastname;
+	}
+	
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 	public String getPassword() {
 		return password;
 	}
-	/**
-	 * @param password the password to set
-	 */
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
+	
+	public boolean isSupers() {
+		return supers;
 	}
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}	
+	
+	public void setSupers(boolean supers) {
+		this.supers = supers;
+	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
+	public long getOrganization_id() {
+		return organization_id;
+	}
+	
+	public void setOrganization_id(long organization_id) {
+		this.organization_id = organization_id;
+	}
 }

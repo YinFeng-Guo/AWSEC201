@@ -33,4 +33,10 @@ public class UserServiceImpl implements IUserService{
 		
 	}
 
+	@Override
+	public List<User> listAllUser() {
+		System.out.println("In Service ListAllUser");
+		return userMapper.listAllUser();
+	}
+
 }

@@ -58,5 +58,18 @@ public class UserAction extends BaseAction implements Preparable{
 		this.users = users;
 	}
 
-
+	public String listAllUser(){
+		users = userService.listAllUser();
+		if(users != null){
+			System.out.println("Total records : " + users.size());
+		}else{
+			System.out.println("No User records");
+		}
+		return SUCCESS;
+	}
+	
+	public String test(){
+		return SUCCESS;
+	}
+	
 }

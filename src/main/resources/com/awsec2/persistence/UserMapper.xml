@@ -3,6 +3,16 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.awsec2.persistence.UserMapper">	
+	<resultMap type="User" id="userorm">
+		<id property="id" column="Id"/>
+		<result property="firstname" column="Firstname" />
+		<result property="lastname" column="Lastname" />
+		<result property="username" column="Username" />
+		<result property="password" column="Password" />
+		<result property="supers" column="Super"/>
+		<result property="active" column="Active" />
+		<result property="organization_id" column="Organization_Id" />
+	</resultMap>
 	<!-- 
 	<select id="queryUser" parameterType="User" resultType="User">
 		select 
@@ -16,4 +26,9 @@
 		from mount_user where email_id=#{email_id}
 	</select> 
 	-->
+	
+	<select id="listAllUser" resultMap="userorm">
+		select * 
+		from user
+	</select>
 </mapper>

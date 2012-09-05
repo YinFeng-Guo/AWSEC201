@@ -9,4 +9,5 @@ public interface UserMapper {
 
 	List<User> queryUser(User user);
 
+	List<User> listAllUser();
 }
