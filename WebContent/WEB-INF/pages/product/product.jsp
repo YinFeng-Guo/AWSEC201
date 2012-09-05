@@ -34,7 +34,7 @@
 						href="user!selectUserInfo?uid=<s:property value='#list_prods.id'/>">Details</a>&nbsp;|&nbsp;<a
 						href="user!selectUserInfo?uid=<s:property value='#list_prods.id'/>"><img
 							src="/AWSEC201/images/edit.png" border="0" /></a>&nbsp;|&nbsp;<a
-						href="user!deleteUserInfo?uid=<s:property value='#list_prods.id'/>"><img
+						href="deleteProducts.action?product.id=<s:property value='#list_prods.id'/>"><img
 							src="/AWSEC201/images/delete.png" border="0" /></a></td>
 					<td align="center"><s:property value="#list_prods.id" /></td>
 					<td align="center"><s:property value="#list_prods.name" /></td>

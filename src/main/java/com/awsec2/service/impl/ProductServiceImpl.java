@@ -22,6 +22,10 @@ public class ProductServiceImpl implements IProductService{
 	public void insertProduct(Product prod) {
 		productMapper.insertProduct(prod);
 	}
+	@Override
+	public void delProdById(long id) {
+		productMapper.delProdById(id);
+	}
 	
 	
 

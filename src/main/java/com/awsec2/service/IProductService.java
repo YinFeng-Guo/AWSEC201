@@ -8,4 +8,6 @@ public interface IProductService {
 	public List<Product> getProductsByUserId(int userId);
 	
 	public void insertProduct(Product prod);
+	
+	public void delProdById(long id);
 }

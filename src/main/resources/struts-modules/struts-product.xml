@@ -18,15 +18,19 @@
 			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
 		<action name="commitAdd" class="ProductAction" method="commitAddProds">
-			<result name="success">/WEB-INF/pages/product/addProds.jsp</result>
+			<result name="success" type="chain">loadProducts</result>
 			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
 		<action name="modifyProducts" class="ProductAction" method="modifyProds">
 			<result name="success">/WEB-INF/pages/product/product.jsp</result>
 			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
-		<action name="deleteProducts" class="ProductAction" method="deleteProds">
+		<action name="commitModify" class="ProductAction" method="commitModifyProds">
 			<result name="success">/WEB-INF/pages/product/product.jsp</result>
+			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
+		</action>
+		<action name="deleteProducts" class="ProductAction" method="deleteProds">
+			<result name="success" type="chain">loadProducts</result>
 			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
 	</package>

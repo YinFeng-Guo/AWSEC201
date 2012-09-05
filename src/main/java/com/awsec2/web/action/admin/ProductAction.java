@@ -134,6 +134,29 @@ public class ProductAction  extends BaseAction implements Preparable{
 		}
 		return SUCCESS;
 	}
+	/**
+	 * This method is used to edit products info for a special product
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-05
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-05 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
+	public String commitModifyProds() throws Exception {
+		products = productService.getProductsByUserId(1);
+		if(products != null) {
+			for(Product prod: products) {
+				System.out.println(prod.getName());
+			}
+		}
+		return SUCCESS;
+	}
 	
 	/**
 	 * This method is used to delete product
@@ -150,12 +173,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * 
 	 */
 	public String deleteProds() throws Exception {
-		products = productService.getProductsByUserId(1);
-		if(products != null) {
-			for(Product prod: products) {
-				System.out.println(prod.getName());
-			}
-		}
+		productService.delProdById(product.getId());
 		return SUCCESS;
 	}
 }

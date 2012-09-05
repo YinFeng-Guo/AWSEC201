@@ -63,10 +63,10 @@
 	</update>
 	-->
 
-	<!-- Define Delete operation here 
-	<delete id="DelBookById" parameterType="INTEGER">
-		delete from book where
-		id=#id#
+	<!-- Define Delete operation here -->
+	<delete id="delProdById" parameterType="INTEGER">
+		delete from Product where
+		id=#{Id}
 	</delete>
-	-->
+	
 </mapper>
