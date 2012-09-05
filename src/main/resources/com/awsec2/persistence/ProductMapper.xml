@@ -49,7 +49,7 @@
 		(<include refid="sql_Pars" />)
 		VALUES
 		(#{name}, #{barcode}, #{price_buy}, #{price_sell}, #{unit},
-		#{active}, #{organization_id})
+		#{active}, 1)
 	</insert>
 	
 	 

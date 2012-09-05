@@ -18,5 +18,11 @@ public class ProductServiceImpl implements IProductService{
 		// TODO Auto-generated method stub
 		return productMapper.getProductsByUserId(1);
 	}
+	@Override
+	public void insertProduct(Product prod) {
+		productMapper.insertProduct(prod);
+	}
+	
+	
 
 }
