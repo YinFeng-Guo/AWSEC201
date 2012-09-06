@@ -9,4 +9,5 @@ public interface ProductMapper {
 	void insertProduct(Product prod);
 	void delProdById(long id);
 	void updateProd(Product prod);
+	Product getProductsByProdId(long id);
 }

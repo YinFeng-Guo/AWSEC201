@@ -12,4 +12,6 @@ public interface IProductService {
 	public void delProdById(long id);
 	
 	public void updateProd(Product prod);
+	
+	public Product getProductsByProdId(long id);
 }

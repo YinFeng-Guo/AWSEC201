@@ -41,7 +41,22 @@
 		Order by Product.id
 	</select>
 
-
+	<select id="getProductsByProdId" parameterType="INTEGER"
+		resultType="Product">
+		SELECT
+		Product.id,
+		Product.name,
+		Product.barcode,
+		Product.price_buy,
+		Product.price_sell,
+		Product.unit,
+		Product.active,
+		Product.organization_id
+		FROM Product
+		WHERE Product.id = #{id}
+	</select>
+	
+	
 	<!-- Define Insert operation here -->
 
 	<insert id="insertProduct" parameterType="Product">
