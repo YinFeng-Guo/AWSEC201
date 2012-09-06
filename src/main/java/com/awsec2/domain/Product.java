@@ -49,7 +49,7 @@ public class Product {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	public boolean isActive() {
+	public boolean getActive() {
 		return active;
 	}
 	public void setActive(boolean active) {

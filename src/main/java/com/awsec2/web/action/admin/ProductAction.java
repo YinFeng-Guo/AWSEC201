@@ -122,8 +122,6 @@ public class ProductAction  extends BaseAction implements Preparable{
 	public String commitAddProds() throws Exception {
 		if(products != null) {
 			productService.insertProducts(products);
-//			productService.insertProduct(product);
-//				System.out.println(product.getName());
 		}
 		else System.out.println("null");
 		return SUCCESS;
@@ -165,7 +163,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 		if(product != null) {
 			productService.updateProd(product);
 			
-			System.out.println(product.getName());
+//			System.out.println(product.getName());
 			
 		}
 		return SUCCESS;
