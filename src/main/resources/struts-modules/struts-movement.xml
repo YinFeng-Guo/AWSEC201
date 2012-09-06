@@ -7,11 +7,9 @@
 <!-- START SNIPPET: xworkSample -->
 <struts>
 	<package name="movement" extends="default" namespace="/movement">
-		<default-interceptor-ref name="crudStack"/>
 		<action name="init" class="MovementAction" method="init">
-			<result>/WEB-INF/pages/movement/movement.jsp</result>
-			
-		</action>
+            <result>/WEB-INF/pages/movement/movement.jsp</result>
+        </action>  
 		<action name="query" class="MovementAction" method="query">
             <result>/WEB-INF/pages/movement/list.jsp</result>
         </action>   

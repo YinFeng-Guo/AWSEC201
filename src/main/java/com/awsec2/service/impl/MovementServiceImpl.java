@@ -2,14 +2,16 @@ package com.awsec2.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.awsec2.domain.Movement;
 import com.awsec2.persistence.MovementMapper;
 import com.awsec2.service.IMovementService;
 
+@Service
 public class MovementServiceImpl implements IMovementService{
-	@Resource
+	@Autowired
 	MovementMapper movementMapper;
 	
 	@Override

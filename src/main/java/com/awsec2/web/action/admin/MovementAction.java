@@ -5,7 +5,8 @@ import com.awsec2.service.IMovementService;
 import com.awsec2.web.action.BaseAction;
 import com.opensymphony.xwork2.Preparable;
 import java.util.List;
-import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class MovementAction  extends BaseAction implements Preparable{
 
@@ -16,8 +17,12 @@ public class MovementAction  extends BaseAction implements Preparable{
 	 */
 	private static final long serialVersionUID = 5850906816763804411L;
 
-	@Resource
+	@Autowired
 	private IMovementService imovementService;
+	
+	public String init() throws Exception{
+		return "success";
+	}
 	
 	public String query() throws Exception {
 		setList_movements(imovementService.findMovementsByMovement(movement));
