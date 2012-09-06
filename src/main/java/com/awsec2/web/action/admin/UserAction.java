@@ -72,4 +72,18 @@ public class UserAction extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	
+	public String addUser(){
+		if(user != null){
+			System.out.println("Add User Name:" + user.getUsername());
+		}else{
+			System.out.println("Add User is null");
+		}
+		if(users != null){
+			System.out.println("Add Users Size:" + users.size());
+		}else{
+			System.out.println("Add Users is null");
+		}
+		return SUCCESS;
+	}
+	
 }

@@ -21,5 +21,9 @@
         <action name="test" class="com.awsec2.web.action.admin.UserAction" method="test">
         	<result>/WEB-INF/pages/admin/addUser.jsp</result>
         </action>
+        
+        <action name="addUser" class="com.awsec2.web.action.admin.UserAction" method="addUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
     </package>
 </struts>
