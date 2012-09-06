@@ -1,10 +1,12 @@
- Eclipse��GIT���EGITʹ���ֲ�:
+ Eclipse锟斤拷GIT锟斤拷锟紼GIT使锟斤拷锟街诧拷:
  http://blog.csdn.net/luckarecs/article/details/7427605
  
  http://tablefilter.free.fr/
  
- GIT常见问题和操作
+ GIT甯歌闂鍜屾搷浣�
  http://blog.microsuncn.com/?p=1978
  
- jsp button onclick事件汇总
+ jsp button onclick浜嬩欢姹囨�
  http://www.oschina.net/code/snippet_192817_6614
+ 
+ http://www.imwls.com/the-most-jquery-table-plugins
