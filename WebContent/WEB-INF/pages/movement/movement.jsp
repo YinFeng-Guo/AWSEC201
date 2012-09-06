@@ -4,9 +4,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Movement Management</title>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.0.js" ></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/ajax.js"></script>
+<script>
+function onQuery(){
+	defautFlag = true;
+	startRequest('','listDiv','movementQueryForm');
+}
+function initMovementsPage(){
+	focusUnspecialUnRefresh();
+	onQuery();
+}
+function initPageDiv(){
+	$('#operateDiv').hide();
+	$('#queryDiv').show();
+	$('#listDiv').show();
+}
+</script>
+
 </head>
 <body>
-
+<div id="container">
+	<jsp:include page="../shared/header.jsp"></jsp:include>
+	<div id="pageContent" class="content">
+		<div id="queryDiv">
+			<div id="formTitle">Query Condition</div>
+			<jsp:include page="query.jsp"></jsp:include>
+		</div>
+		<div id="operateDiv">
+		</div>
+		<div id="listDiv">
+		</div>
+	</div>
+</div>
 </body>
+<script>
+initMovementsPage();
+</script>
 </html>

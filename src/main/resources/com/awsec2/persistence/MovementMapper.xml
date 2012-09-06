@@ -3,17 +3,13 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.awsec2.persistence.MovementMapper">	
-	<!-- 
-	<select id="queryUser" parameterType="User" resultType="User">
-		select 
-		*
-		from 
-		mount_user
-	</select>
 	
-	<select id="loadUserByEmailId" parameterType="java.lang.String" resultType="User">
-		select *
-		from mount_user where email_id=#{email_id}
-	</select> 
-	-->
+  	<select id="findMovementsByMovement" resultMap="Movement" parameterType="Movement">
+  		SELECT *
+		FROM Movement
+  		<where>
+  			<if test="Name!=null and Name!=''"> Name=#{Name}</if>
+  			<if test="Barcode!=null and Barcode!=''" > and Barcode=#{Barcode}</if>
+  		</where>
+  	</select>
 </mapper>
