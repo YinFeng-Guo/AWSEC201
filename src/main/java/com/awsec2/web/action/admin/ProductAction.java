@@ -83,7 +83,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 	}
 	
 	/**
-	 * This method is used to add products
+	 * This method is used to foward to products add page
 	 *
 	 @author Bin Yuan
 	 @created 2012-09-05
@@ -106,7 +106,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	/**
-	 * This method is used to edit products info for a special product
+	 * This method is used to commit products just added
 	 *
 	 @author Bin Yuan
 	 @created 2012-09-05
@@ -146,7 +146,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	/**
-	 * This method is used to edit products info for a special product
+	 * This method is used to commit updates for a product
 	 *
 	 @author Bin Yuan
 	 @created 2012-09-05
@@ -171,7 +171,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 	}
 	
 	/**
-	 * This method is used to delete product
+	 * This method is used to delete a product
 	 *
 	 @author Bin Yuan
 	 @created 2012-09-05
@@ -189,7 +189,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	/**
-	 * This method is used to delete product
+	 * This method is used to serach products based on given prod's name or\and prod's barcode
 	 *
 	 @author Bin Yuan
 	 @created 2012-09-05
