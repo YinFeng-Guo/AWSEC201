@@ -69,7 +69,7 @@
 		Product.active,
 		Product.organization_id
 		FROM Product
-		WHERE organization_id = 2
+		WHERE organization_id = 1
 		<if test="name != null">
 			AND name like CONCAT('%','${name}','%' )
 		</if>
@@ -97,7 +97,7 @@
 		VALUES
 		<foreach collection="list" item="Product" index="index"
 			separator=",">
-			(#{Product.name},#{Product.barcode},#{Product.price_buy},#{Product.price_sell},#{Product.unit},#{active},
+			(#{Product.name},#{Product.barcode},#{Product.price_buy},#{Product.price_sell},#{Product.unit},#{Product.active},
 			1)
 		</foreach>
 	</insert>

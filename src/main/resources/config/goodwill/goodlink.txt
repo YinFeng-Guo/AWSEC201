@@ -1,4 +1,12 @@
- Eclipse上GIT插件EGIT使用手册:
+ Eclipse閿熸枻鎷稧IT閿熸枻鎷烽敓绱糋IT浣块敓鏂ゆ嫹閿熻璇ф嫹:
  http://blog.csdn.net/luckarecs/article/details/7427605
  
  http://tablefilter.free.fr/
+ 
+ GIT鐢瓕顬�闂傤噣顣介崪灞炬惙娴ｏ拷
+ http://blog.microsuncn.com/?p=1978
+ 
+ jsp button onclick娴滃娆㈠Ч鍥拷
+ http://www.oschina.net/code/snippet_192817_6614
+ 
+ http://www.imwls.com/the-most-jquery-table-plugins

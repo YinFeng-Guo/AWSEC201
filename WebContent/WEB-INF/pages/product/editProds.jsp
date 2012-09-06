@@ -41,6 +41,7 @@
 				</tr>
 			</table>
 			<input type="button" value="Submit"  onclick="form.submit()">
+			<input onclick="history.go(-1)" type="button" value="Cancel">
 		</form>
 		<s:debug></s:debug>
 	</div>

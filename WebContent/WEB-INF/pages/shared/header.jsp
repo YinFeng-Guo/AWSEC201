@@ -55,11 +55,11 @@ margin-bottom:15px}
 	<div class="menu_navcc">
 	<div class="menu_nav clearfix">
 	<ul class="nav_content">
-		<li class="current"><a href="#" title="Home"><span>Home</span></a></li>
-		<li><a href="#" title="Product"><span>Product</span></a></li>
-		<li><a href="<%=request.getContextPath() %>/movement/init.action" title="Movement"><span>Movement</span></a></li>
-		<li><a href="#" title="Product"><span>Product</span></a></li>
-		<li><a href="#" title="Movement"><span>Movement</span></a></li>
+		<li id="homeTab" class="current"><a href="<%=request.getContextPath() %>/login.action" title="Home"><span>Home</span></a></li>
+		<li id="productTab"><a href="<%=request.getContextPath() %>/product/loadProducts.action" title="Product"><span>Product</span></a></li>
+		<li id="movementTab"><a href="<%=request.getContextPath() %>/movement/init.action" title="Movement"><span>Movement</span></a></li>
+		<li id="productTab2"><a href="<%=request.getContextPath() %>/product/loadProducts.action" title="Product"><span>Product</span></a></li>
+		<li id="movementTab2"><a href="<%=request.getContextPath() %>/movement/init.action" title="Movement"><span>Movement</span></a></li>
 		<li style="position:relative;"><a href="#" title="Help"><span>Help</span></a><em></em></li>
 	</ul>
 	<div class="menu_nav_right">

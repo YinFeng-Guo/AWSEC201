@@ -5,6 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home Page</title>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.0.js" ></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jQuery/DatePicker/jquery-ui-1.8.23.custom.min.js" ></script>		
+<link href="<%=request.getContextPath()%>/jQuery/DatePicker/ui-lightness/jquery-ui-1.8.23.custom.css" rel="stylesheet" type="text/css" />	
 </head>
 <body>
 <div id="headerDiv">
@@ -12,10 +15,21 @@
 </div>
 <%-- <a href="<%=request.getContextPath() %>/user/unspecial.action">System User</a> --%>
 <div id="bodyDiv">
-	
+<p>Date: <input type="text" id="datepicker"></p>	
 </div>
 <div id="footerDiv">
 	<jsp:include page="footer.jsp" />
 </div>
 </body>
+<script>
+
+document.getElementById("homeTab").className = "current";
+document.getElementById("productTab").className = "";
+	$(function() {
+		$( "#datepicker" ).datepicker();
+	});
+</script>
+
+
 </html>
+
