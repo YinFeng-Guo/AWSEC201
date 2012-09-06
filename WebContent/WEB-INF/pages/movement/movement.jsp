@@ -6,11 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Movement Management</title>
 <%-- <link href="<%=request.getContextPath()%>/css/movement/awsec2.css" rel="stylesheet" type="text/css" /> --%>
-
-<link href="<%=request.getContextPath()%>/css/movement/tablefilter.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/jQuery/TableFilter/filtergrid.css" rel="stylesheet" type="text/css" />
+<%-- <link href="<%=request.getContextPath()%>/jQuery/TableFilter/TF_Themes/Default/TF_Default.css" rel="stylesheet" type="text/css" /> --%>
+<%-- <link href="<%=request.getContextPath()%>/css/movement/tablefilter.css" rel="stylesheet" type="text/css" /> --%>
+<%-- <link href="<%=request.getContextPath()%>/jQuery/TableFilter/filtergrid.css" rel="stylesheet" type="text/css" /> --%>
 <script src="<%=request.getContextPath()%>/jQuery/TableFilter/tablefilter_all_min.js" language="javascript" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/js/movement/tablefilter.js" language="javascript" type="text/javascript"></script>
+<%-- <script src="<%=request.getContextPath()%>/js/movement/tablefilter.js" language="javascript" type="text/javascript"></script> --%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.0.js" ></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/ajax.js"></script>
 <script>
@@ -19,7 +19,6 @@ function onQuery(){
 	startRequest('','listDiv','movementQueryForm');
 }
 function initMovementsPage(){
-	alert('okok');
 	initPageDiv();
 	onQuery();
 }
