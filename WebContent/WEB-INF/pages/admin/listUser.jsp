@@ -16,6 +16,7 @@
 <div id="usertable">
 	<table>
 		<tr>
+			<th align="center">Action</th>
 			<th align="center">Id</th>
 			<th align="center">Firstname</th>
 			<th align="center">Lastname</th>
@@ -28,10 +29,14 @@
 		<s:iterator value="users" id="user">
 			<tr>
 				<td align="center">
-					<input type="text" value="<s:property value="#user.id"/>"/>
+					<a href="delOneUser.action?uid=<s:property value="#user.id"/>">Del</a>&nbsp;|&nbsp;
+					<a href="editOneUser.action?uid=<s:property value="#user.id"/>">Edit</a>
 				</td>
 				<td align="center">
-					<input type="text" value="<s:property value="#user.firstname"/>"/>
+					<s:property value="#user.id"/>
+				</td>
+				<td align="center">
+					<s:property value="#user.firstname"/>
 				</td>
 				<td align="center">
 					<s:property value="#user.lastname"/>
@@ -43,7 +48,6 @@
 					<s:property value="#user.password"/>
 				</td>
 				<td align="center">
-					<input type="checkbox" checked="<s:property value="#user.supers"/>"/>
 					<s:property value="#user.supers"/>
 				</td>
 				<td align="center">
