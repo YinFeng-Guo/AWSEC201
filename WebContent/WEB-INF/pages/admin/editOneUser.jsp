@@ -12,25 +12,13 @@
 
 <script type="text/javascript" src="/AWSEC201/js/jquery-1.8.0.js"></script>
 
-<script type="text/javascript">
-	function submitForm(){
-		if(document.getElementById("superss").checked){
-			document.getElementById("superstxt").value = true;
-		}else{
-			document.getElementById("superstxt").value = false;
-		}
-		
-		if(document.getElementById("actives").checked){
-			document.getElementById("activetxt").value = true;
-		}else{
-			document.getElementById("activetxt").value = false;
-		}
-		document.getElementById("updateOneUserForm").submit();
-	}
-</script>
 </head>
 <body>
-
+<div id="headerDiv">
+	<jsp:include page="../shared/header.jsp" />
+</div>
+<br>
+<div id="bodyDiv">
 <form action="updateOneUser.action" id="updateOneUserForm">
 	<table id="editOneUserTable">
 	<s:iterator value="users" var="user">
@@ -61,12 +49,10 @@
 			<th>Super</th>
 			<td>
 				<s:if test="#user.supers == true">
-					<input type="checkbox" name="superss" id="superss" checked="checked"/>
-					<input type="hidden" name="user.supers" value="true" id="superstxt"/>
+					<input type="checkbox" name="user.supers" checked="checked" value="true"/>
 				</s:if>
 				<s:else>
-					<input type="checkbox" name="superss" id="superss"/>
-					<input type="hidden" name="user.supers" value="false" id="superstxt"/>
+					<input type="checkbox" name="user.supers" value="true"/>
 				</s:else>
 			</td>
 		</tr>
@@ -74,12 +60,10 @@
 			<th>Active</th>
 			<td>
 				<s:if test="#user.active == true">
-					<input type="checkbox" name="actives" id="actives" checked="checked"/>
-					<input type="hidden" name="user.active" value="true" id="activetxt"/>
+					<input type="checkbox" name="user.active" checked="checked" value="true"/>
 				</s:if>
 				<s:else>
-					<input type="checkbox" name="actives" id="actives"/>
-					<input type="hidden" name="user.active" value="false" id="activetxt"/>
+					<input type="checkbox" name="user.active" value="true"/>
 				</s:else>
 			</td>
 		</tr>
@@ -100,8 +84,11 @@
 		</tr>
 	</s:iterator>
 	</table>
-	<input type="button" value="Update" onClick="submitForm()">
+	<input type="submit" value="Update"/>
 </form>
-
+</div>
+<div id="footerDiv">
+	<jsp:include page="../shared/footer.jsp" />
+</div>
 </body>
 </html>

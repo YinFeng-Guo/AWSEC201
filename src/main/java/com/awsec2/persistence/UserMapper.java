@@ -14,4 +14,8 @@ public interface UserMapper {
 	void delOneUserById(long uid);
 	
 	void updateOneUser(User user);
+	
+	List<User> searchByUsername(User user);
+	
+	void addUsers(List<User> users);
 }

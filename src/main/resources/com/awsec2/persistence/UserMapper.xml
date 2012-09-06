@@ -14,20 +14,6 @@
 		<result property="organization_id" column="Organization_Id" />
 	</resultMap>
 	
-	<!-- 
-	<select id="queryUser" parameterType="User" resultType="User">
-		select 
-		*
-		from 
-		mount_user
-	</select>
-	
-	<select id="loadUserByEmailId" parameterType="java.lang.String" resultType="User">
-		select *
-		from mount_user where email_id=#{email_id}
-	</select> 
-	-->
-	
 	<sql id="user_columns">
 		Firstname, Lastname, Username, Password, Super, Active, Organization_Id
 	</sql>
@@ -37,8 +23,22 @@
 		from user
 	</select>
 	
+	<select id="queryUser" parameterType="User" resultMap="userorm">
+		select * 
+		from user
+		where Id = #{id}
+	</select>
 	
+	<select id="searchByUsername" parameterType="User" resultMap="userorm">
+		select *
+		from user
+		where 1=1 
+		<if test="username != null">
+			and Username like CONCAT('%', #{username}, '%') <!-- like CONCAT('%','$(username)','%')  -->
+		</if>
 	
+	</select>
+	<!-- Insert statement begin -->
 	<insert id="addUser" parameterType="User">
 		insert into user
 		(<include refid="user_columns"/>)
@@ -46,15 +46,21 @@
 		(#{firstname}, #{lastname}, #{username}, #{password}, #{supers}, #{active}, #{organization_id})
 	</insert>
 	
+	<insert id="addUsers" parameterType="ArrayList">
+		insert into user
+		(<include refid="user_columns"/>)
+		values
+		<foreach collection="list" item="User" index="index" separator=",">
+			(#{User.firstname}, #{User.lastname}, #{User.username}, #{User.password}, #{User.supers}, #{User.active}, #{User.organization_id})
+		</foreach>
+	</insert>
+		
+	<!-- Insert statement end -->
+	
 	<delete id="delOneUserById" parameterType="java.lang.Long">
 		delete from user where Id = #{uid}
 	</delete>
 	
-	<select id="queryUser" parameterType="User" resultMap="userorm">
-		select * 
-		from user
-		where Id = #{id}
-	</select>
 	
 	<update id="updateOneUser" parameterType="User">
 		update 

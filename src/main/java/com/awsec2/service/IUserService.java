@@ -14,4 +14,8 @@ public interface IUserService {
 	public void delOneUser(long uid);
 	
 	public void updateOneUser(User user);
+	
+	public List<User> searchByUsername(User user);
+	
+	public void addUsers(List<User> users);
 }

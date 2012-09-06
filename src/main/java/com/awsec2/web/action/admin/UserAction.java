@@ -1,5 +1,6 @@
 package com.awsec2.web.action.admin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,7 +100,7 @@ public class UserAction extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	
-	public String test(){
+	public String add(){
 		return SUCCESS;
 	}
 	
@@ -115,16 +116,28 @@ public class UserAction extends BaseAction implements Preparable{
 	}
 	
 	public String addUser(){
-		if(user != null){
-			System.out.println("Add User Name:" + user.getUsername());
-		}else{
-			System.out.println("Add User is null");
-		}
+		List<User> userss = new ArrayList<User>();
 		if(users != null){
 			System.out.println("Add Users Size:" + users.size());
+			for(User user: users){
+				if(user.getUsername() == null || user.getUsername().trim().equals("")){
+					continue;
+				}
+				user.setPassword("123456");
+				userss.add(user);
+				System.out.println("Add user Firstnaem :" + user.getFirstname());
+				System.out.println("Add user Lastnaem :" + user.getLastname());
+				System.out.println("Add user super :" + user.isSupers());
+				System.out.println("Add user active :" + user.isActive());
+				System.out.println("Add user username :" + user.getUsername());
+				System.out.println("Add user Password :" + user.getPassword());
+				System.out.println("Add user Org :" + user.getOrganization_id());
+			}
 		}else{
 			System.out.println("Add Users is null");
 		}
+		userService.addUsers(userss);
+		users = userService.listAllUser();
 		return SUCCESS;
 	}
 	
@@ -182,7 +195,22 @@ public class UserAction extends BaseAction implements Preparable{
 		}else{
 			userService.updateOneUser(user);
 		}
-		users = userService.queryUser(user);
+		users = userService.listAllUser();
+		return SUCCESS;
+	}
+	
+	public String searchByUsername(){
+		if(user == null){
+			System.out.println("searchName is null");
+		}else{
+			System.out.println("In search user name is " + user.getUsername());
+			users = userService.searchByUsername(user);
+			if(users == null){
+				System.out.println("In search users is null");
+			}else{
+				System.out.println("In search Users is not null , size : " + users.size());
+			}
+		}
 		return SUCCESS;
 	}
 }

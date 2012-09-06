@@ -9,70 +9,57 @@
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
-
 <script type="text/javascript" src="/AWSEC201/js/jquery-1.8.0.js"></script>
-
-<script type="text/javascript">
-	function submitForm(){
-		if(document.getElementById("superss").checked){
-			document.getElementById("superstxt").value = true;
-		}else{
-			document.getElementById("superstxt").value = false;
-		}
-		
-		if(document.getElementById("actives").checked){
-			document.getElementById("activetxt").value = true;
-		}else{
-			document.getElementById("activetxt").value = false;
-		}
-		document.getElementById("addOneUserForm").submit();
-	}
-</script>
 </head>
 <body>
-
-<form id="addOneUserForm" action="addOneUser.action" method="post">
-	<table id="addOneUserTable">
-		<tr>
-			<th>Firstname</th>
-			<td><input type="text" name="user.firstname" /></td>
-		</tr>
-		<tr>
-			<th>Lastname</th>
-			<td><input type="text" name="user.lastname" /></td>
-		</tr>
-		<tr>
-			<th>Username</th>
-			<td><input type="text" name="user.username" /></td>
-		</tr>
-		<tr>
-			<th>Super</th>
-			<td>
-				<input type="checkbox" name="superss" id="superss"/>
-				<input type="hidden" name="user.supers" value="false" id="superstxt"/>
-			</td>
-		</tr>
-		<tr>
-			<th>Active</th>
-			<td>
-				<input type="checkbox" name="actives" id="actives"/>
-				<input type="hidden" name="user.active" id="activetxt" value="false"/>
-			</td>
-		</tr>
-		<tr>
-			<th>Organization</th>
-			<td>
-				<select name="user.organization_id">
-					<s:iterator value="organizations" var="orgs">
-						<option value="<s:property value="#orgs.id" />"><s:property value="#orgs.name" /></option>
-					</s:iterator>
-				</select>
-			</td>
-		</tr>
-	</table>
-	<br>
-	<input type="button" value="Add User" onClick="submitForm()" />
-	<input type="submit" value="Submit">
-</form>
+<div id="headerDiv">
+	<jsp:include page="../shared/header.jsp" />
+</div>
+<br>
+<div id="bodyDiv">
+	<form id="addOneUserForm" action="addOneUser.action" method="post">
+		<table id="addOneUserTable">
+			<tr>
+				<th>Firstname</th>
+				<td><input type="text" name="user.firstname" /></td>
+			</tr>
+			<tr>
+				<th>Lastname</th>
+				<td><input type="text" name="user.lastname" /></td>
+			</tr>
+			<tr>
+				<th>Username</th>
+				<td><input type="text" name="user.username" /></td>
+			</tr>
+			<tr>
+				<th>Super</th>
+				<td>
+					<input type="checkbox" name="user.supers" value="true"/>
+				</td>
+			</tr>
+			<tr>
+				<th>Active</th>
+				<td>
+					<input type="checkbox" name="user.active" id="actives" value="true"/>
+				</td>
+			</tr>
+			<tr>
+				<th>Organization</th>
+				<td>
+					<select name="user.organization_id">
+						<s:iterator value="organizations" var="orgs">
+							<option value="<s:property value="#orgs.id" />"><s:property value="#orgs.name" /></option>
+						</s:iterator>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+<div id="footerDiv">
+	<jsp:include page="../shared/footer.jsp" />
+</div>
 </body>
 </html>

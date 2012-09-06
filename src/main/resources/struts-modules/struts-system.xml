@@ -7,18 +7,12 @@
 <!-- START SNIPPET: xworkSample -->
 <struts>
     <package name="user" extends="default" namespace="/user">
-        <action name="unspecial" class="UserAction" method="unspecial">
-            <result>/WEB-INF/pages/admin/user/unspecial.jsp</result>
-        </action>
-        <action name="query" class="UserAction" method="query">
-            <result>/WEB-INF/pages/admin/user/list.jsp</result>
-        </action>
-        
+  
         <action name="listAllUser" class="com.awsec2.web.action.admin.UserAction" method="listAllUser">
         	<result>/WEB-INF/pages/admin/listUser.jsp</result>
         </action>
         
-        <action name="test" class="com.awsec2.web.action.admin.UserAction" method="test">
+        <action name="test" class="com.awsec2.web.action.admin.UserAction" method="add">
         	<result>/WEB-INF/pages/admin/addUser.jsp</result>
         </action>
         
@@ -43,6 +37,10 @@
         </action>
         
         <action name="updateOneUser" class="com.awsec2.web.action.admin.UserAction" method="updateOneUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
+        
+        <action name="searchByUsername" class="com.awsec2.web.action.admin.UserAction" method="searchByUsername">
         	<result>/WEB-INF/pages/admin/listUser.jsp</result>
         </action>
     </package>

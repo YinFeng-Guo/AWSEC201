@@ -21,7 +21,6 @@ public class UserServiceImpl implements IUserService{
 
 	@Override
 	public List<User> queryUser(User user) {
-		// TODO Auto-generated method stub
 		return userMapper.queryUser(user);
 		
 	}
@@ -40,6 +39,25 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public void updateOneUser(User user) {
 		userMapper.updateOneUser(user);
+	}
+
+	@Override
+	public List<User> searchByUsername(User user) {
+		return userMapper.searchByUsername(user);
+	}
+
+	@Override
+	public void addUsers(List<User> users) {
+		for(User user: users){
+			System.out.println("Add user Firstnaem :" + user.getFirstname());
+			System.out.println("Add user Lastnaem :" + user.getLastname());
+			System.out.println("Add user super :" + user.isSupers());
+			System.out.println("Add user active :" + user.isActive());
+			System.out.println("Add user username :" + user.getUsername());
+			System.out.println("Add user Password :" + user.getPassword());
+			System.out.println("Add user Org :" + user.getOrganization_id());
+		}
+		userMapper.addUsers(users);
 	}
 
 }

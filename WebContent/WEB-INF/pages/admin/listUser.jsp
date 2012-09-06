@@ -12,11 +12,22 @@
 <title>Display User Info</title>
 </head>
 <body>
+<div id="headerDiv">
+		<jsp:include page="../shared/header.jsp" />
+</div>
+<div id="searchUser">
+	<form action="searchByUsername.action">
+		<span id="searchSpan">
+			Username&nbsp;:&nbsp;<input type="text" name="user.username"/>&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" value="Search" onClick="form.submit()"/>	
+		</span>
+	</form>
+</div>
 
 <div id="usertable">
 	<table>
 		<tr>
-			<th align="center">Action</th>
+			<th align="center" width="60px">Action</th>
 			<th align="center">Id</th>
 			<th align="center">Firstname</th>
 			<th align="center">Lastname</th>
@@ -61,5 +72,8 @@
 	</table>
 </div>
 
+<div id="footerDiv">
+	<jsp:include page="../shared/footer.jsp" />
+</div>
 </body>
 </html>
