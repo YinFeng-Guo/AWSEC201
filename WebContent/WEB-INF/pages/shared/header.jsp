@@ -57,7 +57,7 @@ margin-bottom:15px}
 	<ul class="nav_content">
 		<li class="current"><a href="#" title="Home"><span>Home</span></a></li>
 		<li><a href="#" title="Product"><span>Product</span></a></li>
-		<li><a href="#" title="Movement"><span>Movement</span></a></li>
+		<li><a href="<%=request.getContextPath() %>/movement/init.action" title="Movement"><span>Movement</span></a></li>
 		<li><a href="#" title="Product"><span>Product</span></a></li>
 		<li><a href="#" title="Movement"><span>Movement</span></a></li>
 		<li style="position:relative;"><a href="#" title="Help"><span>Help</span></a><em></em></li>

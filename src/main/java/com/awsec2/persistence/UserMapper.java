@@ -5,9 +5,13 @@ import com.awsec2.domain.User;
 
 public interface UserMapper {
 
-	User loadUserByEmailId(String emailId);
-
 	List<User> queryUser(User user);
 
 	List<User> listAllUser();
+	
+	void addUser(User user);
+	
+	void delOneUserById(long uid);
+	
+	void updateOneUser(User user);
 }

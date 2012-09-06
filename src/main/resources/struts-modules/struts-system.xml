@@ -21,5 +21,29 @@
         <action name="test" class="com.awsec2.web.action.admin.UserAction" method="test">
         	<result>/WEB-INF/pages/admin/addUser.jsp</result>
         </action>
+        
+        <action name="testAddOneUser" class="com.awsec2.web.action.admin.UserAction" method="testAddOneUser">
+        	<result>/WEB-INF/pages/admin/addOneUser.jsp</result>
+        </action>
+        
+        <action name="addUser" class="com.awsec2.web.action.admin.UserAction" method="addUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
+        
+        <action name="addOneUser" class="com.awsec2.web.action.admin.UserAction" method="addOneUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
+        
+        <action name="delOneUser" class="com.awsec2.web.action.admin.UserAction" method="delOneUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
+        
+        <action name="editOneUser" class="com.awsec2.web.action.admin.UserAction" method="editOneUser">
+        	<result>/WEB-INF/pages/admin/editOneUser.jsp</result>
+        </action>
+        
+        <action name="updateOneUser" class="com.awsec2.web.action.admin.UserAction" method="updateOneUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
     </package>
 </struts>
