@@ -14,4 +14,9 @@ public interface IProductService {
 	public void updateProd(Product prod);
 	
 	public Product getProductsByProdId(long id);
+	
+	public void insertProducts(List<Product> prods);
+	
+	public List<Product> searchProducts(Product prod);
+	
 }

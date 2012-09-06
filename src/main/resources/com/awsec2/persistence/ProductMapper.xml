@@ -3,9 +3,9 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.awsec2.persistence.ProductMapper">
-	<!-- Configuration O-R Mapping here 
+	<!-- Configuration O-R Mapping here -->
 	<resultMap type="Product" id="product_orm">
-		<id property="id" column="id" /> 
+		<id property="id" column="id" />
 		<result property="name" column="Name" />
 		<result property="barcode" column="Barcode" />
 		<result property="price_buy" column="Price_buy" />
@@ -14,7 +14,7 @@
 		<result property="active" column="Active" />
 		<result property="organization_id" column="Organization_Id" />
 	</resultMap>
--->
+
 	<!-- Define some code segments that can be reused -->
 	<sql id="sql_Pars">
 		name, barcode, price_buy, price_sell, unit, active,
@@ -35,8 +35,10 @@
 		Product.active,
 		Product.organization_id
 		FROM Product, Organization, User
-		WHERE Product.organization_id = Organization.Id
-		AND User.organization_id = Organization.Id
+		WHERE
+		Product.organization_id = Organization.Id
+		AND User.organization_id =
+		Organization.Id
 		AND User.Id =#{Id}
 		Order by Product.id
 	</select>
@@ -55,37 +57,72 @@
 		FROM Product
 		WHERE Product.id = #{id}
 	</select>
-	
-	
+
+	<select id="searchProducts" parameterType="Product" resultType="Product">
+		SELECT
+		Product.id,
+		Product.name,
+		Product.barcode,
+		Product.price_buy,
+		Product.price_sell,
+		Product.unit,
+		Product.active,
+		Product.organization_id
+		FROM Product
+		WHERE organization_id = 2
+		<if test="name != null">
+			AND name like CONCAT('%','${name}','%' )
+		</if>
+		<if test="barcode != null">
+			AND barcode like CONCAT('%','${barcode}','%' )
+		</if>
+	</select>
+
 	<!-- Define Insert operation here -->
 
 	<insert id="insertProduct" parameterType="Product">
 		INSERT INTO Product
-		(<include refid="sql_Pars" />)
+		(
+		<include refid="sql_Pars" />
+		)
 		VALUES
 		(#{name}, #{barcode}, #{price_buy}, #{price_sell}, #{unit},
 		#{active}, 1)
 	</insert>
-	
-	 
+	<insert id="insertProducts" parameterType="ArrayList">
+		INSERT INTO Product
+		(
+		<include refid="sql_Pars" />
+		)
+		VALUES
+		<foreach collection="list" item="Product" index="index"
+			separator=",">
+			(#{Product.name},#{Product.barcode},#{Product.price_buy},#{Product.price_sell},#{Product.unit},#{active},
+			1)
+		</foreach>
+	</insert>
+
+
 	<!-- Define Update operation here -->
 
 	<update id="updateProd" parameterType="Product">
 		UPDATE Product SET
-		name = #{name},
+		name =
+		#{name},
 		barcode = #{barcode},
 		price_buy = #{price_buy},
-		price_sell = #{price_sell},
+		price_sell =
+		#{price_sell},
 		unit = #{unit},
 		active = #{active}
 		WHERE id = #{id}
 	</update>
-	
+
 
 	<!-- Define Delete operation here -->
 	<delete id="delProdById" parameterType="INTEGER">
 		delete from Product where
 		id=#{Id}
 	</delete>
-	
+
 </mapper>

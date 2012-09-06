@@ -120,11 +120,12 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * 
 	 */
 	public String commitAddProds() throws Exception {
-		if(product != null) {
-			productService.insertProduct(product);
-				System.out.println(product.getName());
-			
+		if(products != null) {
+			productService.insertProducts(products);
+//			productService.insertProduct(product);
+//				System.out.println(product.getName());
 		}
+		else System.out.println("null");
 		return SUCCESS;
 	}
 	
@@ -187,6 +188,28 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 */
 	public String deleteProds() throws Exception {
 		productService.delProdById(product.getId());
+		return SUCCESS;
+	}
+	/**
+	 * This method is used to delete product
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-05
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-05 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
+	public String searchProds() throws Exception {
+		if(product != null) {
+			System.out.println(product.getName());
+			products = productService.searchProducts(product);
+		}
+		else System.out.println("Null");
 		return SUCCESS;
 	}
 }
