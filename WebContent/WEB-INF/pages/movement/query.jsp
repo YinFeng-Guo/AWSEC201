@@ -4,11 +4,11 @@
 	<table class="form_tb" width="100%">
 		<tr>
 			<td class="lable">Code:</td>
-			<td><input type="text" name="movement.Name" / style="width: 100px"></td>
+			<td><input type="text" name="movement.name" / style="width: 100px"></td>
 			<td class="lable">Name:</td>
-			<td><input type="text" name="movement.BusinessUnit_Id" style="width: 100px" /></td>
+			<td><input type="text" name="movement.businessUnit_Id" style="width: 100px" /></td>
 			<td class="lable">BusinessUnit:</td>
-			<td><select id="product" name="movement.Product_Id" style="width: 100px">
+			<td><select id="product" name="movement.product_Id" style="width: 100px">
 				<option selected value="">--All--</option>
 				<option value="Macbook">Macbook</option>
 				<option value="iMac">iMac</option>

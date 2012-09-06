@@ -1,0 +1,79 @@
+@CHARSET "UTF-8";
+		
+		table#demos tr td:first-child { font-weight:bold !important; white-space:normal !important; } 
+		table#demos tr td:last-child { display:none !important; } 
+		.divUl{ margin:2px 0 2px 15px; width:auto; }
+		ul.ulDemos{ display:block; list-style:none; margin:2px 0 2px 0; padding:1px; font-size:12px; float:left; }
+		ul.ulDemos li{ 
+			padding:5px 7px 5px 7px; 
+			cursor:pointer;
+			display:inline;
+		}
+		ul.ulDemos li.active{
+			background:#f4f4f4 url(TableFilter/TF_Themes/MyTheme/images/bg_infDiv.jpg) center bottom repeat-x !important;
+			font-weight:bold;
+			border:1px solid #617713;
+		}
+		#spanClear{ float:right; margin:0 10px 0 0; }
+	
+		/*====================================================
+			- Grid Layout custom classes
+		=====================================================*/
+		.grdMainCont{/* grid main container */
+			overflow:hidden;
+			padding:0 0 0 0; 
+			border:1px solid #4A4A4A;
+			background:#4A4A4A url(images/bg_th.jpg) left top repeat-x;  
+		}
+		.grdHeadCont{/* grid headers container */
+			overflow:hidden;
+			border-bottom:1px solid #4A4A4A;
+			background:#4A4A4A url(images/bg_th.jpg) left top repeat-x; 
+		}
+		.grdHeadCont th{/* grid headers cell */
+			background:#4A4A4A url(images/bg_th.jpg) left top repeat-x; 
+			padding:2px 2px 2px 2px; color:#fff;
+			border-right:1px dotted #fff;
+			height:22px; font-size:12px;
+			overflow:hidden;
+			text-overflow:ellipsis;
+		}
+		.grdCont{/* grid data table container */
+			background-color:#f4f4f4;
+			overflow-x:auto;
+			overflow-y:scroll;
+		}
+		.grdCont td{/* grid data cell */
+			padding:3px 2px 3px 2px; 
+			border-bottom:1px solid #ccc;
+			border-right:1px dotted #666;
+			overflow:hidden;
+			text-overflow:ellipsis;
+		}
+		.grdHeadCont table, .grdCont table{ /* grid tables */
+			font-size:12px; border-collapse:collapse;
+			table-layout:fixed;
+		}
+		.grd_inf{
+			background:#f4f4f4 url(TableFilter/TF_Themes/MyTheme/images/bg_infDiv.jpg) center bottom repeat-x !important;
+			border-top:1px solid #666 !important; height:29px !important; padding-top:2px !important;
+		}
+		
+		input.pgInp{
+			width:19px; height:19px; cursor:pointer !important;
+			border:0 !important;
+		}
+		.nextPage{ background:transparent url(TableFilter/TF_Themes/MyTheme/images/btn_next_page.gif) center center no-repeat !important; }
+		.previousPage{ background:transparent url(TableFilter/TF_Themes/MyTheme/images/btn_previous_page.gif) center center no-repeat !important; }
+		.firstPage{ background:transparent url(TableFilter/TF_Themes/MyTheme/images/btn_first_page.gif) center center no-repeat !important; }
+		.lastPage{ background:transparent url(TableFilter/TF_Themes/MyTheme/images/btn_last_page.gif) center center no-repeat !important; }
+		.nextPage:hover{ background:#CAD1D6 url(TableFilter/TF_Themes/MyTheme/images/btn_next_page.gif) center center no-repeat !important; }
+		.previousPage:hover{ background:#CAD1D6 url(TableFilter/TF_Themes/MyTheme/images/btn_previous_page.gif) center center no-repeat !important; }
+		.firstPage:hover{ background:#CAD1D6 url(TableFilter/TF_Themes/MyTheme/images/btn_first_page.gif) center center no-repeat !important; }
+		.lastPage:hover{ background:#CAD1D6 url(TableFilter/TF_Themes/MyTheme/images/btn_last_page.gif) center center no-repeat !important; }
+		
+		/*====================================================
+			- Grid Layout custom classes
+		=====================================================*/
+		.grdActiveRow td{ background-color:#316AC5; color:#fff; }
+		.grdActiveRow a{ color:#fff; }

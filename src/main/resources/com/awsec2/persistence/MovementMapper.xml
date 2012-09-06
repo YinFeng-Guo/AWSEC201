@@ -4,12 +4,12 @@
 
 <mapper namespace="com.awsec2.persistence.MovementMapper">	
 	
-  	<select id="findMovementsByMovement" resultMap="Movement" parameterType="Movement">
+  	<select id="findMovementsByMovement" resultType="Movement" parameterType="Movement">
   		SELECT *
 		FROM Movement
   		<where>
-  			<if test="Name!=null and Name!=''"> Name=#{Name}</if>
-  			<if test="Barcode!=null and Barcode!=''" > and Barcode=#{Barcode}</if>
+  			<if test="name!=null and name!=''"> name=#{name}</if>
+  			<if test="barcode!=null and barcode!=''" > and barcode=#{barcode}</if>
   		</where>
   	</select>
 </mapper>

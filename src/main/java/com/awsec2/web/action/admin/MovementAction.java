@@ -25,7 +25,9 @@ public class MovementAction  extends BaseAction implements Preparable{
 	}
 	
 	public String query() throws Exception {
+		System.out.println("abc");
 		setList_movements(imovementService.findMovementsByMovement(movement));
+		System.out.println(list_movements);
 		return "success";
 	}
 	
