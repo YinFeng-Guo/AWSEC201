@@ -83,7 +83,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 	}
 	
 	/**
-	 * This method is used to add products
+	 * This method is used to foward to products add page
 	 *
 	 @author Bin Yuan
 	 @created 2012-09-05
@@ -106,7 +106,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	/**
-	 * This method is used to edit products info for a special product
+	 * This method is used to commit products just added
 	 *
 	 @author Bin Yuan
 	 @created 2012-09-05
@@ -122,8 +122,6 @@ public class ProductAction  extends BaseAction implements Preparable{
 	public String commitAddProds() throws Exception {
 		if(products != null) {
 			productService.insertProducts(products);
-//			productService.insertProduct(product);
-//				System.out.println(product.getName());
 		}
 		else System.out.println("null");
 		return SUCCESS;
@@ -148,7 +146,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	/**
-	 * This method is used to edit products info for a special product
+	 * This method is used to commit updates for a product
 	 *
 	 @author Bin Yuan
 	 @created 2012-09-05
@@ -165,7 +163,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 		if(product != null) {
 			productService.updateProd(product);
 			
-			System.out.println(product.getName());
+//			System.out.println(product.getName());
 			
 		}
 		return SUCCESS;
@@ -173,7 +171,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 	}
 	
 	/**
-	 * This method is used to delete product
+	 * This method is used to delete a product
 	 *
 	 @author Bin Yuan
 	 @created 2012-09-05
@@ -191,7 +189,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	/**
-	 * This method is used to delete product
+	 * This method is used to serach products based on given prod's name or\and prod's barcode
 	 *
 	 @author Bin Yuan
 	 @created 2012-09-05

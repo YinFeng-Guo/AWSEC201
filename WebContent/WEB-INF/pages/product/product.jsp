@@ -16,7 +16,7 @@
 	</div>
 
 	<div id="bodyDiv">
-	<form action="<%=request.getContextPath()%>/product/searchProducts.action">
+	<form action="<%=request.getContextPath()%>/product/searchProducts.action" method="post">
 		Product Name: <input type ="text" name="product.name">&nbsp;&nbsp;&nbsp;&nbsp;Product Barcode: <input type="text" name="product.barcode">&nbsp;&nbsp;&nbsp;&nbsp;<input type ="button" value ="Search" onclick="form.submit()">
 	</form>		
 		<table id = "prodsData">
@@ -34,7 +34,6 @@
 			<s:iterator value="products" var="list_prods">
 				<tr>
 					<td align="center"><a
-						href="user!selectUserInfo?uid=<s:property value='#list_prods.id'/>">Details</a>&nbsp;|&nbsp;<a
 						href="modifyProducts.action?product.id=<s:property value='#list_prods.id'/>"><img
 							src="/AWSEC201/images/edit.png" border="0" /></a>&nbsp;|&nbsp;<a
 						href="deleteProducts.action?product.id=<s:property value='#list_prods.id'/>"><img
