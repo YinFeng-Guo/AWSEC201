@@ -1,11 +1,15 @@
 package com.awsec2.web.action.admin;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.awsec2.domain.Organization;
 import com.awsec2.domain.User;
+import com.awsec2.service.IOrganizationService;
 import com.awsec2.service.IUserService;
 import com.awsec2.web.action.BaseAction;
 import com.opensymphony.xwork2.Preparable;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserAction extends BaseAction implements Preparable{
 
@@ -13,9 +17,36 @@ public class UserAction extends BaseAction implements Preparable{
 
 	@Autowired
 	private IUserService userService = null;
-	private User user = null;
+	@Autowired
+	private IOrganizationService organizationService = null;
 	
+	private User user = null;
 	private List<User> users = null;
+	private Organization organization = null;
+	private List<Organization> organizations = null;
+	
+	private String uid;
+	
+	public Organization getOrganization() {
+		return organization;
+	}
+	public void setOrganization(Organization organization) {
+		this.organization = organization;
+	}
+
+	public List<Organization> getOrganizations() {
+		return organizations;
+	}
+	public void setOrganizations(List<Organization> organizations) {
+		this.organizations = organizations;
+	}
+	
+	public String getUid() {
+		return uid;
+	}
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
 	
 	@Override
 	public void prepare() throws Exception {
@@ -72,4 +103,86 @@ public class UserAction extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	
+	public String testAddOneUser(){
+		
+		organizations = organizationService.getOrganizationIdName();
+		if(organizations == null){
+			System.out.println("organizations add is null");
+		}else{
+			System.out.println("organizations add is not null");
+		}
+		return SUCCESS;
+	}
+	
+	public String addUser(){
+		if(user != null){
+			System.out.println("Add User Name:" + user.getUsername());
+		}else{
+			System.out.println("Add User is null");
+		}
+		if(users != null){
+			System.out.println("Add Users Size:" + users.size());
+		}else{
+			System.out.println("Add Users is null");
+		}
+		return SUCCESS;
+	}
+	
+	public String addOneUser(){
+		if(user != null){
+			System.out.println("Add One User Name : " + user.getUsername() + ", Organization Id : " + user.getOrganization_id());
+			System.out.println("User Super :" + user.isSupers());
+			System.out.println("User Active : " + user.isActive());
+		}else{
+			System.out.println("Add One User is null.");
+		}
+		user.setPassword("123456");
+		userService.addUser(user);
+		users = userService.listAllUser();
+		return SUCCESS;
+	}
+	
+	public String delOneUser(){
+		if(uid == null){
+			System.out.println("Uid id null");
+		}else{
+			System.out.println("Uid:" + uid);
+		}
+		try {
+			userService.delOneUser(Long.parseLong(uid));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		users = userService.listAllUser();
+		return SUCCESS;
+	}
+	
+	public String editOneUser(){
+		if(uid == null){
+			System.out.println("Uid id null");
+		}else{
+			System.out.println("Uid:" + uid);
+		}
+		try {
+			user = new User();
+			user.setId(Long.parseLong(uid));
+			users = userService.queryUser(user);
+			organizations = organizationService.getOrganizationIdName();
+			//userService.editOneUser(Long.parseLong(uid));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//users = userService.listAllUser();
+		return SUCCESS;
+	}
+	
+	public String updateOneUser(){
+		if(user == null){
+			System.out.println("User is null when update a user");
+		}else{
+			userService.updateOneUser(user);
+		}
+		users = userService.queryUser(user);
+		return SUCCESS;
+	}
 }

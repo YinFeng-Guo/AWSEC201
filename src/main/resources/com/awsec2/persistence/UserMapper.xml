@@ -13,6 +13,7 @@
 		<result property="active" column="Active" />
 		<result property="organization_id" column="Organization_Id" />
 	</resultMap>
+	
 	<!-- 
 	<select id="queryUser" parameterType="User" resultType="User">
 		select 
@@ -27,8 +28,45 @@
 	</select> 
 	-->
 	
+	<sql id="user_columns">
+		Firstname, Lastname, Username, Password, Super, Active, Organization_Id
+	</sql>
+	
 	<select id="listAllUser" resultMap="userorm">
 		select * 
 		from user
 	</select>
+	
+	
+	
+	<insert id="addUser" parameterType="User">
+		insert into user
+		(<include refid="user_columns"/>)
+		values
+		(#{firstname}, #{lastname}, #{username}, #{password}, #{supers}, #{active}, #{organization_id})
+	</insert>
+	
+	<delete id="delOneUserById" parameterType="java.lang.Long">
+		delete from user where Id = #{uid}
+	</delete>
+	
+	<select id="queryUser" parameterType="User" resultMap="userorm">
+		select * 
+		from user
+		where Id = #{id}
+	</select>
+	
+	<update id="updateOneUser" parameterType="User">
+		update 
+			user
+		set Firstname = #{firstname},
+			Lastname = #{lastname},
+			Username = #{username},
+			Password = #{password},
+			Super = #{supers},
+			Active = #{active},
+			Organization_Id = #{organization_id}
+		where 
+			Id = #{id}
+	</update>
 </mapper>

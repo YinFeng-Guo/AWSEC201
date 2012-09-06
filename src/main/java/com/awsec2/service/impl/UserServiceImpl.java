@@ -13,17 +13,10 @@ public class UserServiceImpl implements IUserService{
 
 	@Autowired
 	private UserMapper userMapper;
-	
-	@Override
-	public User loadUserByEmailId(String emailId) {
-		// TODO Auto-generated method stub
-		return userMapper.loadUserByEmailId(emailId);
-	}
 
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
-		
+		userMapper.addUser(user);
 	}
 
 	@Override
@@ -37,6 +30,16 @@ public class UserServiceImpl implements IUserService{
 	public List<User> listAllUser() {
 		System.out.println("In Service ListAllUser");
 		return userMapper.listAllUser();
+	}
+
+	@Override
+	public void delOneUser(long uid) {
+		userMapper.delOneUserById(uid);
+	}
+
+	@Override
+	public void updateOneUser(User user) {
+		userMapper.updateOneUser(user);
 	}
 
 }

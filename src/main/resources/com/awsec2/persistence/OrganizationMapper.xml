@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.awsec2.persistence.OrganizationMapper">
+	
+	<resultMap type="Organization" id="orgorm">
+		<id property="id" column="Id"/>
+		<result property="name" column="Name"/>
+		<result property="address" column="Address"/>
+		<result property="phone" column="Phone"/>
+		<result property="mobile" column="Mobile"/>
+		<result property="fax" column="Fax"/>
+		<result property="active" column="Active"/>
+	</resultMap>
+	
+	<select id="getOrganizationIdName" resultMap="orgorm">
+		select * 
+		from organization
+	</select>
+</mapper>

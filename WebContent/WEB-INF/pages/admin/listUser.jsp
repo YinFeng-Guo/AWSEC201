@@ -16,6 +16,7 @@
 <div id="usertable">
 	<table>
 		<tr>
+			<th align="center">Action</th>
 			<th align="center">Id</th>
 			<th align="center">Firstname</th>
 			<th align="center">Lastname</th>
@@ -27,6 +28,10 @@
 		</tr>
 		<s:iterator value="users" id="user">
 			<tr>
+				<td align="center">
+					<a href="delOneUser.action?uid=<s:property value="#user.id"/>">Del</a>&nbsp;|&nbsp;
+					<a href="editOneUser.action?uid=<s:property value="#user.id"/>">Edit</a>
+				</td>
 				<td align="center">
 					<s:property value="#user.id"/>
 				</td>

@@ -20,6 +20,7 @@
 		<form action="<%=request.getContextPath()%>/product/commitModify.action" method="post">
 			<table id="myTable">
 				<tr>
+					<th align="center">ID</th>
 					<th align="center">Name</th>
 					<th align="center">Barcode</th>
 					<th align="center">Price Buy</th>
@@ -29,6 +30,7 @@
 				</tr>
 				<tr>
 					<s:iterator value="product" var="p">
+					<td><input type="text" name="product.id" value="<s:property value="#p.id" />" readonly="readonly"></td>
 					<td ><input type="text" name="product.name" value="<s:property value="#p.name" />"></td>
 					<td ><input type="text" name="product.barcode" value="<s:property value="#p.barcode" />"></td>
 					<td ><input type="text" name="product.price_buy" value="<s:property value='#p.price_buy'/>"></td>

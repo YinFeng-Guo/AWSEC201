@@ -16,7 +16,10 @@
 	</div>
 
 	<div id="bodyDiv">
-		<table>
+	<form action="<%=request.getContextPath()%>/product/searchProducts.action">
+		Product Name: <input type ="text" name="product.name">&nbsp;&nbsp;&nbsp;&nbsp;Product Barcode: <input type="text" name="product.barcode">&nbsp;&nbsp;&nbsp;&nbsp;<input type ="button" value ="Search" onclick="form.submit()">
+	</form>		
+		<table id = "prodsData">
 			<tr>
 				<th align="center">Actions</th>
 				<th align="center">Id</th>

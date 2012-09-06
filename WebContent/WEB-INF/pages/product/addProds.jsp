@@ -12,12 +12,12 @@
 <script language="JavaScript">
 	var intRowIndex = 0;
 	function insertRow(tbIndex) {
-		var strName="<input type=\"text\" name=\"product.name\" value=\"\">";
-		var strBarcode="<input type=\"text\" name=\"product.barcode\" value=\"\">";
-		var strPriceBuy="<input type=\"text\" name=\"product.price_buy\" value=\"\">";
-		var strPriceSell="<input type=\"text\" name=\"product.price_sell\" value=\"\">";
-		var strUnit="<input type=\"text\" name=\"product.unit\" value=\"\">";
-		var strActive="<input type=\"text\" name=\"product.active\" value=\"\">";
+		var strName="<input type=\"text\" name=\"products["+ (tbIndex-1) +"].name\" value=\"\">";
+		var strBarcode="<input type=\"text\" name=\"products[" +(tbIndex-1)+ "].barcode\" value=\"\">";
+		var strPriceBuy="<input type=\"text\" name=\"products[" +(tbIndex-1)+ "].price_buy\" value=\"\">";
+		var strPriceSell="<input type=\"text\" name=\"products[" +(tbIndex-1)+ "].price_sell\" value=\"\">";
+		var strUnit="<input type=\"text\" name=\"products[" +(tbIndex-1)+ "].unit\" value=\"\">";
+		var strActive="<input type=\"text\" name=\"products[" +(tbIndex-1)+ "].active\" value=\"\">";
 		var objRow = myTable.insertRow(tbIndex);
 		var objCel = objRow.insertCell(0);
 		objCel.innerHTML = strName;
@@ -64,6 +64,7 @@
 			</table>
 			<input type="button" value="Submit"  onclick="form.submit()">
 		</form>
+		<s:debug></s:debug>
 
 	</div>
 

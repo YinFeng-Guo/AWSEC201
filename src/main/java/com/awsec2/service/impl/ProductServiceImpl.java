@@ -34,6 +34,14 @@ public class ProductServiceImpl implements IProductService{
 	public Product getProductsByProdId(long id) {
 		return productMapper.getProductsByProdId(id);
 	}
+	@Override
+	public void insertProducts(List<Product> prods) {
+		productMapper.insertProducts(prods);
+	}
+	@Override
+	public List<Product> searchProducts(Product prod) {
+		return productMapper.searchProducts(prod);		
+	}
 	
 	
 
