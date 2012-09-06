@@ -63,7 +63,24 @@ public class ProductAction  extends BaseAction implements Preparable{
 		return SUCCESS;
 	}
 	
-	
+	/**
+	 * This method is used to load product by a given Prod's id
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-04
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
+	public String loadProdById() throws Exception {
+		product = productService.getProductsByProdId(product.getId());
+		return SUCCESS;
+	}
 	
 	/**
 	 * This method is used to add products
@@ -126,12 +143,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * 
 	 */
 	public String modifyProds() throws Exception {
-		products = productService.getProductsByUserId(1);
-		if(products != null) {
-			for(Product prod: products) {
-				System.out.println(prod.getName());
-			}
-		}
+		loadProdById();
 		return SUCCESS;
 	}
 	/**
@@ -149,13 +161,14 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * 
 	 */
 	public String commitModifyProds() throws Exception {
-		products = productService.getProductsByUserId(1);
-		if(products != null) {
-			for(Product prod: products) {
-				System.out.println(prod.getName());
-			}
+		if(product != null) {
+			productService.updateProd(product);
+			
+			System.out.println(product.getName());
+			
 		}
 		return SUCCESS;
+
 	}
 	
 	/**

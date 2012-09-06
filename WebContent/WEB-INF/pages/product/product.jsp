@@ -32,7 +32,7 @@
 				<tr>
 					<td align="center"><a
 						href="user!selectUserInfo?uid=<s:property value='#list_prods.id'/>">Details</a>&nbsp;|&nbsp;<a
-						href="user!selectUserInfo?uid=<s:property value='#list_prods.id'/>"><img
+						href="modifyProducts.action?product.id=<s:property value='#list_prods.id'/>"><img
 							src="/AWSEC201/images/edit.png" border="0" /></a>&nbsp;|&nbsp;<a
 						href="deleteProducts.action?product.id=<s:property value='#list_prods.id'/>"><img
 							src="/AWSEC201/images/delete.png" border="0" /></a></td>

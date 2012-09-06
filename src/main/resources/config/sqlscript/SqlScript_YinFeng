@@ -1,0 +1,5 @@
+INSERT INTO `warehousing`.`businessunit` (`Name`, `Organization_Id`) VALUES ('unit1', '1');
+
+INSERT INTO `warehousing`.`movement` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `BusinessUnit_id`, `Product_id`) VALUES ('movement1', 'dsagdjcvberv123', '123.0012', '255.3625', '1', '2');
+INSERT INTO `warehousing`.`movement` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `BusinessUnit_id`, `Product_id`) VALUES ('movement2', 'dsagdjcvberv123', '123.0012', '255.3625', '1', '2');
+INSERT INTO `warehousing`.`movement` (`Name`, `Barcode`, `Price_buy`, `Price_sell`, `BusinessUnit_id`, `Product_id`) VALUES ('movement3', 'dsagdjcvberv123', '123.0012', '255.3625', '1', '2');
