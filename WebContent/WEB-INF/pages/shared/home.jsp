@@ -22,8 +22,14 @@
 </div>
 </body>
 <script>
+
+document.getElementById("homeTab").className = "current";
+document.getElementById("productTab").className = "";
 	$(function() {
 		$( "#datepicker" ).datepicker();
 	});
 </script>
+
+
 </html>
+

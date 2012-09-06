@@ -10,12 +10,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class MovementAction  extends BaseAction implements Preparable{
 
-	private List<Movement> list_movements;
+	private List<Movement> movements;
 	private Movement movement;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5850906816763804411L;
+	
+	public List<Movement> getList_movements() {
+		return movements;
+	}
+
+	public void setList_movements(List<Movement> movements) {
+		this.movements = movements;
+	}
+
+	public Movement getMovement() {
+		return movement;
+	}
+
+	public void setMovement(Movement movement) {
+		this.movement = movement;
+	}
+
 
 	@Autowired
 	private IMovementService imovementService;
@@ -27,7 +44,7 @@ public class MovementAction  extends BaseAction implements Preparable{
 	public String query() throws Exception {
 		System.out.println("abc");
 		setList_movements(imovementService.findMovementsByMovement(movement));
-		System.out.println(list_movements);
+		System.out.println(movements);
 		return "success";
 	}
 	
@@ -36,21 +53,8 @@ public class MovementAction  extends BaseAction implements Preparable{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 
-	public List<Movement> getList_movements() {
-		return list_movements;
-	}
-
-	public void setList_movements(List<Movement> list_movements) {
-		this.list_movements = list_movements;
-	}
-
-	public Movement getMovement() {
-		return movement;
-	}
-
-	public void setMovement(Movement movement) {
-		this.movement = movement;
-	}
 
 }

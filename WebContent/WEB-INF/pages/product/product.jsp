@@ -21,7 +21,7 @@
 	</form>		
 		<table id = "prodsData">
 			<tr>
-				<th align="center">Actions</th>
+				<th width="5px" align="center">Actions</th>
 				<th align="center">Id</th>
 				<th align="center">Name</th>
 				<th align="center">Barcode</th>
@@ -58,4 +58,8 @@
 		<jsp:include page="../shared/footer.jsp" />
 	</div>
 </body>
+<script>
+document.getElementById("homeTab").className = "";
+document.getElementById("productTab").className = "current";
+</script>
 </html>
