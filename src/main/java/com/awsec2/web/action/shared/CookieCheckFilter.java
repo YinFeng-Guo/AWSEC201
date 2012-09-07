@@ -44,6 +44,7 @@ public class CookieCheckFilter implements Filter {
 		//User user = null;
 		//user = (User)userService.getUserByUsername(cookieVale);
 		String url = hReq.getRequestURI();
+		System.out.println("Url:" + url);
 		if(cookieVale == null){
 			if(url != null && !url.equals("")
 					&& (url.indexOf("Login") < 0 && url.indexOf("login") < 0)
@@ -53,7 +54,11 @@ public class CookieCheckFilter implements Filter {
 			}
 		}else{
 			//cookie is exist
+			
 			if (url != null && !url.equals("") && url.indexOf("login") >= 0) {
+				hRes.sendRedirect("home.action");
+				return;
+			}else if(url == null || url.equals("") || url.equals("/AWSEC201/")){
 				hRes.sendRedirect("home.action");
 				return;
 			}

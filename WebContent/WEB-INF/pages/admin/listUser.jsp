@@ -70,6 +70,7 @@
 			</tr>
 		</s:iterator>
 	</table>
+	<input type="button" value="Add One User" onclick="window.location.href='testAddOneUser.action'">
 </div>
 
 <div id="footerDiv">
