@@ -9,13 +9,12 @@
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
-<script type="text/javascript" src="/AWSEC201/js/jquery-1.8.0.js"></script>
 </head>
 <body>
 <div id="headerDiv">
 	<jsp:include page="../shared/header.jsp" />
 </div>
-<br>
+
 <div id="bodyDiv">
 	<form id="addOneUserForm" action="addOneUser.action" method="post">
 		<table id="addOneUserTable">
@@ -54,10 +53,10 @@
 				</td>
 			</tr>
 		</table>
-		<br>
-		<input type="submit" value="Submit">
+		<input type="submit" value="Submit" />
 	</form>
 </div>
+
 <div id="footerDiv">
 	<jsp:include page="../shared/footer.jsp" />
 </div>

@@ -18,4 +18,6 @@ public interface UserMapper {
 	List<User> searchByUsername(User user);
 	
 	void addUsers(List<User> users);
+	
+	User getUserByUsername(String username);
 }

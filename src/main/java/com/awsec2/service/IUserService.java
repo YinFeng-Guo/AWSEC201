@@ -18,4 +18,6 @@ public interface IUserService {
 	public List<User> searchByUsername(User user);
 	
 	public void addUsers(List<User> users);
+	
+	public User getUserByUsername(String username);
 }

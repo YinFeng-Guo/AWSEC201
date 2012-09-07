@@ -26,7 +26,7 @@
 						</tr>						
 						<tr>
 							<td><span class="email">User Name</span></td>
-							<td><input class="emailtext" type="text"  name="user.email_id" value="haoho.song@gmail.com"/></td>
+							<td><input class="emailtext" type="text"  name="user.username" value="haobo.song@gmail.com"/></td>
 						</tr>						
 						<tr>
 							<td><span class="password">Password</span></td>

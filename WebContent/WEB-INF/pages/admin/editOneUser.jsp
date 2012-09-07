@@ -17,8 +17,7 @@
 <div id="headerDiv">
 	<jsp:include page="../shared/header.jsp" />
 </div>
-<br>
-<div id="bodyDiv">
+<div id="updateOneUserDiv">
 <form action="updateOneUser.action" id="updateOneUserForm">
 	<table id="editOneUserTable">
 	<s:iterator value="users" var="user">

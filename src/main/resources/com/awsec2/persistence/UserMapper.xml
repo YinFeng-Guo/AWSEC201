@@ -36,7 +36,15 @@
 		<if test="username != null">
 			and Username like CONCAT('%', #{username}, '%') <!-- like CONCAT('%','$(username)','%')  -->
 		</if>
+	</select>
 	
+	<select id="getUserByUsername" parameterType="String" resultMap="userorm">
+		select 
+			Id, Username, Password
+		from 
+			user
+		where 
+			Username = #{username}
 	</select>
 	<!-- Insert statement begin -->
 	<insert id="addUser" parameterType="User">

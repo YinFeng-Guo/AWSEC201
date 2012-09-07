@@ -60,4 +60,10 @@ public class UserServiceImpl implements IUserService{
 		userMapper.addUsers(users);
 	}
 
+	@Override
+	public User getUserByUsername(String username) {
+		System.out.println("In Service username :" + username );
+		return userMapper.getUserByUsername(username);
+	}
+
 }
