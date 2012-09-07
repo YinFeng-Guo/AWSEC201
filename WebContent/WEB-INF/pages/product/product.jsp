@@ -22,7 +22,6 @@
 		<table id = "prodsData">
 			<tr>
 				<th width="5px" align="center">Actions</th>
-				<th align="center">Id</th>
 				<th align="center">Name</th>
 				<th align="center">Barcode</th>
 				<th align="center">Price Buy</th>
@@ -38,7 +37,6 @@
 							src="/AWSEC201/images/edit.png" border="0" /></a>&nbsp;|&nbsp;<a
 						href="deleteProducts.action?product.id=<s:property value='#list_prods.id'/>"><img
 							src="/AWSEC201/images/delete.png" border="0" /></a></td>
-					<td align="center"><s:property value="#list_prods.id" /></td>
 					<td align="center"><s:property value="#list_prods.name" /></td>
 					<td align="center"><s:property value="#list_prods.barcode" /></td>
 					<td align="center"><s:property value="#list_prods.price_buy" /></td>

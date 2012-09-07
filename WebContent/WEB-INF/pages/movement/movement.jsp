@@ -24,8 +24,7 @@
 	</form>		
 		<table id = "prodsData">
 			<tr>
-				<th align="center">Actions</th>
-				<th align="center">Id</th>
+				<th align="center" width="5px">Actions</th>
 				<th align="center">Name</th>
 				<th align="center">Barcode</th>
 				<th align="center">Price Buy</th>
@@ -41,7 +40,6 @@
 							src="/AWSEC201/images/edit.png" border="0" /></a>&nbsp;|&nbsp;<a
 						href="deleteMovms.action?movement.id=<s:property value='#list_movms.id'/>"><img
 							src="/AWSEC201/images/delete.png" border="0" /></a></td>
-					<td align="center"><s:property value="#list_movms.id" /></td>
 					<td align="center"><s:property value="#list_movms.name" /></td>
 					<td align="center"><s:property value="#list_movms.barcode" /></td>
 					<td align="center"><s:property value="#list_movms.price_buy" /></td>
@@ -66,5 +64,9 @@
 	$(function() {
 		$( "#datepicker" ).datepicker();
 	});
+	
+	document.getElementById("homeTab").className = "";
+	document.getElementById("productTab").className = "";
+	document.getElementById("movementTab").className = "current";
 </script>
 </html>
