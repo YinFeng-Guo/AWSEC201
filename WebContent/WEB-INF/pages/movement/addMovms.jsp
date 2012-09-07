@@ -103,7 +103,12 @@
 </body>
 <script>
 	$(function() {
-		$("#datepicker").datepicker();
+		$( "#datepicker" ).datepicker();
 	});
+	
+	document.getElementById("homeTab").className = "";
+	document.getElementById("productTab").className = "";
+	document.getElementById("userTab").className = "";
+	document.getElementById("movementTab").className = "current";
 </script>
 </html>

@@ -59,5 +59,10 @@
 	$(function() {
 		$( "#datepicker" ).datepicker();
 	});
+	
+	document.getElementById("homeTab").className = "";
+	document.getElementById("productTab").className = "";
+	document.getElementById("userTab").className = "";
+	document.getElementById("movementTab").className = "current";
 </script>
 </html>
