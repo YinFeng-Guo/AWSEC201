@@ -1,12 +1,14 @@
 package com.awsec2.web.action.admin;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.awsec2.domain.Movement;
 import com.awsec2.service.IMovementService;
 import com.awsec2.web.action.BaseAction;
 import com.opensymphony.xwork2.Preparable;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class MovementAction extends BaseAction implements Preparable {
 
@@ -205,6 +207,13 @@ public class MovementAction extends BaseAction implements Preparable {
 	public String searchMovms() throws Exception {
 		if (movement != null) {
 			System.out.println(movement.getName());
+			if(movement.getOper_date() !=null) {
+				String fmt = "yyyy-mm-dd";
+				SimpleDateFormat sdf = new SimpleDateFormat(fmt);
+				sdf.format(movement.getOper_date());
+				System.out.println(movement.getOper_date());
+			}
+			
 			movements = imovementService.searchMovements(movement);
 		} else
 			System.out.println("Null");

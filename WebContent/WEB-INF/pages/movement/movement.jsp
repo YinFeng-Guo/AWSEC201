@@ -37,9 +37,7 @@
 				<tr>
 					<td align="center"><a
 						href="modifyMovms.action?movement.id=<s:property value='#list_movms.id'/>"><img
-							src="/AWSEC201/images/edit.png" border="0" /></a>&nbsp;|&nbsp;<a
-						href="deleteMovms.action?movement.id=<s:property value='#list_movms.id'/>"><img
-							src="/AWSEC201/images/delete.png" border="0" /></a></td>
+							src="/AWSEC201/images/edit.png" border="0" /></a></td>
 					<td align="center"><s:property value="#list_movms.name" /></td>
 					<td align="center"><s:property value="#list_movms.barcode" /></td>
 					<td align="center"><s:property value="#list_movms.price_buy" /></td>
