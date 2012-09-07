@@ -38,16 +38,16 @@ public class CookieCheckFilter implements Filter {
 		CookieUtil cookieUtil = new CookieUtil();
 		String cookieVale = cookieUtil.getCookieValue(hReq, "username");
 		System.out.println("In filter Cookie Value : " + cookieVale);
-		if(userService == null){
+		/*if(userService == null){
 			userService = new UserServiceImpl();
-		}
+		}*/
 		//User user = null;
 		//user = (User)userService.getUserByUsername(cookieVale);
 		String url = hReq.getRequestURI();
 		if(cookieVale == null){
-			//cookie is not exist
 			if(url != null && !url.equals("")
-					&& (url.indexOf("Login") < 0 && url.indexOf("login") < 0)){
+					&& (url.indexOf("Login") < 0 && url.indexOf("login") < 0)
+					&& (url.indexOf("index") < 0 && url.indexOf("Index") < 0)){
 				hRes.sendRedirect(hReq.getContextPath() + "/index.action");
 				return;
 			}
