@@ -76,4 +76,10 @@
 	<jsp:include page="../shared/footer.jsp" />
 </div>
 </body>
+<script>
+document.getElementById("homeTab").className = "";
+document.getElementById("productTab").className = "";
+document.getElementById("userTab").className = "current";
+document.getElementById("movementTab").className = "";
+</script>
 </html>

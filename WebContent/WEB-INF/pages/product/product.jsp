@@ -59,5 +59,7 @@
 <script>
 document.getElementById("homeTab").className = "";
 document.getElementById("productTab").className = "current";
+document.getElementById("userTab").className = "";
+document.getElementById("movementTab").className = "";
 </script>
 </html>

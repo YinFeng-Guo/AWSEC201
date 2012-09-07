@@ -64,8 +64,10 @@
 	</div>
 </body>
 <script>
-	document.getElementById("homeTab").className = "current";
-	document.getElementById("productTab").className = "";
+document.getElementById("homeTab").className = "current";
+document.getElementById("productTab").className = "";
+document.getElementById("userTab").className = "";
+document.getElementById("movementTab").className = "";
 	$(function() {
 		$("#datepicker").datepicker();
 	});
