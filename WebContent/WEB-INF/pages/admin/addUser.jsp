@@ -45,6 +45,12 @@
 </script>
 </head>
 <body>
+<div id="headerDiv">
+	<jsp:include page="../shared/header.jsp" />
+</div>
+
+
+<div id="bodyDiv">
 	<form action="addUser.action" method="post" onSubmit="checkData()">
 		<table id="addUserTable">
 			<tr>
@@ -57,8 +63,13 @@
 			</tr>
 		</table>
 		<input type="button" onclick="deleteRow(addUserTable.rows.length)" value="Del Row"> 
-		<input type="button" onclick="insertRow(addUserTable.rows.length);" value="Add Row"><br /><br />
+		<input type="button" onclick="insertRow(addUserTable.rows.length)" value="Add Row"><br /><br />
 		<input type="submit" value="Submit"/>
 	</form>
+</div>
+
+<div id="footerDiv">
+	<jsp:include page="../shared/footer.jsp" />
+</div>
 </body>
 </html>
