@@ -6,6 +6,13 @@ import com.awsec2.domain.Movement;
 
 public interface IMovementService {
 
-	List<Movement> findMovementsByMovement(Movement movement);
+	public List<Movement> findMovementsByMovement(Movement movement);
+	public List<Movement> getMovementsByUserId();
+	public Movement getMovementsByMovmId(long id);
+	public List<Movement> searchMovements(Movement movement);
+	public void insertMovements(List<Movement> movements);
+	public void insertMovement(Movement movement);
+	public void updateMovm(Movement movement);
+	public void delMovmById(long id);
 
 }

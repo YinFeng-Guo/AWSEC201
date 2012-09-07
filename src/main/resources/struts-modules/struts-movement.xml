@@ -14,11 +14,11 @@
 			<result>/WEB-INF/pages/movement/list.jsp</result>
 		</action>
 		<action name="loadMovms" class="MovementAction" method="loadMovms">
-			<result name="success">/WEB-INF/pages/Movement/Movement.jsp</result>
+			<result name="success">/WEB-INF/pages/movement/movement.jsp</result>
 			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
 		<action name="addMovms" class="MovementAction" method="addMovms">
-			<result name="success">/WEB-INF/pages/Movement/addMovms.jsp</result>
+			<result name="success">/WEB-INF/pages/movement/addMovms.jsp</result>
 			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
 		<action name="commitAdd" class="MovementAction" method="commitAddMovms">
@@ -26,7 +26,7 @@
 			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
 		<action name="modifyMovms" class="MovementAction" method="modifyMovms">
-			<result name="success">/WEB-INF/pages/Movement/editMovms.jsp</result>
+			<result name="success">/WEB-INF/pages/movement/editMovms.jsp</result>
 			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
 		<action name="commitModify" class="MovementAction" method="commitModifyMovms">
@@ -38,7 +38,7 @@
 			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
 		<action name="searchMovms" class="MovementAction" method="searchMovms">
-			<result name="success">/WEB-INF/pages/Movement/Movement.jsp</result>
+			<result name="success">/WEB-INF/pages/movement/movement.jsp</result>
 			<result name="error">/WEB-INF/pages/shared/error.jsp</result>
 		</action>
 	</package>

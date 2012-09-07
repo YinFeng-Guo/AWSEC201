@@ -7,5 +7,10 @@ import com.awsec2.domain.Movement;
 public interface MovementMapper {
 
 	List<Movement> findMovementsByMovement(Movement movement);
-
+	List<Movement> getMovementsByUserId();
+	Movement getMovementsByMovmId(long id);
+	List<Movement> searchMovements(Movement movement);
+	void insertMovement(Movement movement);
+	void updateMovm(Movement movement);
+	void delMovmById(long id);
 }

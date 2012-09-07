@@ -6,6 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Show all Movements</title>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.0.js" ></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/jQuery/DatePicker/jquery-ui-1.8.23.custom.min.js" ></script>		
+<link href="<%=request.getContextPath()%>/jQuery/DatePicker/ui-lightness/jquery-ui-1.8.23.custom.css" rel="stylesheet" type="text/css" />
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
@@ -17,7 +20,7 @@
 
 	<div id="bodyDiv">
 	<form action="<%=request.getContextPath()%>/movement/searchMovms.action" method="post">
-		Product Name: <input type ="text" name="movement.name">&nbsp;&nbsp;&nbsp;&nbsp;Product Barcode: <input type="text" name="movement.barcode">&nbsp;&nbsp;&nbsp;&nbsp;<input type ="button" value ="Search" onclick="form.submit()">
+		 Date: <input type="text" id="datepicker" name="movement.oper_date">&nbsp;&nbsp;&nbsp;&nbsp;Movement Barcode: <input type="text" name="movement.barcode">&nbsp;&nbsp;&nbsp;&nbsp;<input type ="button" value ="Search" onclick="form.submit()">
 	</form>		
 		<table id = "prodsData">
 			<tr>
@@ -27,7 +30,7 @@
 				<th align="center">Barcode</th>
 				<th align="center">Price Buy</th>
 				<th align="center">Price Sell</th>
-				<th align="center">Date</th>
+				<th align="center">Operate Date</th>
 				<th align="center">Type</th>
 				<th align="center">Amount</th>
 			</tr>
@@ -36,14 +39,15 @@
 					<td align="center"><a
 						href="modifyMovms.action?movement.id=<s:property value='#list_movms.id'/>"><img
 							src="/AWSEC201/images/edit.png" border="0" /></a>&nbsp;|&nbsp;<a
-						href="deleteProducts.action?product.id=<s:property value='#list_movms.id'/>"><img
+						href="deleteMovms.action?movement.id=<s:property value='#list_movms.id'/>"><img
 							src="/AWSEC201/images/delete.png" border="0" /></a></td>
 					<td align="center"><s:property value="#list_movms.id" /></td>
 					<td align="center"><s:property value="#list_movms.name" /></td>
 					<td align="center"><s:property value="#list_movms.barcode" /></td>
 					<td align="center"><s:property value="#list_movms.price_buy" /></td>
 					<td align="center"><s:property value="#list_movms.price_sell" /></td>
-					<td align="center"><s:property value="#list_movms.date" /></td>
+					<td align="center"><s:date name="#list_movms.oper_date" format="yyyy-MM-dd"/></td>
+					<td align="center"><s:property value="#list_movms.type" /></td>
 					<td align="center"><s:property value="#list_movms.amount" /></td>
 
 
@@ -51,11 +55,16 @@
 			</s:iterator>
 		</table>
 		<input type="button" value="Add Movements" onclick="window.location.href='addMovms.action'">
-
+		<s:debug></s:debug>
 	</div>
 
 	<div id="footerDiv">
 		<jsp:include page="../shared/footer.jsp" />
 	</div>
 </body>
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker();
+	});
+</script>
 </html>

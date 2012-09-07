@@ -16,8 +16,44 @@ public class MovementServiceImpl implements IMovementService{
 	
 	@Override
 	public List<Movement> findMovementsByMovement(Movement movement) {
-		// TODO Auto-generated method stub
 		return movementMapper.findMovementsByMovement(movement);
+	}
+
+	@Override
+	public List<Movement> getMovementsByUserId() {
+		return movementMapper.getMovementsByUserId();
+	}
+
+	@Override
+	public Movement getMovementsByMovmId(long id) {
+		return movementMapper.getMovementsByMovmId(id);
+	}
+
+	@Override
+	public List<Movement> searchMovements(Movement movement) {
+		return movementMapper.searchMovements(movement);
+	}
+
+	@Override
+	public void insertMovement(Movement movement) {
+		movementMapper.insertMovement(movement);
+	}
+
+	@Override
+	public void updateMovm(Movement movement) {
+		System.out.println(movement.getOper_date());
+		movementMapper.updateMovm(movement);
+	}
+
+	@Override
+	public void delMovmById(long id) {
+		movementMapper.delMovmById(id);
+	}
+
+	@Override
+	public void insertMovements(List<Movement> movements) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

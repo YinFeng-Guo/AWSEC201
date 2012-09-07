@@ -10,17 +10,17 @@
 		<result property="barcode" column="Barcode" />
 		<result property="price_buy" column="Price_buy" />
 		<result property="price_sell" column="Price_sell" />
-		<result property="date" column="Date" />
+		<result property="oper_date" column="Oper_Date" />
 		<result property="type" column="Type" />
 		<result property="amount" column="Amount" />
-		<result property="organization_id" column="Organization_Id" />
-		<result property="product_id" column="Product_Id" />
+		<result property="businessUnit_Id" column="BusinessUnit_Id" />
+		<result property="product_Id" column="Product_Id" />
 	</resultMap>
 
 	<!-- Define some code segments that can be reused -->
 	<sql id="sql_Pars">
-		name, barcode, price_buy, price_sell, date, type, amount, 
-		organization_id, product_id
+		name, barcode, price_buy, price_sell, oper_date, type, amount, 
+		businessUnit_Id, product_id
 	</sql>
 
 	<!-- Define Select operation here -->
@@ -35,7 +35,7 @@
 		</where>
 	</select>
 	<!--  -->
-	<select id="getMovementsByUserId" parameterType="INTEGER"
+	<select id="getMovementsByUserId" 
 		resultType="Movement">
 		SELECT
 		Movement.id,
@@ -43,12 +43,13 @@
 		Movement.barcode,
 		Movement.price_buy,
 		Movement.price_sell,
-		Movement.date,
+		Movement.oper_date,
 		Movement.type,
 		Movement.amount,
-		Movement.organization_id,
+		Movement.businessUnit_Id,
 		Movement.product_id
 		FROM Movement
+		ORDER BY Movement.oper_date DESC
 <!-- 		WHERE
 		Product.organization_id = Organization.Id
 		AND User.organization_id =
@@ -65,10 +66,10 @@
 		Movement.barcode,
 		Movement.price_buy,
 		Movement.price_sell,
-		Movement.date,
+		Movement.oper_date,
 		Movement.type,
 		Movement.amount,
-		Movement.organization_id,
+		Movement.businessUnit_Id,
 		Movement.product_id
 		FROM Movement
 		WHERE Movement.id = #{id}
@@ -81,15 +82,15 @@
 		Movement.barcode,
 		Movement.price_buy,
 		Movement.price_sell,
-		Movement.date,
+		Movement.oper_date,
 		Movement.type,
 		Movement.amount,
-		Movement.organization_id,
+		Movement.businessUnit_Id,
 		Movement.product_id
 		FROM Movement
-		WHERE Movement.organization_id = 1
-		<if test="name != null">
-			AND name like CONCAT('%','${name}','%' )
+		WHERE Movement.BusinessUnit_Id = 1
+		<if test="oper_date != null">
+			AND oper_date = #{oper_date}
 		</if>
 		<if test="barcode != null">
 			AND barcode like CONCAT('%','${barcode}','%' )
@@ -104,8 +105,8 @@
 		<include refid="sql_Pars" />
 		)
 		VALUES
-		(#{name}, #{barcode}, #{price_buy}, #{price_sell}, #{date}, #{type}, #{amount},
-		 1, 1)
+		(#{name}, #{barcode}, #{price_buy}, #{price_sell}, #{oper_date}, #{type}, #{amount},
+		 1, 2)
 	</insert>
 	<insert id="insertMovements" parameterType="ArrayList">
 		INSERT INTO Product
@@ -115,7 +116,7 @@
 		VALUES
 		<foreach collection="list" item="Movement" index="index"
 			separator=",">
-			(#{Movement.name},#{Movement.barcode},#{Movement.price_buy},#{Movement.price_sell},#{Movement.date},#{Movement.type}, #{Movement.amount},
+			(#{Movement.name},#{Movement.barcode},#{Movement.price_buy},#{Movement.price_sell},#{Movement.oper_date},#{Movement.type}, #{Movement.amount},
 			1, 1)
 		</foreach>
 	</insert>
@@ -124,13 +125,13 @@
 	<!-- Define Update operation here -->
 
 	<update id="updateMovm" parameterType="Movement">
-		UPDATE Product SET
+		UPDATE Movement SET
 		name = #{name},
 		barcode = #{barcode},
 		price_buy = #{price_buy},
 		price_sell = #{price_sell},
-		date = #{date},
-		type = #{type}
+		oper_date = #{oper_date},
+		type = #{type},
 		amount = #{amount}
 		WHERE id = #{id}
 	</update>

@@ -9,7 +9,7 @@ public class Movement {
 	private String barcode;
 	private BigDecimal price_buy;
 	private BigDecimal price_sell;
-	private Date date;
+	private Date oper_date;
 	private String type;
 	private int amount;
 	private String businessUnit_Id;
@@ -44,11 +44,11 @@ public class Movement {
 	public void setPrice_sell(BigDecimal price_sell) {
 		this.price_sell = price_sell;
 	}
-	public Date getDate() {
-		return date;
+	public Date getOper_date() {
+		return oper_date;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setOper_date(Date oper_date) {
+		this.oper_date = oper_date;
 	}
 	public String getType() {
 		return type;
