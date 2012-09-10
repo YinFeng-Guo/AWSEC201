@@ -24,7 +24,6 @@
 		</span>
 	</form>
 </div>
-
 <div id="usertable">
 	<table>
 		<tr>
@@ -45,10 +44,9 @@
 			<th align="center"><spring:message code="password" /></th>
 			<th align="center"><spring:message code="super" /></th>
 			<th align="center"><spring:message code="active" /></th>
+			<th align="center"><spring:message code="organization_id" /></th>		
 			<th align="center"><spring:message code="organization_id" /></th>
-			
-			
-			
+
 		</tr>
 		<s:iterator value="users" id="user">
 			<tr>
