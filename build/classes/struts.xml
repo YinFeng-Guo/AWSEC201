@@ -32,10 +32,20 @@
             <result type="redirect">/home.action</result>
             <interceptor-ref name="basicStack"/>
         </action>
+        -->
         <action name="home" class="LoginAction" method="home">
             <result>/WEB-INF/pages/shared/home.jsp</result>
             <interceptor-ref name="basicStack"/>
         </action> 
-        -->
+        
+        <action name="index" class="LoginAction" method="index">
+            <result>index.jsp</result>
+            <interceptor-ref name="basicStack"/>
+        </action>
+        
+        <action name="logout" class="LoginAction" method="logout">
+            <result>index.jsp</result>
+            <interceptor-ref name="basicStack"/>
+        </action>
     </package>
 </struts>

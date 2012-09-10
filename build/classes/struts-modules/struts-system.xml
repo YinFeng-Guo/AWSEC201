@@ -7,11 +7,41 @@
 <!-- START SNIPPET: xworkSample -->
 <struts>
     <package name="user" extends="default" namespace="/user">
-        <action name="unspecial" class="UserAction" method="unspecial">
-            <result>/WEB-INF/pages/admin/user/unspecial.jsp</result>
+  
+        <action name="listAllUser" class="com.awsec2.web.action.admin.UserAction" method="listAllUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
         </action>
-        <action name="query" class="UserAction" method="query">
-            <result>/WEB-INF/pages/admin/user/list.jsp</result>
+        
+        <action name="test" class="com.awsec2.web.action.admin.UserAction" method="add">
+        	<result>/WEB-INF/pages/admin/addUser.jsp</result>
+        </action>
+        
+        <action name="testAddOneUser" class="com.awsec2.web.action.admin.UserAction" method="testAddOneUser">
+        	<result>/WEB-INF/pages/admin/addOneUser.jsp</result>
+        </action>
+        
+        <action name="addUser" class="com.awsec2.web.action.admin.UserAction" method="addUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
+        
+        <action name="addOneUser" class="com.awsec2.web.action.admin.UserAction" method="addOneUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
+        
+        <action name="delOneUser" class="com.awsec2.web.action.admin.UserAction" method="delOneUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
+        
+        <action name="editOneUser" class="com.awsec2.web.action.admin.UserAction" method="editOneUser">
+        	<result>/WEB-INF/pages/admin/editOneUser.jsp</result>
+        </action>
+        
+        <action name="updateOneUser" class="com.awsec2.web.action.admin.UserAction" method="updateOneUser">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
+        </action>
+        
+        <action name="searchByUsername" class="com.awsec2.web.action.admin.UserAction" method="searchByUsername">
+        	<result>/WEB-INF/pages/admin/listUser.jsp</result>
         </action>
     </package>
 </struts>
