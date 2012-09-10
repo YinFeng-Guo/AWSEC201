@@ -20,8 +20,8 @@ public class MovementServiceImpl implements IMovementService{
 	}
 
 	@Override
-	public List<Movement> getMovementsByUserId() {
-		return movementMapper.getMovementsByUserId();
+	public List<Movement> getMovementsByOrgId(long orgId) {
+		return movementMapper.getMovementsByOrgId(orgId);
 	}
 
 	@Override

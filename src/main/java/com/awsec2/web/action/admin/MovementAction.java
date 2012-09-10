@@ -3,17 +3,37 @@ package com.awsec2.web.action.admin;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.awsec2.domain.Movement;
+import com.awsec2.domain.User;
+import com.awsec2.service.IBusinessUnitService;
 import com.awsec2.service.IMovementService;
+import com.awsec2.service.IProductService;
+import com.awsec2.service.IUserService;
 import com.awsec2.web.action.BaseAction;
 import com.opensymphony.xwork2.Preparable;
 
 public class MovementAction extends BaseAction implements Preparable {
 
+	private List<Long> list_ProdIds;
+	private List<Long> list_BUIds;
 	private List<Movement> movements;
 	private Movement movement;
+	private User user = null;
+
+	@Autowired
+	private IMovementService imovementService;
+	@Autowired
+	private IProductService iProdService;
+	@Autowired
+	private IBusinessUnitService iBUService;
+	@Autowired
+	private IUserService userService;
 	/**
 	 * 
 	 */
@@ -35,9 +55,31 @@ public class MovementAction extends BaseAction implements Preparable {
 		this.movement = movement;
 	}
 
-	@Autowired
-	private IMovementService imovementService;
+	public List<Long> getList_ProdIds() {
+		return list_ProdIds;
+	}
 
+	public void setList_ProdIds(List<Long> list_ProdIds) {
+		this.list_ProdIds = list_ProdIds;
+	}
+
+	public List<Long> getList_BUIds() {
+		return list_BUIds;
+	}
+
+	public void setList_BUIds(List<Long> list_BUIds) {
+		this.list_BUIds = list_BUIds;
+	}
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	
 	public String init() throws Exception {
 		return "success";
 	}
@@ -54,7 +96,72 @@ public class MovementAction extends BaseAction implements Preparable {
 		// TODO Auto-generated method stub
 
 	}
-
+	/**
+	 * This method is used to load products by a given user's id
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-04
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
+	public String getSessionUserName() throws Exception {
+//		products = productService.getProductsByUserId(1);
+		String username = null;
+		HttpServletRequest req = ServletActionContext.getRequest();
+		if(req != null) {
+			HttpSession session = req.getSession();
+			if(session.getAttribute("username") != null){
+				username = (String) session.getAttribute("username");
+			}
+		}
+		return username;
+	}
+	/**
+	 * This method is used to load products by a given user's id
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-04
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
+	public void getUserOrgId() throws Exception {
+//		products = productService.getProductsByUserId(1);
+		if(user == null) {
+			setUser(userService.getUserByUsername(getSessionUserName()));
+		}
+	}
+	/**
+	 * This method is used to load products by a given user's id
+	 * 
+	 * @author Bin Yuan
+	 * @created 2012-09-04
+	 * 
+	 * 
+	 @return String "success" or "error"
+	 * 
+	 @changelog 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com> - Created
+	 * 
+	 */
+	public void getProdIdsAndBUIds() throws Exception {
+		if(list_ProdIds == null) {
+			setList_ProdIds(iProdService.getProdIdsByOrgId(user.getOrganization_id()));
+		}
+		if(list_BUIds == null) {
+			setList_BUIds(iBUService.getBUIdsByOrgId(user.getOrganization_id()));
+		}
+	}
 	/**
 	 * This method is used to load products by a given user's id
 	 * 
@@ -68,7 +175,8 @@ public class MovementAction extends BaseAction implements Preparable {
 	 * 
 	 */
 	public String loadMovms() throws Exception {
-		movements = imovementService.getMovementsByUserId();
+		getUserOrgId();
+		movements = imovementService.getMovementsByOrgId(user.getOrganization_id());
 		return SUCCESS;
 	}
 
@@ -124,7 +232,7 @@ public class MovementAction extends BaseAction implements Preparable {
 	 * 
 	 */
 	public String commitAddMovms() throws Exception {
-		if(movement != null) {
+		if (movement != null) {
 			imovementService.insertMovement(movement);
 		}
 		if (movements != null) {
@@ -207,13 +315,13 @@ public class MovementAction extends BaseAction implements Preparable {
 	public String searchMovms() throws Exception {
 		if (movement != null) {
 			System.out.println(movement.getName());
-			if(movement.getOper_date() !=null) {
+			if (movement.getOper_date() != null) {
 				String fmt = "yyyy-mm-dd";
 				SimpleDateFormat sdf = new SimpleDateFormat(fmt);
 				sdf.format(movement.getOper_date());
 				System.out.println(movement.getOper_date());
 			}
-			
+
 			movements = imovementService.searchMovements(movement);
 		} else
 			System.out.println("Null");

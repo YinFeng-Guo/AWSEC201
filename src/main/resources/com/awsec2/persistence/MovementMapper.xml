@@ -7,6 +7,7 @@
 	<resultMap type="Movement" id="movement_orm">
 		<id property="id" column="id" />
 		<result property="name" column="Name" />
+		<result property="prodName" column="Product.Name" />
 		<result property="oper_date" column="Oper_Date" />
 		<result property="type" column="Type" />
 		<result property="amount" column="Amount" />
@@ -32,17 +33,24 @@
 		</where>
 	</select>
 	<!--  -->
-	<select id="getMovementsByUserId" 
+	<select id="getMovementsByOrgId" parameterType="INTEGER"
 		resultType="Movement">
 		SELECT
 		Movement.id,
 		Movement.name,
+		Product.name,
 		Movement.oper_date,
 		Movement.type,
 		Movement.amount,
 		Movement.businessUnit_Id,
 		Movement.product_id
-		FROM Movement
+		FROM Movement, BusinessUnit, Product
+		Where 
+			Movement.businessUnit_Id = BusinessUnit.id
+			and
+			Movement.product_id = Product.id
+			and
+			BusinessUnit.organization_id = #{orgId}
 		ORDER BY Movement.oper_date DESC
 <!-- 		WHERE
 		Product.organization_id = Organization.Id

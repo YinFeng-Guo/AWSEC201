@@ -7,7 +7,7 @@ import com.awsec2.domain.Movement;
 public interface IMovementService {
 
 	public List<Movement> findMovementsByMovement(Movement movement);
-	public List<Movement> getMovementsByUserId();
+	public List<Movement> getMovementsByOrgId(long OrgId);
 	public Movement getMovementsByMovmId(long id);
 	public List<Movement> searchMovements(Movement movement);
 	public void insertMovements(List<Movement> movements);
