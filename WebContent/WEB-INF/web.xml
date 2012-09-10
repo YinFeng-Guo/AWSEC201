@@ -26,7 +26,9 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>check-cookie</filter-name>
+		<url-pattern>*.action</url-pattern>
 		<url-pattern>*</url-pattern>
+		<url-pattern>/AWSEC201/</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>struts-prepare</filter-name>
