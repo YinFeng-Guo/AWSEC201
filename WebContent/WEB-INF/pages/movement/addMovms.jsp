@@ -68,6 +68,7 @@
 		<input type="button" onclick="deleteRow(myTable.rows.length)"
 			value="Del Row"> <input type="button"
 			onclick="insertRow(myTable.rows.length);" value="Add Row">
+			<s:select list="#{list_ProdIds}" name="movement.type" value=""/>
 		<form action="<%=request.getContextPath()%>/movement/commitAdd.action"
 			method="post">
 			<table id="myTable">

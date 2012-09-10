@@ -212,6 +212,7 @@ public class MovementAction extends BaseAction implements Preparable {
 	 * 
 	 */
 	public String addMovms() throws Exception {
+		getProdIdsAndBUIds();
 		// products = productService.getProductsByUserId(1);
 		// if(products != null) {
 		// for(Product prod: products) {
