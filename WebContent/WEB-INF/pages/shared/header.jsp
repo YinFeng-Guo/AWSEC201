@@ -49,6 +49,7 @@ margin-bottom:15px}
 <body style="text-align:center">
 	<div style="height:100px;text-align:left;margin-top:2px;" >
 		<div style="text-align:center;"><img width="442px" src="/AWSEC201/images/CWLogo.png" style="float:left;margin: 15px 0"/><img src="/AWSEC201/images/banner.gif"/></div>
+		<span style="font-size:12px; font-weight:bolder;">Welcome, <% out.println(session.getAttribute("username")==null?"Guest":session.getAttribute("username")); %></span>
 	</div>
 <!-- 	<div style="clear:both"></div> -->
 	<!--nav,start-->
