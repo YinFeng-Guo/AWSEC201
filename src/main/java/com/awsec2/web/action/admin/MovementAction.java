@@ -313,6 +313,7 @@ public class MovementAction extends BaseAction implements Preparable {
 	 * 
 	 */
 	public String searchMovms() throws Exception {
+		getUserOrgId();
 		if (movement != null) {
 			System.out.println(movement.getName());
 			if (movement.getOper_date() != null) {
