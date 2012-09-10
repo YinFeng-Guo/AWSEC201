@@ -40,7 +40,7 @@
 	
 	<select id="getUserByUsername" parameterType="String" resultMap="userorm">
 		select 
-			Id, Username, Password, Organization_Id
+			Id, Username, Password
 		from 
 			user
 		where 

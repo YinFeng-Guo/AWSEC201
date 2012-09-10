@@ -1,18 +1,11 @@
 package com.awsec2.web.action.admin;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.awsec2.domain.Product;
-import com.awsec2.domain.User;
 import com.awsec2.service.IProductService;
-import com.awsec2.service.IUserService;
 import com.awsec2.web.action.BaseAction;
 import com.opensymphony.xwork2.Preparable;
 
@@ -24,17 +17,6 @@ public class ProductAction  extends BaseAction implements Preparable{
 	private static final long serialVersionUID = -8308945005668344502L;
 	@Autowired
 	private IProductService productService = null;
-	@Autowired
-	private IUserService userService = null;
-	
-	public IUserService getUserService() {
-		return userService;
-	}
-	public void setUserService(IUserService userService) {
-		this.userService = userService;
-	}
-	private User user = null;
-
 	private Product product = null;
 	private List<Product> products = null;
 	
@@ -49,12 +31,6 @@ public class ProductAction  extends BaseAction implements Preparable{
 	}
 	public void setProduct(Product product) {
 		this.product = product;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
 	}
 	public List<Product> getProducts() {
 		return products;
@@ -82,55 +58,8 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * - Created
 	 * 
 	 */
-	public String getSessionUserName() throws Exception {
-//		products = productService.getProductsByUserId(1);
-		String username = null;
-		HttpServletRequest req = ServletActionContext.getRequest();
-		if(req != null) {
-			HttpSession session = req.getSession();
-			if(session.getAttribute("username") != null){
-				username = (String) session.getAttribute("username");
-			}
-		}
-		return username;
-	}
-	/**
-	 * This method is used to load products by a given user's id
-	 *
-	 @author Bin Yuan
-	 @created 2012-09-04
-	 *
-	 *
-	 @return 	String		"success" or "error"
-	 *
-	 @changelog
-	 * 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com>
-	 * - Created
-	 * 
-	 */
-	public void getUserOrgId() throws Exception {
-//		products = productService.getProductsByUserId(1);
-		if(user == null) {
-			setUser(userService.getUserByUsername(getSessionUserName()));
-		}
-	}
-	/**
-	 * This method is used to load products by a given user's id
-	 *
-	 @author Bin Yuan
-	 @created 2012-09-04
-	 *
-	 *
-	 @return 	String		"success" or "error"
-	 *
-	 @changelog
-	 * 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com>
-	 * - Created
-	 * 
-	 */
 	public String loadProds() throws Exception {
-		getUserOrgId();
-		products = productService.getProductsByOrgId(user.getOrganization_id());
+		products = productService.getProductsByUserId(1);
 		return SUCCESS;
 	}
 	
@@ -191,14 +120,8 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * 
 	 */
 	public String commitAddProds() throws Exception {
-		List<Product> prods2Update = new ArrayList<Product>();
-		getUserOrgId();
 		if(products != null) {
-			for(Product prod : products) {
-				prod.setOrganization_id(user.getOrganization_id());
-				prods2Update.add(prod);
-			}
-			productService.insertProducts(prods2Update);
+			productService.insertProducts(products);
 		}
 		else System.out.println("null");
 		return SUCCESS;
@@ -280,9 +203,8 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * 
 	 */
 	public String searchProds() throws Exception {
-		getUserOrgId();
 		if(product != null) {
-			product.setOrganization_id(user.getOrganization_id());
+			System.out.println(product.getName());
 			products = productService.searchProducts(product);
 		}
 		else System.out.println("Null");

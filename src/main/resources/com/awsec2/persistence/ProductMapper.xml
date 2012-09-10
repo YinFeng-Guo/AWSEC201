@@ -23,7 +23,7 @@
 
 	<!-- Define Select operation here -->
 
-	<select id="getProductsByOrgId" parameterType="INTEGER"
+	<select id="getProductsByUserId" parameterType="INTEGER"
 		resultType="Product">
 		SELECT
 		Product.id,
@@ -34,9 +34,13 @@
 		Product.unit,
 		Product.active,
 		Product.organization_id
-		FROM Product
+		FROM Product, Organization, User
 		WHERE
-		Product.organization_id =#{Id}
+		Product.organization_id = Organization.Id
+		AND User.organization_id =
+		Organization.Id
+		AND User.Id =#{Id}
+		Order by Product.id
 	</select>
 
 	<select id="getProductsByProdId" parameterType="INTEGER"
@@ -53,13 +57,6 @@
 		FROM Product
 		WHERE Product.id = #{id}
 	</select>
-	<select id="getProdIdsByOrgId" parameterType="INTEGER"
-		resultType="ArrayList">
-		SELECT
-		Product.id
-		FROM Product
-		WHERE Product.organization_id = #{organization_id}
-	</select>
 
 	<select id="searchProducts" parameterType="Product" resultType="Product">
 		SELECT
@@ -72,8 +69,7 @@
 		Product.active,
 		Product.organization_id
 		FROM Product
-		WHERE organization_id =
-		#{organization_id}
+		WHERE organization_id = 1
 		<if test="name != null">
 			AND name like CONCAT('%','${name}','%' )
 		</if>
@@ -102,7 +98,7 @@
 		<foreach collection="list" item="Product" index="index"
 			separator=",">
 			(#{Product.name},#{Product.barcode},#{Product.price_buy},#{Product.price_sell},#{Product.unit},#{Product.active},
-			#{Product.organization_id})
+			1)
 		</foreach>
 	</insert>
 

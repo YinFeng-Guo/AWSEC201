@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,12 +12,6 @@
 
 <script type="text/javascript" src="/AWSEC201/js/jquery-1.8.0.js"></script>
 
-<style type="text/css">
-	th{
-		width:90px;
-	}
-</style>
-
 </head>
 <body>
 <div id="headerDiv">
@@ -26,33 +19,33 @@
 </div>
 <div id="updateOneUserDiv">
 <form action="updateOneUser.action" id="updateOneUserForm">
-	<table id="editOneUserTable" style="width:500px;">
+	<table id="editOneUserTable">
 	<s:iterator value="users" var="user">
 		<tr>
-			<th><spring:message code="id"/></th>
+			<th>Id</th>
 			<td>
 				<input type="hidden" name="user.id" value="<s:property value="#user.id"/>"/>
 				<s:property value="#user.id"/>
 			</td>
 		</tr>
 		<tr>
-			<th><spring:message code="firstname" /></th>
+			<th>Firstname</th>
 			<td><input type="text" name="user.firstname" value="<s:property value="#user.firstname"/>"/></td>
 		</tr>
 		<tr>
-			<th><spring:message code="lastname" /></th>
+			<th>Lastname</th>
 			<td><input type="text" name="user.lastname" value="<s:property value="#user.lastname"/>"/></td>
 		</tr>
 		<tr>
-			<th><spring:message code="username" /></th>
+			<th>Username</th>
 			<td><input type="text" name="user.username" value="<s:property value="#user.username"/>"/></td>
 		</tr>
 		<tr>
-			<th><spring:message code="password" /></th>
+			<th>Password</th>
 			<td><input type="text" name="user.password" value="<s:property value="#user.password"/>"/></td>
 		</tr>
 		<tr>
-			<th><spring:message code="super" /></th>
+			<th>Super</th>
 			<td>
 				<s:if test="#user.supers == true">
 					<input type="checkbox" name="user.supers" checked="checked" value="true"/>
@@ -63,7 +56,7 @@
 			</td>
 		</tr>
 		<tr>
-			<th><spring:message code="active" /></th>
+			<th>Active</th>
 			<td>
 				<s:if test="#user.active == true">
 					<input type="checkbox" name="user.active" checked="checked" value="true"/>
@@ -74,7 +67,7 @@
 			</td>
 		</tr>
 		<tr>
-			<th><spring:message code="organization" /></th>
+			<th>Organization</th>
 			<td>
 				<select name="user.organization_id" >
 					<s:iterator value="organizations" var="orgs">
@@ -90,17 +83,11 @@
 		</tr>
 	</s:iterator>
 	</table>
-	<input type="submit" value="<spring:message code='update'/>"/>
+	<input type="submit" value="Update"/>
 </form>
 </div>
 <div id="footerDiv">
 	<jsp:include page="../shared/footer.jsp" />
 </div>
 </body>
-<script>
-document.getElementById("homeTab").className = "";
-document.getElementById("productTab").className = "";
-document.getElementById("userTab").className = "current";
-document.getElementById("movementTab").className = "";
-</script>
 </html>

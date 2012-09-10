@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib uri="/struts-tags" prefix="s"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,34 +18,24 @@
 <div id="searchUser">
 	<form action="searchByUsername.action">
 		<span id="searchSpan">
-			<spring:message code="username" />&nbsp;:&nbsp;<input type="text" name="user.username"/>&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="button" value='<spring:message code="search" />' onClick="form.submit()"/>	
+			Username&nbsp;:&nbsp;<input type="text" name="user.username"/>&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" value="Search" onClick="form.submit()"/>	
 		</span>
 	</form>
 </div>
+
 <div id="usertable">
 	<table>
 		<tr>
-		<!-- 	<th align="center" width="60px">Action</th>  -->
-			<th align="center" width="60px"><spring:message code="action" /></th>
-			<!-- <th align="center">Id</th>
+			<th align="center" width="60px">Action</th>
+			<th align="center">Id</th>
 			<th align="center">Firstname</th>
 			<th align="center">Lastname</th>
 			<th align="center">Username</th>
 			<th align="center">Password</th>
 			<th align="center">Super</th>
 			<th align="center">Active</th>
-			<th align="center">Organization Id</th> -->
-			<th align="center"><spring:message code="id" /></th>
-			<th align="center"><spring:message code="firstname" /></th>
-			<th align="center"><spring:message code="lastname" /></th>
-			<th align="center"><spring:message code="username" /></th>
-			<th align="center"><spring:message code="password" /></th>
-			<th align="center"><spring:message code="super" /></th>
-			<th align="center"><spring:message code="active" /></th>
-			<th align="center"><spring:message code="organization_id" /></th>		
-			<th align="center"><spring:message code="organization_id" /></th>
-
+			<th align="center">Organization Id</th>
 		</tr>
 		<s:iterator value="users" id="user">
 			<tr>
@@ -81,7 +70,7 @@
 			</tr>
 		</s:iterator>
 	</table>
-	<input type="button" value='<spring:message code="addOneUser"/>' onclick="window.location.href='testAddOneUser.action'">
+	<input type="button" value="Add One User" onclick="window.location.href='testAddOneUser.action'">
 </div>
 
 <div id="footerDiv">

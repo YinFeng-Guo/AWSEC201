@@ -10,7 +10,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -39,18 +38,6 @@ public class CookieCheckFilter implements Filter {
 		CookieUtil cookieUtil = new CookieUtil();
 		String cookieVale = cookieUtil.getCookieValue(hReq, "username");
 		System.out.println("In filter Cookie Value : " + cookieVale);
-		HttpSession session = hReq.getSession();
-		if(session != null){
-			if(session.getAttribute("username") == null){
-				session.setAttribute("username", cookieVale);
-			}
-			System.out.println("Session is not null : " + session.getAttribute("username"));
-		}else{
-			if(session.getAttribute("username") == null){
-				session.setAttribute("username", cookieVale);
-			}
-			System.out.println("Session is null : " + session.getAttribute("username"));
-		}
 		/*if(userService == null){
 			userService = new UserServiceImpl();
 		}*/
@@ -71,7 +58,7 @@ public class CookieCheckFilter implements Filter {
 			if (url != null && !url.equals("") && url.indexOf("login") >= 0) {
 				hRes.sendRedirect("home.action");
 				return;
-			}else if(url == null || url.equals("") || url.equals("/AWSEC201/") || url.equals("/") || url.endsWith("/")){
+			}else if(url == null || url.equals("") || url.equals("/AWSEC201/")){
 				hRes.sendRedirect("home.action");
 				return;
 			}

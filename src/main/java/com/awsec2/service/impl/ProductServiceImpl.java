@@ -1,6 +1,5 @@
 package com.awsec2.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +14,9 @@ public class ProductServiceImpl implements IProductService{
 	@Autowired
 	private ProductMapper productMapper;
 	@Override
-	public List<Product> getProductsByOrgId(long userId) {
+	public List<Product> getProductsByUserId(int userId) {
 		// TODO Auto-generated method stub
-		return productMapper.getProductsByOrgId(userId);
+		return productMapper.getProductsByUserId(1);
 	}
 	@Override
 	public void insertProduct(Product prod) {
@@ -43,11 +42,6 @@ public class ProductServiceImpl implements IProductService{
 	public List<Product> searchProducts(Product prod) {
 		return productMapper.searchProducts(prod);		
 	}
-	@Override
-	public ArrayList<Long> getProdIdsByOrgId(long org_Id) {
-		return productMapper.getProdIdsByOrgId(org_Id);
-	}
-
 	
 	
 
