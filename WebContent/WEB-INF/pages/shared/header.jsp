@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,7 +50,7 @@ margin-bottom:15px}
 <body style="text-align:center">
 	<div style="height:100px;text-align:left;margin-top:2px;" >
 		<div style="text-align:center;"><img width="442px" src="/AWSEC201/images/CWLogo.png" style="float:left;margin: 15px 0"/><img src="/AWSEC201/images/banner.gif"/></div>
-		<span style="font-size:12px; font-weight:bolder;">Welcome, <% out.println(session.getAttribute("username")==null?"Guest":session.getAttribute("username")); %></span>
+		<span style="font-size:12px; font-weight:bolder;"><spring:message code="welcome"/>, <% out.println(session.getAttribute("username")==null?"Guest":session.getAttribute("username")); %></span>
 	</div>
 <!-- 	<div style="clear:both"></div> -->
 	<!--nav,start-->
@@ -57,11 +58,11 @@ margin-bottom:15px}
 	<div class="menu_nav clearfix">
 	<ul class="nav_content">
 <%-- 		<li id="homeTab" class="current"><a href="<%=request.getContextPath() %>/login.action" title="Home"><span>Home</span></a></li> --%>
-		<li id="productTab"><a href="<%=request.getContextPath() %>/product/loadProducts.action" title="Products"><span>Products</span></a></li>
-		<li id="movementTab"><a href="<%=request.getContextPath() %>/movement/loadMovms.action" title="Movements"><span>Movements</span></a></li>
+		<li id="productTab"><a href="<%=request.getContextPath() %>/product/loadProducts.action" title="Products"><span><spring:message code="products"/></span></a></li>
+		<li id="movementTab"><a href="<%=request.getContextPath() %>/movement/loadMovms.action" title="Movements"><span><spring:message code="movements"/></span></a></li>
 <%-- 		<li id="userTab"><a href="<%=request.getContextPath() %>/user/listAllUser.action" title="Users"><span>Users</span></a></li> --%>
-		<li style="position:relative;"><a href="#" title="Help"><span>Help</span></a><em></em></li>
-		<li id="logout"><a href="<%=request.getContextPath() %>/logout.action" title="Logout"><span>Logout</span></a></li>
+		<li style="position:relative;"><a href="#" title="Help"><span><spring:message code="help"/></span></a><em></em></li>
+		<li id="logout"><a href="<%=request.getContextPath() %>/logout.action" title="Logout"><span><spring:message code="logout"/></span></a></li>
 	</ul>
 	<div class="menu_nav_right">
 	</div>
