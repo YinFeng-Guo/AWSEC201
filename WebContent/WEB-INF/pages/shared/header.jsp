@@ -10,6 +10,8 @@
 <link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme03/common.css" type="text/css" title="yellow" media="screen, projection"/>
 <link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme04/common.css" type="text/css" title="red" media="screen, projection"/>
 
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/theme.js"></script>
+
 <link rel="Shortcut Icon" href="/AWSEC201/images/ico.ico">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>header</title>
@@ -92,26 +94,6 @@ margin-bottom:15px}
 	<!--nav,end-->
 
 </body>
-<script>
-function setActiveStyleSheet(title) { 
-	  var i, a, main; 
-	  if (title) { 
-	  for(i=0; (a = document.getElementsByTagName('link')[i]); i++) { 
-	  if(a.getAttribute('rel').indexOf('style') != -1 && a.getAttribute('title')) { 
-	  a.disabled = true; 
-	  if(a.getAttribute('title') == title) a.disabled = false; 
-	  } 
-	  } 
-	  } 
-	  } 
-	  function getActiveStyleSheet() { 
-	  var i, a; 
-	  for(i=0; (a = document.getElementsByTagName('link')[i]); i++) { 
-	  if(a.getAttribute('rel').indexOf('style') != -1 && a.getAttribute('title') && !a.disabled) return a.getAttribute('title'); 
-	  } 
-	  return null; 
-	}
-</script>
 </html>
 
 
