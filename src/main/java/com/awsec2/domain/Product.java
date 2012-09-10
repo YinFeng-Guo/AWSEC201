@@ -9,7 +9,7 @@ public class Product {
 	private BigDecimal price_buy;
 	private BigDecimal price_sell;
 	private String unit;
-	private boolean active;
+	private String active;
 	private long organization_id;
 	
 	
@@ -49,10 +49,10 @@ public class Product {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	public boolean getActive() {
+	public String getActive() {
 		return active;
 	}
-	public void setActive(boolean active) {
+	public void setActive(String active) {
 		this.active = active;
 	}
 	public long getOrganization_id() {

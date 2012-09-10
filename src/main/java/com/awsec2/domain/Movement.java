@@ -1,19 +1,16 @@
 package com.awsec2.domain;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class Movement {
 	private long id;
 	private String name;
-	private String barcode;
-	private BigDecimal price_buy;
-	private BigDecimal price_sell;
 	private Date oper_date;
 	private String type;
 	private int amount;
 	private String businessUnit_Id;
 	private String product_Id;
+	
 	public long getId() {
 		return id;
 	}
@@ -25,24 +22,6 @@ public class Movement {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getBarcode() {
-		return barcode;
-	}
-	public void setBarcode(String barcode) {
-		this.barcode = barcode;
-	}
-	public BigDecimal getPrice_buy() {
-		return price_buy;
-	}
-	public void setPrice_buy(BigDecimal price_buy) {
-		this.price_buy = price_buy;
-	}
-	public BigDecimal getPrice_sell() {
-		return price_sell;
-	}
-	public void setPrice_sell(BigDecimal price_sell) {
-		this.price_sell = price_sell;
 	}
 	public Date getOper_date() {
 		return oper_date;

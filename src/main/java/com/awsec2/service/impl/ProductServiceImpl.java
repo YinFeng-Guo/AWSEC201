@@ -14,9 +14,9 @@ public class ProductServiceImpl implements IProductService{
 	@Autowired
 	private ProductMapper productMapper;
 	@Override
-	public List<Product> getProductsByUserId(int userId) {
+	public List<Product> getProductsByOrgId(long userId) {
 		// TODO Auto-generated method stub
-		return productMapper.getProductsByUserId(1);
+		return productMapper.getProductsByOrgId(userId);
 	}
 	@Override
 	public void insertProduct(Product prod) {
@@ -42,6 +42,11 @@ public class ProductServiceImpl implements IProductService{
 	public List<Product> searchProducts(Product prod) {
 		return productMapper.searchProducts(prod);		
 	}
+	@Override
+	public List<Long> getProdIdsByOrgId(long org_Id) {
+		return productMapper.getProdIdsByOrgId(org_Id);
+	}
+
 	
 	
 
