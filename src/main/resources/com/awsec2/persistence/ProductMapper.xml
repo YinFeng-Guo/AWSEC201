@@ -56,7 +56,7 @@
 	<select id="getProdIdsByOrgId" parameterType="INTEGER"
 		resultType="ArrayList">
 		SELECT
-		Product.id,
+		Product.id
 		FROM Product
 		WHERE Product.organization_id = #{organization_id}
 	</select>

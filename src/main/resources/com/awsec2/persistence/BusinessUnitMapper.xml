@@ -29,7 +29,7 @@
 	<select id="getBUIdsByOrgId" parameterType="INTEGER"
 		resultType="ArrayList">
 		SELECT
-		BusinessUnit.id,
+		BusinessUnit.id
 		FROM BusinessUnit
 		WHERE BusinessUnit.organization_id = #{organization_id}
 	</select>

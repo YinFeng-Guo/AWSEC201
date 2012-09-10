@@ -1,22 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%
-	boolean isSuper = Boolean.parseBoolean(session.getAttribute("isSuper").toString());
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-<link rel="alternate" 				href="<%=request.getContextPath() %>/css/theme01/common.css" type="text/css" title="white" media="screen, projection"/> 
-<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme02/common.css" type="text/css" title="green" media="screen, projection"/> 
-<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme03/common.css" type="text/css" title="yellow" media="screen, projection"/>
-<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme04/common.css" type="text/css" title="red" media="screen, projection"/>
-
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/theme.js"></script>
-
 <link rel="Shortcut Icon" href="/AWSEC201/images/ico.ico">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>header</title>
 
 <style type="text/css">
@@ -59,27 +48,9 @@ margin-bottom:15px}
 
 </head>
 <body style="text-align:center">
-	<div style="height:100px;text-align:left;margin-top:2px;min-width:1580px;" >
-		<div style="text-align:right;">
-			<img width="442px" src="/AWSEC201/images/CWLogo.png" style="float:left;margin: 15px 0"/>
-			<img style="float:left;" src="/AWSEC201/images/banner.gif"/>
-			<div >
-				<div style="text-align:center;">
-					<span style="font-size:12px; font-weight:bolder;"><spring:message code="welcome"/>, <% out.println(session.getAttribute("username")==null?"Guest":session.getAttribute("username")); %></span>
-				</div>
-				<br/>
-				<div style="text-align:center;">
-					<a href="javascript :void()" onclick="setActiveStyleSheet('red'); return false;" title="red style">Red</a>&nbsp;
-					<a href="javascript :void()" onclick="setActiveStyleSheet('green'); return false;" title="green style">Green</a> &nbsp;
-					<a href="javascript :void()" onclick="setActiveStyleSheet('yellow'); return false;" title="yellow style">Yellow</a> &nbsp;
-					<a href="javascript :void()" onclick="setActiveStyleSheet('none'); return false;" title="none style">None</a> 	
-				</div>
-				<br/>
-				<div>
-					<a href="<%=request.getContextPath() %>/logout.action" title="Logout"><span style="font-size:16px; font-weight:bolder;">&nbsp;[&nbsp;Logout&nbsp;]&nbsp;</span></a>
-				</div>
-			</div>
-		</div>
+	<div style="height:100px;text-align:left;margin-top:2px;" >
+		<div style="text-align:center;"><img width="442px" src="/AWSEC201/images/CWLogo.png" style="float:left;margin: 15px 0"/><img src="/AWSEC201/images/banner.gif"/></div>
+		<span style="font-size:12px; font-weight:bolder;"><spring:message code="welcome"/>, <% out.println(session.getAttribute("username")==null?"Guest":session.getAttribute("username")); %></span>
 	</div>
 <!-- 	<div style="clear:both"></div> -->
 	<!--nav,start-->
@@ -87,19 +58,18 @@ margin-bottom:15px}
 	<div class="menu_nav clearfix">
 	<ul class="nav_content">
 <%-- 		<li id="homeTab" class="current"><a href="<%=request.getContextPath() %>/login.action" title="Home"><span>Home</span></a></li> --%>
-		<% 
-			if(isSuper){
-		%>
 		<li id="productTab"><a href="<%=request.getContextPath() %>/product/loadProducts.action" title="Products"><span><spring:message code="products"/></span></a></li>
-		<% } %>
 		<li id="movementTab"><a href="<%=request.getContextPath() %>/movement/loadMovms.action" title="Movements"><span><spring:message code="movements"/></span></a></li>
+<%-- 		<li id="userTab"><a href="<%=request.getContextPath() %>/user/listAllUser.action" title="Users"><span>Users</span></a></li> --%>
 		<li style="position:relative;"><a href="#" title="Help"><span><spring:message code="help"/></span></a><em></em></li>
+		<li id="logout"><a href="<%=request.getContextPath() %>/logout.action" title="Logout"><span><spring:message code="logout"/></span></a></li>
 	</ul>
 	<div class="menu_nav_right">
 	</div>
 	</div>
 	</div>
 	<!--nav,end-->
+
 
 </body>
 </html>

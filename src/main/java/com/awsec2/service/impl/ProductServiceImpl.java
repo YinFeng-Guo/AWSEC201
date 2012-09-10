@@ -1,5 +1,6 @@
 package com.awsec2.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class ProductServiceImpl implements IProductService{
 		return productMapper.searchProducts(prod);		
 	}
 	@Override
-	public List<Long> getProdIdsByOrgId(long org_Id) {
+	public ArrayList<Long> getProdIdsByOrgId(long org_Id) {
 		return productMapper.getProdIdsByOrgId(org_Id);
 	}
 

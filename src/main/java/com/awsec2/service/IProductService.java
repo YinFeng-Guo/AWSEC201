@@ -1,5 +1,6 @@
 package com.awsec2.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.awsec2.domain.Product;
@@ -19,6 +20,6 @@ public interface IProductService {
 	
 	public List<Product> searchProducts(Product prod);
 	
-	public List<Long> getProdIdsByOrgId(long org_Id);
+	public ArrayList<Long> getProdIdsByOrgId(long org_Id);
 	
 }

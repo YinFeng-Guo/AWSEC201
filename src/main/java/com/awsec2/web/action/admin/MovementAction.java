@@ -1,6 +1,8 @@
 package com.awsec2.web.action.admin;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +22,8 @@ import com.opensymphony.xwork2.Preparable;
 
 public class MovementAction extends BaseAction implements Preparable {
 
-	private List<Long> list_ProdIds;
-	private List<Long> list_BUIds;
+	private ArrayList<Long> list_ProdIds;
+	private ArrayList<Long> list_BUIds;
 	private List<Movement> movements;
 	private Movement movement;
 	private User user = null;
@@ -59,7 +61,7 @@ public class MovementAction extends BaseAction implements Preparable {
 		return list_ProdIds;
 	}
 
-	public void setList_ProdIds(List<Long> list_ProdIds) {
+	public void setList_ProdIds(ArrayList<Long> list_ProdIds) {
 		this.list_ProdIds = list_ProdIds;
 	}
 
@@ -67,7 +69,7 @@ public class MovementAction extends BaseAction implements Preparable {
 		return list_BUIds;
 	}
 
-	public void setList_BUIds(List<Long> list_BUIds) {
+	public void setList_BUIds(ArrayList<Long> list_BUIds) {
 		this.list_BUIds = list_BUIds;
 	}
 	public User getUser() {
@@ -314,6 +316,14 @@ public class MovementAction extends BaseAction implements Preparable {
 	 */
 	public String searchMovms() throws Exception {
 		getUserOrgId();
+		getProdIdsAndBUIds();
+		HashMap<String, Object> searchParam=new HashMap<String, Object>();
+		if(getList_ProdIds() != null) {
+			for(long id: getList_ProdIds()) {
+				System.out.println(id);
+			}
+		}
+		searchParam.put("buIds", getList_BUIds());
 		if (movement != null) {
 			System.out.println(movement.getName());
 			if (movement.getOper_date() != null) {
@@ -322,8 +332,8 @@ public class MovementAction extends BaseAction implements Preparable {
 				sdf.format(movement.getOper_date());
 				System.out.println(movement.getOper_date());
 			}
-
-			movements = imovementService.searchMovements(movement);
+			searchParam.put("objMovm", movement);
+			movements = imovementService.searchMovements(searchParam);
 		} else
 			System.out.println("Null");
 		return SUCCESS;

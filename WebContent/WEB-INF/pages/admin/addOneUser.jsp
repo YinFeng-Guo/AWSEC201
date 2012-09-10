@@ -63,7 +63,6 @@
 	<jsp:include page="../shared/footer.jsp" />
 </div>
 </body>
-
 <script>
 document.getElementById("homeTab").className = "";
 document.getElementById("productTab").className = "";

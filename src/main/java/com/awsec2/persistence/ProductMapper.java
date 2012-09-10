@@ -1,5 +1,6 @@
 package com.awsec2.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.awsec2.domain.Product;
@@ -13,5 +14,5 @@ public interface ProductMapper {
 	Product getProductsByProdId(long id);
 	
 	List<Product> searchProducts(Product prod);
-	List<Long> getProdIdsByOrgId(long org_Id);
+	ArrayList<Long> getProdIdsByOrgId(long org_Id);
 }

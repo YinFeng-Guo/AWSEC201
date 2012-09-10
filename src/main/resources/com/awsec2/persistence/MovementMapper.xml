@@ -17,7 +17,7 @@
 
 	<!-- Define some code segments that can be reused -->
 	<sql id="sql_Pars">
-		name, oper_date, type, amount, 
+		name, oper_date, type, amount,
 		businessUnit_Id, product_id
 	</sql>
 
@@ -32,7 +32,7 @@
 			</if>
 		</where>
 	</select>
-	<!--  -->
+	<!-- -->
 	<select id="getMovementsByOrgId" parameterType="INTEGER"
 		resultType="Movement">
 		SELECT
@@ -45,19 +45,15 @@
 		Movement.businessUnit_Id,
 		Movement.product_id
 		FROM Movement, BusinessUnit, Product
-		Where 
-			Movement.businessUnit_Id = BusinessUnit.id
-			and
-			Movement.product_id = Product.id
-			and
-			BusinessUnit.organization_id = #{orgId}
+		Where
+		Movement.businessUnit_Id = BusinessUnit.id
+		and
+		Movement.product_id = Product.id
+		and
+		BusinessUnit.organization_id = #{orgId}
 		ORDER BY Movement.oper_date DESC
-<!-- 		WHERE
-		Product.organization_id = Organization.Id
-		AND User.organization_id =
-		Organization.Id
-		AND User.Id =#{Id}
-		Order by Product.id -->
+		<!-- WHERE Product.organization_id = Organization.Id AND User.organization_id 
+			= Organization.Id AND User.Id =#{Id} Order by Product.id -->
 	</select>
 
 	<select id="getMovementsByMovmId" parameterType="INTEGER"
@@ -74,19 +70,28 @@
 		WHERE Movement.id = #{id}
 	</select>
 
-	<select id="searchMovements" parameterType="Movement" resultType="Movement">
+	<select id="searchMovements" parameterType="map" resultType="Movement">
 		SELECT
 		Movement.id,
 		Movement.name,
+		Product.name,
 		Movement.oper_date,
 		Movement.type,
 		Movement.amount,
 		Movement.businessUnit_Id,
 		Movement.product_id
-		FROM Movement
-		WHERE 1 = 1
-		<if test="oper_date != null">
-			AND oper_date = #{oper_date}
+		FROM Movement, Product
+		WHERE Movement.product_id =
+		Product.id
+		<if test="objMovm.oper_date != null">
+			AND oper_date = #{objMovm.oper_date}
+		</if>
+		<if test="buIds != null">
+			AND Movement.businessUnit_Id in
+			<foreach item="item" index="index" collection="buIds" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
 		</if>
 	</select>
 
@@ -99,7 +104,7 @@
 		)
 		VALUES
 		(#{name},#{oper_date}, #{type}, #{amount},
-		 1, 2)
+		1, 2)
 	</insert>
 	<insert id="insertMovements" parameterType="ArrayList">
 		INSERT INTO Product
@@ -109,7 +114,8 @@
 		VALUES
 		<foreach collection="list" item="Movement" index="index"
 			separator=",">
-			(#{Movement.name},#{Movement.oper_date},#{Movement.type}, #{Movement.amount},
+			(#{Movement.name},#{Movement.oper_date},#{Movement.type},
+			#{Movement.amount},
 			1, 1)
 		</foreach>
 	</insert>
@@ -119,7 +125,8 @@
 
 	<update id="updateMovm" parameterType="Movement">
 		UPDATE Movement SET
-		name = #{name},
+		name =
+		#{name},
 		oper_date = #{oper_date},
 		type = #{type},
 		amount = #{amount}
@@ -129,7 +136,8 @@
 
 	<!-- Define Delete operation here -->
 	<delete id="delMovmById" parameterType="INTEGER">
-		delete from Movement where
+		delete from Movement
+		where
 		id=#{Id}
 	</delete>
 

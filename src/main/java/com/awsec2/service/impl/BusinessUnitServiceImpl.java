@@ -1,5 +1,6 @@
 package com.awsec2.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class BusinessUnitServiceImpl implements IBusinessUnitService {
 	private BusinessUnitMapper businessUnitMapper;
 
 	@Override
-	public List<Long> getBUIdsByOrgId(long orgId) {
+	public ArrayList<Long> getBUIdsByOrgId(long orgId) {
 		return businessUnitMapper.getBUIdsByOrgId(orgId);
 	}
 
