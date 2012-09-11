@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
-<%-- <%
-	boolean isSuper = Boolean.parseBoolean(session.getAttribute("isSuper").toString());
-%> --%>
-
+<%
+	boolean isSuper = false;
+	isSuper = Boolean.parseBoolean(session.getAttribute("isSuper").toString());
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -82,11 +81,11 @@ margin-bottom:15px}
 	<div class="menu_navcc">
 	<div class="menu_nav clearfix">
 	<ul class="nav_content">
-		<%-- <% 
+		<% 
 			if(isSuper){
-		%> --%>
+		%> 
 		<li id="productTab"><a href="<%=request.getContextPath() %>/product/loadProducts.action" title="Products"><span><spring:message code="products"/></span></a></li>
-<%-- 		<% } %> --%>
+		<% } %> 
 		<li id="movementTab"><a href="<%=request.getContextPath() %>/movement/loadMovms.action" title="Movements"><span><spring:message code="movements"/></span></a></li>
 		<li style="position:relative;"><a href="#" title="Help"><span><spring:message code="help"/></span></a><em></em></li>
 		<li id="logout"><a href="<%=request.getContextPath() %>/logout.action" title="Logout"><span><spring:message code="logout"/></span></a></li>

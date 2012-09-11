@@ -77,8 +77,10 @@ public class LoginAction extends BaseAction{
 			if(res == null){
 				res = ServletActionContext.getResponse();
 				new CookieUtil().addCookies(res, "username", currUser.getUsername(), 3600);
+				new CookieUtil().addCookies(res, "isSuper", currUser.isSupers() == true ? "true" : "false" , 3600);
 			}else{
 				new CookieUtil().addCookies(res, "username", currUser.getUsername(), 3600);
+				new CookieUtil().addCookies(res, "isSuper", currUser.isSupers() == true ? "true" : "false" , 3600);
 			}
 			return true;
 		}
@@ -117,6 +119,7 @@ public class LoginAction extends BaseAction{
 			res = ServletActionContext.getResponse();
 		}
 		new CookieUtil().delCookies(res, "username");
+		new CookieUtil().delCookies(res, "isSuper");
 		return "success";
 	}
 	

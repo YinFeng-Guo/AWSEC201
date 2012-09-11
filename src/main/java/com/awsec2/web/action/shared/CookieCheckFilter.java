@@ -12,50 +12,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.awsec2.domain.User;
-import com.awsec2.service.IUserService;
-import com.awsec2.service.impl.UserServiceImpl;
+import com.awsec2.persistence.UserMapper;
 import com.awsec2.util.CookieUtil;
 
 public class CookieCheckFilter implements Filter {
-
-	@Autowired
-	private IUserService userService = null;
 	
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 
 	}
-
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res,
-			FilterChain chain) throws IOException, ServletException {
+			FilterChain chain) throws IOException, ServletException {	
 		System.out.println("In Filter");
 		HttpServletRequest hReq = (HttpServletRequest) req;
 		HttpServletResponse hRes = (HttpServletResponse) res;
 		CookieUtil cookieUtil = new CookieUtil();
 		String cookieVale = cookieUtil.getCookieValue(hReq, "username");
+		String isSuper = cookieUtil.getCookieValue(hReq, "isSuper"); 
 		System.out.println("In filter Cookie Value : " + cookieVale);
-		HttpSession session = hReq.getSession();
+		HttpSession session = hReq.getSession() != null ? hReq.getSession() : null;
 		if(session != null){
 			if(session.getAttribute("username") == null){
 				session.setAttribute("username", cookieVale);
+				session.setAttribute("isSuper", isSuper);
 			}
-			System.out.println("Session is not null : " + session.getAttribute("username"));
-		}else{
-			if(session.getAttribute("username") == null){
-				session.setAttribute("username", cookieVale);
-			}
-			System.out.println("Session is null : " + session.getAttribute("username"));
+			System.out.println("Session is not null : " + session.getAttribute("username") + ", Super : " + isSuper);
 		}
-		/*if(userService == null){
-			userService = new UserServiceImpl();
-		}*/
-		//User user = null;
-		//user = (User)userService.getUserByUsername(cookieVale);
 		String url = hReq.getRequestURI();
 		System.out.println("Url:" + url);
 		if(cookieVale == null){
