@@ -12,6 +12,14 @@
      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	<context:property-placeholder location="classpath:/config/jdbc.properties"/>
+	<!-- begin : add by Peng.Zhu at 2012-09-10 -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<value>message</value>
+		</property>
+	</bean>
+	<!-- end : add -->
+	
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClassName}"/>
 		<property name="jdbcUrl" value="${jdbc.url}"/>
@@ -41,4 +49,7 @@
     <bean id="UserAction" class="com.awsec2.web.action.admin.UserAction" scope="prototype"/>
     <bean id="ProductAction" class="com.awsec2.web.action.admin.ProductAction" scope="prototype"/>
     <bean id="MovementAction" class="com.awsec2.web.action.admin.MovementAction" scope="prototype"/>
+    <!-- 
+    <bean id="BusinessUnitAction" class="com.awsec2.web.action.admin.BusinessUnitAction" scope="prototype"/>
+     -->
 </beans>

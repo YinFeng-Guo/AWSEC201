@@ -7,9 +7,7 @@
 	<resultMap type="Movement" id="movement_orm">
 		<id property="id" column="id" />
 		<result property="name" column="Name" />
-		<result property="barcode" column="Barcode" />
-		<result property="price_buy" column="Price_buy" />
-		<result property="price_sell" column="Price_sell" />
+		<result property="prodName" column="Product.Name" />
 		<result property="oper_date" column="Oper_Date" />
 		<result property="type" column="Type" />
 		<result property="amount" column="Amount" />
@@ -19,7 +17,7 @@
 
 	<!-- Define some code segments that can be reused -->
 	<sql id="sql_Pars">
-		name, barcode, price_buy, price_sell, oper_date, type, amount, 
+		name, oper_date, type, amount,
 		businessUnit_Id, product_id
 	</sql>
 
@@ -34,28 +32,28 @@
 			</if>
 		</where>
 	</select>
-	<!--  -->
-	<select id="getMovementsByUserId" 
+	<!-- -->
+	<select id="getMovementsByOrgId" parameterType="INTEGER"
 		resultType="Movement">
 		SELECT
 		Movement.id,
 		Movement.name,
-		Movement.barcode,
-		Movement.price_buy,
-		Movement.price_sell,
+		Product.name,
 		Movement.oper_date,
 		Movement.type,
 		Movement.amount,
 		Movement.businessUnit_Id,
 		Movement.product_id
-		FROM Movement
+		FROM Movement, BusinessUnit, Product
+		Where
+		Movement.businessUnit_Id = BusinessUnit.id
+		and
+		Movement.product_id = Product.id
+		and
+		BusinessUnit.organization_id = #{orgId}
 		ORDER BY Movement.oper_date DESC
-<!-- 		WHERE
-		Product.organization_id = Organization.Id
-		AND User.organization_id =
-		Organization.Id
-		AND User.Id =#{Id}
-		Order by Product.id -->
+		<!-- WHERE Product.organization_id = Organization.Id AND User.organization_id 
+			= Organization.Id AND User.Id =#{Id} Order by Product.id -->
 	</select>
 
 	<select id="getMovementsByMovmId" parameterType="INTEGER"
@@ -63,9 +61,6 @@
 		SELECT
 		Movement.id,
 		Movement.name,
-		Movement.barcode,
-		Movement.price_buy,
-		Movement.price_sell,
 		Movement.oper_date,
 		Movement.type,
 		Movement.amount,
@@ -75,25 +70,28 @@
 		WHERE Movement.id = #{id}
 	</select>
 
-	<select id="searchMovements" parameterType="Movement" resultType="Movement">
+	<select id="searchMovements" parameterType="map" resultType="Movement">
 		SELECT
 		Movement.id,
 		Movement.name,
-		Movement.barcode,
-		Movement.price_buy,
-		Movement.price_sell,
+		Product.name,
 		Movement.oper_date,
 		Movement.type,
 		Movement.amount,
 		Movement.businessUnit_Id,
 		Movement.product_id
-		FROM Movement
-		WHERE Movement.BusinessUnit_Id = 1
-		<if test="oper_date != null">
-			AND oper_date = #{oper_date}
+		FROM Movement, Product
+		WHERE Movement.product_id =
+		Product.id
+		<if test="objMovm.oper_date != null">
+			AND oper_date = #{objMovm.oper_date}
 		</if>
-		<if test="barcode != null">
-			AND barcode like CONCAT('%','${barcode}','%' )
+		<if test="buIds != null">
+			AND Movement.businessUnit_Id in
+			<foreach item="item" index="index" collection="buIds" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
 		</if>
 	</select>
 
@@ -105,8 +103,8 @@
 		<include refid="sql_Pars" />
 		)
 		VALUES
-		(#{name}, #{barcode}, #{price_buy}, #{price_sell}, #{oper_date}, #{type}, #{amount},
-		 1, 2)
+		(#{name},#{oper_date}, #{type}, #{amount},
+		1, 2)
 	</insert>
 	<insert id="insertMovements" parameterType="ArrayList">
 		INSERT INTO Product
@@ -116,7 +114,8 @@
 		VALUES
 		<foreach collection="list" item="Movement" index="index"
 			separator=",">
-			(#{Movement.name},#{Movement.barcode},#{Movement.price_buy},#{Movement.price_sell},#{Movement.oper_date},#{Movement.type}, #{Movement.amount},
+			(#{Movement.name},#{Movement.oper_date},#{Movement.type},
+			#{Movement.amount},
 			1, 1)
 		</foreach>
 	</insert>
@@ -126,10 +125,8 @@
 
 	<update id="updateMovm" parameterType="Movement">
 		UPDATE Movement SET
-		name = #{name},
-		barcode = #{barcode},
-		price_buy = #{price_buy},
-		price_sell = #{price_sell},
+		name =
+		#{name},
 		oper_date = #{oper_date},
 		type = #{type},
 		amount = #{amount}
@@ -139,7 +136,8 @@
 
 	<!-- Define Delete operation here -->
 	<delete id="delMovmById" parameterType="INTEGER">
-		delete from Movement where
+		delete from Movement
+		where
 		id=#{Id}
 	</delete>
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.awsec2.persistence.BusinessUnitMapper">
+	<!-- Configuration O-R Mapping here -->
+	<resultMap type="BusinessUnit" id="BU_orm">
+		<id property="id" column="id" />
+		<result property="name" column="Name" />
+		<result property="address" column="Address" />
+		<result property="phone" column="Phone" />
+		<result property="fax" column="Fax" />
+		<result property="mobile" column="Mobile" />
+		<result property="active" column="Active" />
+		<result property="organization_id" column="Organization_Id" />
+	</resultMap>
+
+	<!-- Define some code segments that can be reused 
+	<sql id="sql_Pars">
+		name, barcode, price_buy, price_sell, unit, active,
+		organization_id
+	</sql>
+	-->
+
+	<!-- Define Select operation here -->
+
+
+	
+	<select id="getBUIdsByOrgId" parameterType="INTEGER"
+		resultType="ArrayList">
+		SELECT
+		BusinessUnit.id
+		FROM BusinessUnit
+		WHERE BusinessUnit.organization_id = #{organization_id}
+	</select>
+
+	
+	<!-- Define Insert operation here -->
+
+	
+
+
+	<!-- Define Update operation here -->
+
+	
+
+
+	<!-- Define Delete operation here -->
+	
+
+</mapper>

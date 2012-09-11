@@ -34,17 +34,13 @@
 				<tr>
 					<td align="center"><a
 						href="modifyProducts.action?product.id=<s:property value='#list_prods.id'/>"><img
-							src="/AWSEC201/images/edit.png" border="0" /></a>&nbsp;|&nbsp;<a
-						href="deleteProducts.action?product.id=<s:property value='#list_prods.id'/>"><img
-							src="/AWSEC201/images/delete.png" border="0" /></a></td>
+							src="/AWSEC201/images/edit.png" border="0" /></a></td>
 					<td align="center"><s:property value="#list_prods.name" /></td>
 					<td align="center"><s:property value="#list_prods.barcode" /></td>
 					<td align="center"><s:property value="#list_prods.price_buy" /></td>
 					<td align="center"><s:property value="#list_prods.price_sell" /></td>
 					<td align="center"><s:property value="#list_prods.unit" /></td>
 					<td align="center"><s:property value="#list_prods.active" /></td>
-
-
 				</tr>
 			</s:iterator>
 		</table>
@@ -57,9 +53,9 @@
 	</div>
 </body>
 <script>
-document.getElementById("homeTab").className = "";
+//document.getElementById("homeTab").className = "";
 document.getElementById("productTab").className = "current";
-document.getElementById("userTab").className = "";
+//document.getElementById("userTab").className = "";
 document.getElementById("movementTab").className = "";
 </script>
 </html>

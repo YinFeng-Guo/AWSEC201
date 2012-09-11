@@ -1,5 +1,6 @@
 package com.awsec2.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class MovementServiceImpl implements IMovementService{
 	}
 
 	@Override
-	public List<Movement> getMovementsByUserId() {
-		return movementMapper.getMovementsByUserId();
+	public List<Movement> getMovementsByOrgId(long orgId) {
+		return movementMapper.getMovementsByOrgId(orgId);
 	}
 
 	@Override
@@ -30,8 +31,15 @@ public class MovementServiceImpl implements IMovementService{
 	}
 
 	@Override
-	public List<Movement> searchMovements(Movement movement) {
-		return movementMapper.searchMovements(movement);
+	public List<Movement> searchMovements(HashMap<String, Object> searchMap) {
+		List<Long> list_long = (List<Long>) searchMap.get("buIds");
+				
+		if(list_long != null) {
+			for(Long id: list_long) {
+				System.out.println(id);
+			}
+		}
+		return movementMapper.searchMovements(searchMap);
 	}
 
 	@Override

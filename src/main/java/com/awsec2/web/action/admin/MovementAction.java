@@ -1,17 +1,44 @@
 package com.awsec2.web.action.admin;
 
-import com.awsec2.domain.Movement;
-import com.awsec2.service.IMovementService;
-import com.awsec2.web.action.BaseAction;
-import com.opensymphony.xwork2.Preparable;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.awsec2.domain.Movement;
+import com.awsec2.domain.User;
+import com.awsec2.service.IBusinessUnitService;
+import com.awsec2.service.IMovementService;
+import com.awsec2.service.IProductService;
+import com.awsec2.service.IUserService;
+import com.awsec2.web.action.BaseAction;
+import com.opensymphony.xwork2.Preparable;
 
 public class MovementAction extends BaseAction implements Preparable {
 
+	private ArrayList<Long> list_ProdIds;
+	private ArrayList<Long> list_BUIds;
+
+	private long[] list_ProdId;
+	private long[] list_BUId;
 	private List<Movement> movements;
 	private Movement movement;
+	private User user = null;
+
+	@Autowired
+	private IMovementService imovementService;
+	@Autowired
+	private IProductService iProdService;
+	@Autowired
+	private IBusinessUnitService iBUService;
+	@Autowired
+	private IUserService userService;
 	/**
 	 * 
 	 */
@@ -33,8 +60,45 @@ public class MovementAction extends BaseAction implements Preparable {
 		this.movement = movement;
 	}
 
-	@Autowired
-	private IMovementService imovementService;
+	public List<Long> getList_ProdIds() {
+		return list_ProdIds;
+	}
+
+	public void setList_ProdIds(ArrayList<Long> list_ProdIds) {
+		this.list_ProdIds = list_ProdIds;
+	}
+
+	public List<Long> getList_BUIds() {
+		return list_BUIds;
+	}
+
+	public void setList_BUIds(ArrayList<Long> list_BUIds) {
+		this.list_BUIds = list_BUIds;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public long[] getList_ProdId() {
+		return list_ProdId;
+	}
+
+	public void setList_ProdId(long[] list_ProdId) {
+		this.list_ProdId = list_ProdId;
+	}
+
+	public long[] getList_BUId() {
+		return list_BUId;
+	}
+
+	public void setList_BUId(long[] list_BUId) {
+		this.list_BUId = list_BUId;
+	}
 
 	public String init() throws Exception {
 		return "success";
@@ -65,8 +129,78 @@ public class MovementAction extends BaseAction implements Preparable {
 	 @changelog 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com> - Created
 	 * 
 	 */
+	public String getSessionUserName() throws Exception {
+		// products = productService.getProductsByUserId(1);
+		String username = null;
+		HttpServletRequest req = ServletActionContext.getRequest();
+		if (req != null) {
+			HttpSession session = req.getSession();
+			if (session.getAttribute("username") != null) {
+				username = (String) session.getAttribute("username");
+			}
+		}
+		return username;
+	}
+
+	/**
+	 * This method is used to load products by a given user's id
+	 * 
+	 * @author Bin Yuan
+	 * @created 2012-09-04
+	 * 
+	 * 
+	 @return String "success" or "error"
+	 * 
+	 @changelog 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com> - Created
+	 * 
+	 */
+	public void getUserOrgId() throws Exception {
+		// products = productService.getProductsByUserId(1);
+		if (user == null) {
+			setUser(userService.getUserByUsername(getSessionUserName()));
+		}
+	}
+
+	/**
+	 * This method is used to load products by a given user's id
+	 * 
+	 * @author Bin Yuan
+	 * @created 2012-09-04
+	 * 
+	 * 
+	 @return String "success" or "error"
+	 * 
+	 @changelog 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com> - Created
+	 * 
+	 */
+	public void getProdIdsAndBUIds() throws Exception {
+		getUserOrgId();
+		System.out.println(user.getOrganization_id());
+		if (list_ProdIds == null) {
+			setList_ProdIds(iProdService.getProdIdsByOrgId(user
+					.getOrganization_id()));
+		}
+		if (list_BUIds == null) {
+			setList_BUIds(iBUService.getBUIdsByOrgId(user.getOrganization_id()));
+		}
+	}
+
+	/**
+	 * This method is used to load products by a given user's id
+	 * 
+	 * @author Bin Yuan
+	 * @created 2012-09-04
+	 * 
+	 * 
+	 @return String "success" or "error"
+	 * 
+	 @changelog 2012-09-04 Bin Yuan <bin.yuan@itbconsult.com> - Created
+	 * 
+	 */
 	public String loadMovms() throws Exception {
-		movements = imovementService.getMovementsByUserId();
+		getUserOrgId();
+		movements = imovementService.getMovementsByOrgId(user
+				.getOrganization_id());
 		return SUCCESS;
 	}
 
@@ -100,6 +234,13 @@ public class MovementAction extends BaseAction implements Preparable {
 	 * 
 	 */
 	public String addMovms() throws Exception {
+		getProdIdsAndBUIds();
+		for(int i= 0;i<list_ProdIds.size();i++) {
+			list_ProdId[i] = (long)list_ProdIds.get(i);
+		}
+		for(int j=0;j<list_BUIds.size();j++) {
+			list_BUId[j] = (long)list_BUIds.get(j);
+		}
 		// products = productService.getProductsByUserId(1);
 		// if(products != null) {
 		// for(Product prod: products) {
@@ -122,7 +263,7 @@ public class MovementAction extends BaseAction implements Preparable {
 	 * 
 	 */
 	public String commitAddMovms() throws Exception {
-		if(movement != null) {
+		if (movement != null) {
 			imovementService.insertMovement(movement);
 		}
 		if (movements != null) {
@@ -203,9 +344,25 @@ public class MovementAction extends BaseAction implements Preparable {
 	 * 
 	 */
 	public String searchMovms() throws Exception {
+		getUserOrgId();
+		getProdIdsAndBUIds();
+		HashMap<String, Object> searchParam = new HashMap<String, Object>();
+		if (getList_ProdIds() != null) {
+			for (long id : getList_ProdIds()) {
+				System.out.println(id);
+			}
+		}
+		searchParam.put("buIds", getList_BUIds());
 		if (movement != null) {
 			System.out.println(movement.getName());
-			movements = imovementService.searchMovements(movement);
+			if (movement.getOper_date() != null) {
+				String fmt = "yyyy-mm-dd";
+				SimpleDateFormat sdf = new SimpleDateFormat(fmt);
+				sdf.format(movement.getOper_date());
+				System.out.println(movement.getOper_date());
+			}
+			searchParam.put("objMovm", movement);
+			movements = imovementService.searchMovements(searchParam);
 		} else
 			System.out.println("Null");
 		return SUCCESS;
