@@ -11,6 +11,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="alternate" 				href="<%=request.getContextPath() %>/css/theme01/common.css" type="text/css" title="white" media="screen, projection"/> 
+<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme02/common.css" type="text/css" title="green" media="screen, projection"/> 
+<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme03/common.css" type="text/css" title="yellow" media="screen, projection"/>
+<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme04/common.css" type="text/css" title="red" media="screen, projection"/>
+
 <link rel="Shortcut Icon" href="/AWSEC201/images/ico.ico">
 <link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme01/common.css" type="text/css" title="red" media="screen, projection"/> 
 <link rel="stylesheet" 				href="<%=request.getContextPath() %>/css/theme02/common.css" type="text/css" title="green" media="screen, projection"/> 
@@ -115,7 +120,6 @@ function setActiveStyleSheet(title) {
 		<% } %> 
 		<li id="movementTab"><a href="<%=request.getContextPath() %>/movement/loadMovms.action" title="Movements"><span><spring:message code="movements"/></span></a></li>
 		<li style="position:relative;"><a href="#" title="Help"><span><spring:message code="help"/></span></a><em></em></li>
-		<li id="logout"><a href="<%=request.getContextPath() %>/logout.action" title="Logout"><span><spring:message code="logout"/></span></a></li>
 	</ul>
 	<div class="menu_nav_right">
 	</div>
