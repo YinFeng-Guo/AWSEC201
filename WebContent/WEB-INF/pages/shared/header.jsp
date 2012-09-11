@@ -11,16 +11,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="Shortcut Icon" href="/AWSEC201/images/ico.ico">
 <link rel="alternate" 				href="<%=request.getContextPath() %>/css/theme01/common.css" type="text/css" title="white" media="screen, projection"/> 
 <link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme02/common.css" type="text/css" title="green" media="screen, projection"/> 
 <link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme03/common.css" type="text/css" title="yellow" media="screen, projection"/>
 <link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme04/common.css" type="text/css" title="red" media="screen, projection"/>
-
-<link rel="Shortcut Icon" href="/AWSEC201/images/ico.ico">
-<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme01/common.css" type="text/css" title="red" media="screen, projection"/> 
-<link rel="stylesheet" 				href="<%=request.getContextPath() %>/css/theme02/common.css" type="text/css" title="green" media="screen, projection"/> 
-<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme03/common.css" type="text/css" title="yellow" media="screen, projection"/>
-<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme04/common.css" type="text/css" title="grey" media="screen, projection"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>header</title>
 
