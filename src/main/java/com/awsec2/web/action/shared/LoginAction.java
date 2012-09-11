@@ -68,11 +68,13 @@ public class LoginAction extends BaseAction{
 				System.out.println("****@login message*******: password is error");
 				return false;
 			}
+			System.out.println("In action isSuper : " + currUser.isSupers());
 			if(req == null){
 				req = ServletActionContext.getRequest();
 				session = req.getSession();
 				session.setAttribute("username", currUser.getUsername());
 				session.setAttribute("userId", currUser.getId());
+				session.setAttribute("isSuper", currUser.isSupers());
 			}
 			if(res == null){
 				res = ServletActionContext.getResponse();
@@ -102,10 +104,12 @@ public class LoginAction extends BaseAction{
 				session = req.getSession();
 				System.out.println("Session Username : " + session.getAttribute("username"));
 				System.out.println("Session UserId : " + session.getAttribute("userId"));
+				System.out.println("Session IsSuper : " + session.getAttribute("isSuper"));
 			}else{
 				session = req.getSession();
 				System.out.println("Session Username : " + session.getAttribute("username"));
 				System.out.println("Session UserId : " + session.getAttribute("userId"));
+				System.out.println("Session IsSuper : " + session.getAttribute("isSuper"));
 			}
 			return "success";
 		}else{

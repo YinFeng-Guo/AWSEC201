@@ -97,10 +97,10 @@
 	<jsp:include page="../shared/footer.jsp" />
 </div>
 </body>
-<script>
+<%-- <script>
 document.getElementById("homeTab").className = "";
 document.getElementById("productTab").className = "";
 document.getElementById("userTab").className = "current";
 document.getElementById("movementTab").className = "";
-</script>
+</script> --%>
 </html>

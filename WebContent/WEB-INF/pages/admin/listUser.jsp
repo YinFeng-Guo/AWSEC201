@@ -45,7 +45,6 @@
 			<th align="center"><spring:message code="super" /></th>
 			<th align="center"><spring:message code="active" /></th>
 			<th align="center"><spring:message code="organization_id" /></th>		
-			<th align="center"><spring:message code="organization_id" /></th>
 
 		</tr>
 		<s:iterator value="users" id="user">
@@ -88,10 +87,10 @@
 	<jsp:include page="../shared/footer.jsp" />
 </div>
 </body>
-<script>
+<%-- <script>
 document.getElementById("homeTab").className = "";
 document.getElementById("productTab").className = "";
 document.getElementById("userTab").className = "current";
 document.getElementById("movementTab").className = "";
-</script>
+</script> --%>
 </html>

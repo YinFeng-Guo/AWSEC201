@@ -1,15 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%
 	boolean isSuper = false;
-	isSuper = Boolean.parseBoolean(session.getAttribute("isSuper").toString());
+	if(session.getAttribute("isSuper") != null && session.getAttribute("isSuper").toString().equals("true")){
+		isSuper = true;
+	}
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <link rel="Shortcut Icon" href="/AWSEC201/images/ico.ico">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme01/common.css" type="text/css" title="red" media="screen, projection"/> 
+<link rel="stylesheet" 				href="<%=request.getContextPath() %>/css/theme02/common.css" type="text/css" title="green" media="screen, projection"/> 
+<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme03/common.css" type="text/css" title="yellow" media="screen, projection"/>
+<link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme04/common.css" type="text/css" title="grey" media="screen, projection"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>header</title>
 
 <style type="text/css">
@@ -49,12 +56,31 @@ p{
 margin-bottom:15px}
 -->
 </style>
-
+<script>
+function setActiveStyleSheet(title) { 
+	  var i, a, main; 
+	  if (title) { 
+	  for(i=0; (a = document.getElementsByTagName('link')[i]); i++) { 
+	  if(a.getAttribute('rel').indexOf('style') != -1 && a.getAttribute('title')) { 
+	  a.disabled = true; 
+	  if(a.getAttribute('title') == title) a.disabled = false; 
+	  } 
+	  } 
+	  } 
+	  } 
+	  function getActiveStyleSheet() { 
+	  var i, a; 
+	  for(i=0; (a = document.getElementsByTagName('link')[i]); i++) { 
+	  if(a.getAttribute('rel').indexOf('style') != -1 && a.getAttribute('title') && !a.disabled) return a.getAttribute('title'); 
+	  } 
+	  return null; 
+	}
+</script>
 </head>
 <body style="text-align:center">
 
 	<div style="height:100px;text-align:left;margin-top:2px;min-width:1580px;" >
-		<div style="text-align:right;">
+		<div id="logo" style="text-align:right;">
 			<img width="442px" src="/AWSEC201/images/CWLogo.png" style="float:left;margin: 15px 0"/>
 			<img style="float:left;" src="/AWSEC201/images/banner.gif"/>
 			<div >
@@ -67,6 +93,7 @@ margin-bottom:15px}
 					<a href="javascript :void()" onclick="setActiveStyleSheet('green'); return false;" title="green style">Green</a> &nbsp;
 					<a href="javascript :void()" onclick="setActiveStyleSheet('yellow'); return false;" title="yellow style">Yellow</a> &nbsp;
 					<a href="javascript :void()" onclick="setActiveStyleSheet('none'); return false;" title="none style">None</a> 	
+					<a href="javascript :void()" onclick="setActiveStyleSheet('grey'); return false;" title="just style">other</a>
 				</div>
 				<br/>
 				<div>

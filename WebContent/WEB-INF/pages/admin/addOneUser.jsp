@@ -11,6 +11,8 @@
 	type="text/css" media="screen" />
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
 <script type="text/javascript" src="/AWSEC201/js/jquery-1.8.0.js"></script>
+
+
 </head>
 <body>
 <div id="headerDiv">
@@ -63,10 +65,10 @@
 	<jsp:include page="../shared/footer.jsp" />
 </div>
 </body>
-<script>
+<%-- <script>
 document.getElementById("homeTab").className = "";
 document.getElementById("productTab").className = "";
 document.getElementById("userTab").className = "current";
 document.getElementById("movementTab").className = "";
-</script>
+</script> --%>
 </html>
