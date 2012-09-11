@@ -20,6 +20,6 @@ public interface IProductService {
 	
 	public List<Product> searchProducts(Product prod);
 	
-	public ArrayList<Long> getProdIdsByOrgId(long org_Id);
+	public ArrayList getProdIdsByOrgId(long org_Id);
 	
 }

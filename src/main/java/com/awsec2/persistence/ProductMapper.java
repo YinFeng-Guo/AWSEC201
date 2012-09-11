@@ -14,5 +14,5 @@ public interface ProductMapper {
 	Product getProductsByProdId(long id);
 	
 	List<Product> searchProducts(Product prod);
-	ArrayList<Long> getProdIdsByOrgId(long org_Id);
+	ArrayList getProdIdsByOrgId(long org_Id);
 }

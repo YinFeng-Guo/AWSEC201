@@ -1,6 +1,7 @@
 package com.awsec2.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,14 @@ public class ProductServiceImpl implements IProductService{
 	}
 	@Override
 	public ArrayList<Long> getProdIdsByOrgId(long org_Id) {
-		return productMapper.getProdIdsByOrgId(org_Id);
+		ArrayList list = (ArrayList) productMapper.getProdIdsByOrgId(org_Id);
+		ArrayList list2Return = new ArrayList();
+		HashMap map = new HashMap();
+		for(int i=0; i<list.size();i++) {
+			map = (HashMap)list.get(i);
+			list2Return.add((long)map.get("id"));
+		}
+		return list2Return;
 	}
 
 	

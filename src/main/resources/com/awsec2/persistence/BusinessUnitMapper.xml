@@ -27,7 +27,7 @@
 
 	
 	<select id="getBUIdsByOrgId" parameterType="INTEGER"
-		resultType="ArrayList">
+		resultType="Hashmap">
 		SELECT
 		BusinessUnit.id
 		FROM BusinessUnit

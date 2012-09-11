@@ -1,6 +1,7 @@
 package com.awsec2.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,15 @@ public class BusinessUnitServiceImpl implements IBusinessUnitService {
 	private BusinessUnitMapper businessUnitMapper;
 
 	@Override
-	public ArrayList<Long> getBUIdsByOrgId(long orgId) {
-		return businessUnitMapper.getBUIdsByOrgId(orgId);
+	public ArrayList getBUIdsByOrgId(long orgId) {
+		ArrayList list = (ArrayList)businessUnitMapper.getBUIdsByOrgId(orgId);
+		ArrayList list2Return = new ArrayList();
+		HashMap map = new HashMap();
+		for(int i=0; i<list.size();i++) {
+			map = (HashMap)list.get(i);
+			list2Return.add((long)map.get("id"));
+		}
+		return list2Return;
 	}
 
 }

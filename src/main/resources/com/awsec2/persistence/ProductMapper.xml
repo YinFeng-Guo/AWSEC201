@@ -54,7 +54,7 @@
 		WHERE Product.id = #{id}
 	</select>
 	<select id="getProdIdsByOrgId" parameterType="INTEGER"
-		resultType="ArrayList">
+		resultType="Hashmap">
 		SELECT
 		Product.id
 		FROM Product

@@ -16,10 +16,14 @@
 	</div>
 
 	<div id="bodyDiv">
-	<form action="<%=request.getContextPath()%>/product/searchProducts.action" method="post">
-		Product Name: <input type ="text" name="product.name">&nbsp;&nbsp;&nbsp;&nbsp;Product Barcode: <input type="text" name="product.barcode">&nbsp;&nbsp;&nbsp;&nbsp;<input type ="button" value ="Search" onclick="form.submit()">
-	</form>		
-		<table id = "prodsData">
+		<form
+			action="<%=request.getContextPath()%>/product/searchProducts.action"
+			method="post">
+			Product Name: <input type="text" name="product.name">&nbsp;&nbsp;&nbsp;&nbsp;Product
+			Barcode: <input type="text" name="product.barcode">&nbsp;&nbsp;&nbsp;&nbsp;<input
+				type="button" value="Search" onclick="form.submit()">
+		</form>
+		<table id="prodsData">
 			<tr>
 				<th width="5px" align="center">Actions</th>
 				<th align="center">Name</th>
@@ -30,6 +34,19 @@
 				<th align="center">Active</th>
 
 			</tr>
+			<s:iterator value="product" var="list_prods">
+				<tr>
+					<td align="center"><a
+						href="modifyProducts.action?product.id=<s:property value='#list_prods.id'/>"><img
+							src="/AWSEC201/images/edit.png" border="0" /></a></td>
+					<td align="center"><s:property value="#list_prods.name" /></td>
+					<td align="center"><s:property value="#list_prods.barcode" /></td>
+					<td align="center"><s:property value="#list_prods.price_buy" /></td>
+					<td align="center"><s:property value="#list_prods.price_sell" /></td>
+					<td align="center"><s:property value="#list_prods.unit" /></td>
+					<td align="center"><s:property value="#list_prods.active" /></td>
+				</tr>
+			</s:iterator>
 			<s:iterator value="products" var="list_prods">
 				<tr>
 					<td align="center"><a
@@ -44,7 +61,8 @@
 				</tr>
 			</s:iterator>
 		</table>
-		<input type="button" value="addProd" onclick="window.location.href='addProducts.action'">
+		<input type="button" value="addProd"
+			onclick="window.location.href='addProducts.action'">
 
 	</div>
 
@@ -53,9 +71,11 @@
 	</div>
 </body>
 <script>
-//document.getElementById("homeTab").className = "";
-document.getElementById("productTab").className = "current";
-//document.getElementById("userTab").className = "";
-document.getElementById("movementTab").className = "";
+	//document.getElementById("homeTab").className = "";
+	document.getElementById("productTab").className = "current";
+	//document.getElementById("userTab").className = "";
+	document.getElementById("movementTab").className = "";
+
+	
 </script>
 </html>

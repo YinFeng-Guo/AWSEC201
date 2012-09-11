@@ -6,46 +6,79 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Edit Products</title>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.0.js" ></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/jQuery/DatePicker/jquery-ui-1.8.23.custom.min.js" ></script>		
-<link href="<%=request.getContextPath()%>/jQuery/DatePicker/ui-lightness/jquery-ui-1.8.23.custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/js/jquery-1.8.0.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/jQuery/DatePicker/jquery-ui-1.8.23.custom.min.js"></script>
+<link
+	href="<%=request.getContextPath()%>/jQuery/DatePicker/ui-lightness/jquery-ui-1.8.23.custom.css"
+	rel="stylesheet" type="text/css" />
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
+<script type="text/javascript" src="/AWSEC201/js/product/validateInput.js"></script>
+<%
+	java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat(
+			"yyyy-MM-dd");
 
+	java.util.Date date = new java.util.Date();//得到当前系统时间 
+	String str_date1 = formatter.format(date);
+%>
+<style type="text/css">
+th {
+	width: 90px;
+}
+</style>
 </head>
 <body>
 	<div id="headerDiv">
 		<jsp:include page="../shared/header.jsp" />
 	</div>
 
-	<div id="bodyDiv">
-		<form action="<%=request.getContextPath()%>/movement/commitModify.action" method="post">
-			<table id="myTable">
-				<tr>
-					<th align="center">ID</th>
-					<th align="center">Name</th>
-					<th align="center">Barcode</th>
-					<th align="center">Price Buy</th>
-					<th align="center">Price Sell</th>
-					<th align="center">Date</th>
-					<th align="center">Type</th>
-					<th align="center">Amount</th>
-				</tr>
-				<tr>
-					<s:iterator value="movement" var="m">
-					<td><input type="text" name="movement.id" value="<s:property value="#m.id" />" readonly="readonly"></td>
-					<td ><input type="text" name="movement.name" value="<s:property value="#m.name" />"></td>
-					<td ><input type="text" name="movement.barcode" value="<s:property value="#m.barcode" />"></td>
-					<td ><input type="text" name="movement.price_buy" value="<s:property value='#m.price_buy'/>"></td>
-					<td ><input type="text" name="movement.price_sell" value="<s:property value='#m.price_sell'/>"></td>
-					<td ><input type="text" name="movement.oper_date" id="datepicker" value="<s:property value='#m.oper_date'/>"></td>
-					<td ><s:select list="{'IN','OUT','FAILURE'}" name="movement.type" value="<s:property value='#m.type'/>"/></td>
-					<td ><input type="text" name="movement.amount" value="<s:property value='#m.amount'/>"></td>
-					</s:iterator>
-				</tr>
+	<div id="bodyDiv" align="center">
+		<form
+			action="<%=request.getContextPath()%>/movement/commitModify.action"
+			method="post">
+			<table id="myTable" style="width:400px;">
+				<s:iterator value="movement" var="m">
+					<tr>
+						<th align="center">ID</th>
+						<td><input type="text" name="movement.id"
+							value="<s:property value="#m.id" />" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<th align="center">Name</th>
+						<td><input type="text" name="movement.name"
+							value="<s:property value="#m.name"/>"></td>
+					</tr>
+					<tr>
+						<th align="center">Product Id</th>
+						<td><s:select list="list_ProdIds" name="movement.product_Id"
+								emptyOption="ture"></s:select></td>
+					</tr>
+					<tr>
+						<th align="center">Business Unit Id</th>
+						<td><s:select list="list_BUIds"
+								name="movement.businessUnit_Id" emptyOption="ture"></s:select></td>
+					</tr>
+					<tr>
+						<th align="center">Date</th>
+						<td><input type="text" name="movement.oper_date"
+							id="datepicker" value="<s:property value='#m.oper_date'/>"></td>
+					</tr>
+					<tr>
+						<th align="center">Type</th>
+						<td><s:select list="{'IN','OUT','FAILURE'}"
+								name="movement.type" value="<s:property value='#m.type'/>" /></td>
+					</tr>
+					<tr>
+						<th align="center">Amount</th>
+						<td><input type="text" name="movement.amount"
+							value="<s:property value='#m.amount'/>"></td>
+					</tr>
+				</s:iterator>
 			</table>
-			<input type="button" value="Submit"  onclick="form.submit()">
+			<input type="button" value="Submit" onclick="form.submit()">
 			<input onclick="history.go(-1)" type="button" value="Cancel">
 		</form>
 		<s:debug></s:debug>
@@ -57,9 +90,10 @@
 </body>
 <script>
 	$(function() {
-		$( "#datepicker" ).datepicker();
+		dateFormat: 'yyyy/mm/dd';
+		$("#datepicker").datepicker();
 	});
-	
+
 	document.getElementById("homeTab").className = "";
 	document.getElementById("productTab").className = "";
 	document.getElementById("userTab").className = "";

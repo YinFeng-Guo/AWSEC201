@@ -9,61 +9,53 @@
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
-<script language="JavaScript">
-	var intRowIndex = 0;
-	function insertRow(tbIndex) {
-		var strName="<input type=\"text\" name=\"products["+ (tbIndex-1) +"].name\" value=\"\">";
-		var strBarcode="<input type=\"text\" name=\"products[" +(tbIndex-1)+ "].barcode\" value=\"\">";
-		var strPriceBuy="<input type=\"text\" name=\"products[" +(tbIndex-1)+ "].price_buy\" value=\"\">";
-		var strPriceSell="<input type=\"text\" name=\"products[" +(tbIndex-1)+ "].price_sell\" value=\"\">";
-		var strUnit="<input type=\"text\" name=\"products[" +(tbIndex-1)+ "].unit\" value=\"\">";
-		var strActive="<input type=\"text\" name=\"products[" +(tbIndex-1)+ "].active\" value=\"\">";
-		var objRow = myTable.insertRow(tbIndex);
-		var objCel = objRow.insertCell(0);
-		objCel.innerHTML = strName;
-		var objCel = objRow.insertCell(1);
-		objCel.innerHTML = strBarcode;
-		var objCel = objRow.insertCell(2);
-		objCel.innerHTML = strPriceBuy;
-		var objCel = objRow.insertCell(3);
-		objCel.innerHTML = strPriceSell;
-		var objCel = objRow.insertCell(4);
-		objCel.innerHTML = strUnit;
-		var objCel = objRow.insertCell(5);
-		objCel.innerHTML = strActive;
-		objRow.style.background = "pink";
-	}
-	function deleteRow(tbIndex) {
-		if(tbIndex>1) {
-			myTable.deleteRow(tbIndex-1);
-		}
-		else alert('No more records to delete!!');
-	}
-
-</script>
-
+<script type="text/javascript" src="/AWSEC201/js/product/validateInput.js"></script>
+<style type="text/css">
+th {
+	width: 90px;
+}
+</style>
 </head>
 <body>
 	<div id="headerDiv">
 		<jsp:include page="../shared/header.jsp" />
 	</div>
 
-	<div id="bodyDiv">
-		<input type="button" onclick="deleteRow(myTable.rows.length)" value="Del Row"> 
-		<input type="button" onclick="insertRow(myTable.rows.length);" value="Add Row">
-		<form action="<%=request.getContextPath()%>/product/commitAdd.action" method="post">
-			<table id="myTable">
+	<div id="bodyDiv" align="center">
+		<form action="<%=request.getContextPath()%>/product/commitAdd.action"
+			method="post">
+			<table id="myTable" style="width:400px;">
 				<tr>
 					<th align="center">Name</th>
-					<th align="center">Barcode</th>
-					<th align="center">Price Buy</th>
-					<th align="center">Price Sell</th>
-					<th align="center">Unit</th>
-					<th align="center">Active</th>
+					<td><input type="text" name="product.name" value=""></td>
 				</tr>
+				<tr>
+					<th align="center">Barcode</th>
+					<td><input type="text" name="product.barcode" value=""></td>
+				</tr>
+				<tr>
+					<th align="center">Price Buy</th>
+					<td><input type="text" name="product.price_buy" value=""></td>
+				</tr>
+				<tr>
+					<th align="center">Price Sell</th>
+					<td><input type="text" name="product.price_sell" value=""></td>
+				</tr>
+				<tr>
+					<th align="center">Unit</th>
+					<td><s:select
+							list="{'Inch','Meter','Liter','Kilogram','Pieces'}"
+							name="product.unit" value="" /></td>
+				</tr>
+				<tr>
+					<th align="center">Active</th>
+					<td><s:select list="{'Active','Inactive'}"
+							name="product.active" value="" /></td>
+				</tr>
+
 			</table>
-			<input type="button" value="Submit"  onclick="form.submit()">
-			<input onclick="history.go(-1)" type="button" value="Cancel">
+			<input type="button" value="Submit" onclick="form.submit()" />
+			<input onclick="history.go(-1)" type="button" value="Cancel" />
 		</form>
 		<s:debug></s:debug>
 
@@ -74,9 +66,9 @@
 	</div>
 </body>
 <script>
-document.getElementById("homeTab").className = "";
-document.getElementById("productTab").className = "current";
-document.getElementById("userTab").className = "";
-document.getElementById("movementTab").className = "";
+	document.getElementById("homeTab").className = "";
+	document.getElementById("productTab").className = "current";
+	document.getElementById("userTab").className = "";
+	document.getElementById("movementTab").className = "";
 </script>
 </html>

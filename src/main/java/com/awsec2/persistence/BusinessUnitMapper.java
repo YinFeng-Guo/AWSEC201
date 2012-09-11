@@ -1,8 +1,9 @@
 package com.awsec2.persistence;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 
 public interface BusinessUnitMapper {
-	ArrayList<Long> getBUIdsByOrgId(long orgId);
+	List getBUIdsByOrgId(long orgId);
 }

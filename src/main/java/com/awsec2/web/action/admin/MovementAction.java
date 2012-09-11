@@ -22,11 +22,8 @@ import com.opensymphony.xwork2.Preparable;
 
 public class MovementAction extends BaseAction implements Preparable {
 
-	private ArrayList<Long> list_ProdIds;
-	private ArrayList<Long> list_BUIds;
-
-	private long[] list_ProdId;
-	private long[] list_BUId;
+	private ArrayList list_ProdIds;
+	private ArrayList list_BUIds;
 	private List<Movement> movements;
 	private Movement movement;
 	private User user = null;
@@ -82,22 +79,6 @@ public class MovementAction extends BaseAction implements Preparable {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public long[] getList_ProdId() {
-		return list_ProdId;
-	}
-
-	public void setList_ProdId(long[] list_ProdId) {
-		this.list_ProdId = list_ProdId;
-	}
-
-	public long[] getList_BUId() {
-		return list_BUId;
-	}
-
-	public void setList_BUId(long[] list_BUId) {
-		this.list_BUId = list_BUId;
 	}
 
 	public String init() throws Exception {
@@ -175,7 +156,6 @@ public class MovementAction extends BaseAction implements Preparable {
 	 */
 	public void getProdIdsAndBUIds() throws Exception {
 		getUserOrgId();
-		System.out.println(user.getOrganization_id());
 		if (list_ProdIds == null) {
 			setList_ProdIds(iProdService.getProdIdsByOrgId(user
 					.getOrganization_id()));
@@ -235,12 +215,14 @@ public class MovementAction extends BaseAction implements Preparable {
 	 */
 	public String addMovms() throws Exception {
 		getProdIdsAndBUIds();
-		for(int i= 0;i<list_ProdIds.size();i++) {
-			list_ProdId[i] = (long)list_ProdIds.get(i);
-		}
-		for(int j=0;j<list_BUIds.size();j++) {
-			list_BUId[j] = (long)list_BUIds.get(j);
-		}
+//		if(getList_ProdIds() != null) {
+//			for(int i= 0;i<getList_ProdIds().size();i++) {
+//				System.out.println(i);
+//				list_ProdId[i] = (long)list_ProdIds.get(i);
+//			}
+//		}
+
+
 		// products = productService.getProductsByUserId(1);
 		// if(products != null) {
 		// for(Product prod: products) {
@@ -287,6 +269,7 @@ public class MovementAction extends BaseAction implements Preparable {
 	 */
 	public String modifyMovms() throws Exception {
 		loadMovmById();
+		getProdIdsAndBUIds();
 		return SUCCESS;
 	}
 
@@ -347,11 +330,6 @@ public class MovementAction extends BaseAction implements Preparable {
 		getUserOrgId();
 		getProdIdsAndBUIds();
 		HashMap<String, Object> searchParam = new HashMap<String, Object>();
-		if (getList_ProdIds() != null) {
-			for (long id : getList_ProdIds()) {
-				System.out.println(id);
-			}
-		}
 		searchParam.put("buIds", getList_BUIds());
 		if (movement != null) {
 			System.out.println(movement.getName());
@@ -363,8 +341,7 @@ public class MovementAction extends BaseAction implements Preparable {
 			}
 			searchParam.put("objMovm", movement);
 			movements = imovementService.searchMovements(searchParam);
-		} else
-			System.out.println("Null");
+		} 
 		return SUCCESS;
 	}
 

@@ -7,7 +7,7 @@
 	<resultMap type="Movement" id="movement_orm">
 		<id property="id" column="id" />
 		<result property="name" column="Name" />
-		<result property="prodName" column="Product.Name" />
+		<result property="prodName" column="ProdName" />
 		<result property="oper_date" column="Oper_Date" />
 		<result property="type" column="Type" />
 		<result property="amount" column="Amount" />
@@ -38,7 +38,7 @@
 		SELECT
 		Movement.id,
 		Movement.name,
-		Product.name,
+		Product.name as ProdName,
 		Movement.oper_date,
 		Movement.type,
 		Movement.amount,
@@ -74,7 +74,7 @@
 		SELECT
 		Movement.id,
 		Movement.name,
-		Product.name,
+		Product.name as ProdName,
 		Movement.oper_date,
 		Movement.type,
 		Movement.amount,
@@ -103,11 +103,10 @@
 		<include refid="sql_Pars" />
 		)
 		VALUES
-		(#{name},#{oper_date}, #{type}, #{amount},
-		1, 2)
+		(#{name},#{oper_date}, #{type}, #{amount},#{businessUnit_Id},#{product_Id})
 	</insert>
 	<insert id="insertMovements" parameterType="ArrayList">
-		INSERT INTO Product
+		INSERT INTO Movement
 		(
 		<include refid="sql_Pars" />
 		)
@@ -127,6 +126,8 @@
 		UPDATE Movement SET
 		name =
 		#{name},
+		businessunit_id = #{businessUnit_Id},
+		product_id = #{product_Id},
 		oper_date = #{oper_date},
 		type = #{type},
 		amount = #{amount}

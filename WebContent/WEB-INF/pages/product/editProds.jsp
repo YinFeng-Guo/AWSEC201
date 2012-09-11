@@ -9,38 +9,65 @@
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
-
+<script type="text/javascript" src="/AWSEC201/js/product/validateInput.js"></script>
+<style type="text/css">
+th {
+	width: 90px;
+}
+</style>
 </head>
 <body>
 	<div id="headerDiv">
 		<jsp:include page="../shared/header.jsp" />
 	</div>
 
-	<div id="bodyDiv">
-		<form action="<%=request.getContextPath()%>/product/commitModify.action" method="post">
-			<table id="myTable">
-				<tr>
-					<th align="center">ID</th>
-					<th align="center">Name</th>
-					<th align="center">Barcode</th>
-					<th align="center">Price Buy</th>
-					<th align="center">Price Sell</th>
-					<th align="center">Unit</th>
-					<th align="center">Active</th>
-				</tr>
-				<tr>
-					<s:iterator value="product" var="p">
-					<td><input type="text" name="product.id" value="<s:property value="#p.id" />" readonly="readonly"></td>
-					<td ><input type="text" name="product.name" value="<s:property value="#p.name" />"></td>
-					<td ><input type="text" name="product.barcode" value="<s:property value="#p.barcode" />"></td>
-					<td ><input type="text" name="product.price_buy" value="<s:property value='#p.price_buy'/>"></td>
-					<td ><input type="text" name="product.price_sell" value="<s:property value='#p.price_sell'/>"></td>
-					<td ><input type="text" name="product.unit" value="<s:property value='#p.unit'/>"></td>
-					<td ><input type="text" name="product.active" value="<s:property value='#p.active'/>"></td>
-					</s:iterator>
-				</tr>
+	<div id="bodyDiv" align="center">
+		<form
+			action="<%=request.getContextPath()%>/product/commitModify.action"
+			method="post">
+			<table id="myTable" style="width:400px;">
+				<s:iterator value="product" var="p">
+					<tr>
+						<th align="center">ID</th>
+
+						<td><input type="text" name="product.id"
+							value="<s:property value="#p.id" />" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<th align="center">Name</th>
+						<td><input type="text" name="product.name"
+							value="<s:property value="#p.name" />"></td>
+					</tr>
+					<tr>
+						<th align="center">Barcode</th>
+						<td><input type="text" name="product.barcode"
+							value="<s:property value="#p.barcode" />"></td>
+					</tr>
+					<tr>
+						<th align="center">Price Buy</th>
+						<td><input type="text" name="product.price_buy"
+							value="<s:property value='#p.price_buy'/>"></td>
+					</tr>
+					<tr>
+						<th align="center">Price Sell</th>
+						<td><input type="text" name="product.price_sell"
+							value="<s:property value='#p.price_sell'/>"></td>
+					</tr>
+					<tr>
+						<th align="center">Unit</th>
+						<td><s:select
+								list="{'Inch','Meter','Liter','Kilogram','Pieces'}"
+								name="product.unit" value="<s:property value='#p.unit'/>" /></td>
+					</tr>
+					<tr>
+						<th align="center">Active</th>
+						<td><s:select list="{'Active','Inactive'}"
+								name="product.active" value="<s:property value='#p.active'/>" /></td>
+
+					</tr>
+				</s:iterator>
 			</table>
-			<input type="button" value="Submit"  onclick="form.submit()">
+			<input type="button" value="Submit" onclick="form.submit()">
 			<input onclick="history.go(-1)" type="button" value="Cancel">
 		</form>
 		<s:debug></s:debug>
@@ -51,9 +78,9 @@
 	</div>
 </body>
 <script>
-document.getElementById("homeTab").className = "";
-document.getElementById("productTab").className = "current";
-document.getElementById("userTab").className = "";
-document.getElementById("movementTab").className = "";
+	document.getElementById("homeTab").className = "";
+	document.getElementById("productTab").className = "current";
+	document.getElementById("userTab").className = "";
+	document.getElementById("movementTab").className = "";
 </script>
 </html>

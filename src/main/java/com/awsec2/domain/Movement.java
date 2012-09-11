@@ -9,8 +9,8 @@ public class Movement {
 	private Date oper_date;
 	private String type;
 	private int amount;
-	private String businessUnit_Id;
-	private String product_Id;
+	private long businessUnit_Id;
+	private long product_Id;
 
 	public long getId() {
 		return id;
@@ -60,19 +60,19 @@ public class Movement {
 		this.amount = amount;
 	}
 
-	public String getBusinessUnit_Id() {
+	public long getBusinessUnit_Id() {
 		return businessUnit_Id;
 	}
 
-	public void setBusinessUnit_Id(String businessUnit_Id) {
+	public void setBusinessUnit_Id(long businessUnit_Id) {
 		this.businessUnit_Id = businessUnit_Id;
 	}
 
-	public String getProduct_Id() {
+	public long getProduct_Id() {
 		return product_Id;
 	}
 
-	public void setProduct_Id(String product_Id) {
+	public void setProduct_Id(long product_Id) {
 		this.product_Id = product_Id;
 	}
 

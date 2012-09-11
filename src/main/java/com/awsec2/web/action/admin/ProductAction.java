@@ -149,6 +149,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * 
 	 */
 	public String loadProdById() throws Exception {
+		System.out.println("12312341"+product.getId());
 		product = productService.getProductsByProdId(product.getId());
 		return SUCCESS;
 	}
@@ -168,12 +169,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 	 * 
 	 */
 	public String addProds() throws Exception {
-//		products = productService.getProductsByUserId(1);
-//		if(products != null) {
-//			for(Product prod: products) {
-//				System.out.println(prod.getName());
-//			}
-//		}
+
 		return SUCCESS;
 	}
 	/**
@@ -193,6 +189,12 @@ public class ProductAction  extends BaseAction implements Preparable{
 	public String commitAddProds() throws Exception {
 		List<Product> prods2Update = new ArrayList<Product>();
 		getUserOrgId();
+		if(product != null) {
+			product.setOrganization_id(user.getOrganization_id());
+			prods2Update.add(product);
+			productService.insertProducts(prods2Update);
+			System.out.println("Insert product");
+		}
 		if(products != null) {
 			for(Product prod : products) {
 				prod.setOrganization_id(user.getOrganization_id());
@@ -222,6 +224,26 @@ public class ProductAction  extends BaseAction implements Preparable{
 		loadProdById();
 		return SUCCESS;
 	}
+	
+	/**
+	 * This method is used to edit products info for a special product
+	 *
+	 @author Bin Yuan
+	 @created 2012-09-05
+	 *
+	 *
+	 @return 	String		"success" or "error"
+	 *
+	 @changelog
+	 * 2012-09-05 Bin Yuan <bin.yuan@itbconsult.com>
+	 * - Created
+	 * 
+	 */
+	public String loadProdsById() throws Exception {
+		loadProdById();
+		return SUCCESS;
+	}
+	
 	/**
 	 * This method is used to commit updates for a product
 	 *
