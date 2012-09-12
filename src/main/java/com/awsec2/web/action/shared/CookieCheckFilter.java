@@ -45,7 +45,7 @@ public class CookieCheckFilter implements Filter {
 		 */
 		String url = hReq.getRequestURI();
 		System.out.println("Url:" + url);
-		
+		if(!(url.contains("/js") || url.contains("/images") || url.contains("/css") || url.contains("/jQuery"))){
 		String cookieVale = cookieUtil.getCookieValue(hReq, "username");
 		String isSuper = null;
 		System.out.println("In filter Cookie Value : " + cookieVale);
@@ -74,6 +74,7 @@ public class CookieCheckFilter implements Filter {
 				hRes.sendRedirect("home.action");
 				return;
 			}
+		}
 		}
 		chain.doFilter(req, res);
 		return;
