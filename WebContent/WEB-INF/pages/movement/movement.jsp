@@ -66,7 +66,7 @@
 </body>
 <script>
 	$(function() {
-		$( "#datepicker" ).datepicker();
+		$( "#datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
 	});
 	
 // 	document.getElementById("homeTab").className = "";

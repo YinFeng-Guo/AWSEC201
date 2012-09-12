@@ -15,24 +15,43 @@
 	rel="stylesheet" type="text/css" />
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
-<script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
-<script type="text/javascript" src="/AWSEC201/js/product/validateInput.js"></script>
-<script type="text/javascript" src="/AWSEC201/js/product/mootools.v1.1.js"></script>
-<script type="text/javascript" src="/AWSEC201/js/product/shCore.js"></script>
-<script type="text/javascript" src="/AWSEC201/js/product/shBrushXml.js"></script>
-<script type="text/javascript" src="/AWSEC201/js/product/shBrushJScript.js"></script>
-<script type="text/javascript" src="/AWSEC201/js/product/shBrushCss.js"></script>
-<script type="text/javascript" src="/AWSEC201/js/product/fValidator-full.js"></script>
-<script type="text/javascript">
-    window.addEvent('domready', function(){
-         var exValidatorA = new fValidator("exA");
-    });
+	<script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
+<link rel="stylesheet"
+	href="/AWSEC201/css/movement/validationEngine.jquery.css"
+	type="text/css" />
+<link rel="stylesheet" href="/AWSEC201/css/movement/template.css"
+	type="text/css" />
+<script type="text/javascript"
+	src="/AWSEC201/js/product/jquery.validationEngine-en.js"
+	type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"
+	src="/AWSEC201/js/product/jquery.validationEngine.js"
+	type="text/javascript" charset="utf-8"></script>
+<script>
+	jQuery(document).ready(function() {
+		// binds form submission and fields to the validation engine
+		jQuery("#formID").validationEngine();
+	});
+
+	/**
+	 *
+	 * @param {jqObject} the field where the validation applies
+	 * @param {Array[String]} validation rules for this field
+	 * @param {int} rule index
+	 * @param {Map} form options
+	 * @return an error string if validation failed
+	 */
+	function checkHELLO(field, rules, i, options) {
+		if (field.val() != "HELLO") {
+			// this allows to use i18 for the error msgs
+			return options.allrules.validate2fields.alertText;
+		}
+	}
 </script>
 <style type="text/css">
 th {
 	width: 90px;
 }
-
 </style>
 <%
 	java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat(
@@ -40,8 +59,6 @@ th {
 
 	java.util.Date date = new java.util.Date();//得到当前系统时间 
 	String str_date1 = formatter.format(date);
-
-
 %>
 </head>
 <body>
@@ -50,12 +67,14 @@ th {
 	</div>
 
 	<div id="bodyDiv" align="center">
-		<form id="exA" action="<%=request.getContextPath()%>/movement/commitAdd.action" class="fValidator-form"
-			method="post">
-			<table id="myTable" style="width:400px;">
+		<form id="formID"
+			action="<%=request.getContextPath()%>/movement/commitAdd.action"
+			class="fValidator-form" method="post">
+			<table id="myTable" style="width: 400px;">
 				<tr>
 					<th align="center">Name</th>
-					<td><input type="text" name="movement.name" class="fValidate['required']" value=""></td>
+					<td><input type="text" name="movement.name"
+						class="validate[required]" value="" name="req" id="req"></td>
 				</tr>
 				<tr>
 					<th align="center">Product Id</th>
@@ -70,7 +89,8 @@ th {
 				<tr>
 					<th align="center">Operate Date</th>
 					<td><input type="text" name="movement.oper_date"
-						id="datepicker" value="<%=str_date1%>"></td>
+						class="validate[custom[date],required]" id="datepicker"
+						value="<%=str_date1%>"></td>
 				</tr>
 				<tr>
 					<th align="center">Type</th>
@@ -79,13 +99,14 @@ th {
 				</tr>
 				<tr>
 					<th align="center">Amount</th>
-					<td><input type="text" name="movement.amount" class="fValidate['integer']" value=""></td>
+					<td><input type="text" name="movement.amount"
+						class="validate[required,custom[integer]]" value=""></td>
 				</tr>
 			</table>
-			<input id="exA_submit" type="button" value="Submit" onclick="form.submit()">
-			<input onclick="history.go(-1)" type="button" value="Cancel">
+			<input class="submit" type="submit" value="Submit" >
+			 <input onclick="history.go(-1)" type="button" value="Cancel">
 		</form>
-		<s:debug></s:debug>
+
 
 	</div>
 
@@ -94,16 +115,10 @@ th {
 	</div>
 </body>
 <script>
-jQuery(function($){  
-	 $.datepicker.regional['zh-CN'] = {
-			 dateFormat: 'yy/mm/dd'
-	 };
-	 $.datepicker.setDefaults($.datepicker.regional['zh-CN']);
-	}
-
 	$(function() {
-		dateFormat: 'yyyy/mm/dd';
-		$("#datepicker").datepicker();
+		$("#datepicker").datepicker({
+			dateFormat : 'yy-mm-dd'
+		});
 	});
 
 	document.getElementById("homeTab").className = "";

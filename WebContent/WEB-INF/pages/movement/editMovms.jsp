@@ -16,7 +16,38 @@
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
-<script type="text/javascript" src="/AWSEC201/js/product/validateInput.js"></script>
+<link rel="stylesheet"
+	href="/AWSEC201/css/movement/validationEngine.jquery.css"
+	type="text/css" />
+<link rel="stylesheet" href="/AWSEC201/css/movement/template.css"
+	type="text/css" />
+<script type="text/javascript"
+	src="/AWSEC201/js/product/jquery.validationEngine-en.js"
+	type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"
+	src="/AWSEC201/js/product/jquery.validationEngine.js"
+	type="text/javascript" charset="utf-8"></script>
+<script>
+	jQuery(document).ready(function() {
+		// binds form submission and fields to the validation engine
+		jQuery("#formID").validationEngine();
+	});
+
+	/**
+	 *
+	 * @param {jqObject} the field where the validation applies
+	 * @param {Array[String]} validation rules for this field
+	 * @param {int} rule index
+	 * @param {Map} form options
+	 * @return an error string if validation failed
+	 */
+	function checkHELLO(field, rules, i, options) {
+		if (field.val() != "HELLO") {
+			// this allows to use i18 for the error msgs
+			return options.allrules.validate2fields.alertText;
+		}
+	}
+</script>
 <%
 	java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat(
 			"yyyy-MM-dd");
@@ -36,7 +67,7 @@ th {
 	</div>
 
 	<div id="bodyDiv" align="center">
-		<form
+		<form id="formID"
 			action="<%=request.getContextPath()%>/movement/commitModify.action"
 			method="post">
 			<table id="myTable" style="width:400px;">
@@ -48,7 +79,7 @@ th {
 					</tr>
 					<tr>
 						<th align="center">Name</th>
-						<td><input type="text" name="movement.name"
+						<td><input type="text" name="movement.name" class="validate[required]"
 							value="<s:property value="#m.name"/>"></td>
 					</tr>
 					<tr>
@@ -63,7 +94,7 @@ th {
 					</tr>
 					<tr>
 						<th align="center">Date</th>
-						<td><input type="text" name="movement.oper_date"
+						<td><input type="text" name="movement.oper_date" class="validate[custom[date],required]"
 							id="datepicker" value="<s:property value='#m.oper_date'/>"></td>
 					</tr>
 					<tr>
@@ -73,12 +104,12 @@ th {
 					</tr>
 					<tr>
 						<th align="center">Amount</th>
-						<td><input type="text" name="movement.amount"
+						<td><input type="text" name="movement.amount" class="validate[required,custom[integer]]"
 							value="<s:property value='#m.amount'/>"></td>
 					</tr>
 				</s:iterator>
 			</table>
-			<input type="button" value="Submit" onclick="form.submit()">
+			<input class="submit" type="submit" value="Submit" >
 			<input onclick="history.go(-1)" type="button" value="Cancel">
 		</form>
 		<s:debug></s:debug>
@@ -90,8 +121,7 @@ th {
 </body>
 <script>
 	$(function() {
-		dateFormat: 'yyyy/mm/dd';
-		$("#datepicker").datepicker();
+		$("#datepicker").datepicker({dateFormat: 'yy-mm-dd'});
 	});
 
 	document.getElementById("homeTab").className = "";
