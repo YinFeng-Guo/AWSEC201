@@ -24,7 +24,7 @@
     <package name="default" extends="struts-default">	
 		<action name="login" class="LoginAction" method="login">
             <result>/WEB-INF/pages/shared/home.jsp</result>
-            <result name="failure">/index.jsp</result>
+            <result name="failure">/WEB-INF/pages/shared/error.jsp</result>
             <interceptor-ref name="basicStack"/>
         </action>
         <!-- 
