@@ -115,6 +115,7 @@ function setActiveStyleSheet(title) {
 		<% } %> 
 		<li id="movementTab"><a href="<%=request.getContextPath() %>/movement/loadMovms.action" title="Movements"><span><spring:message code="movements"/></span></a></li>
 		<li style="position:relative;"><a href="#" title="Help"><span><spring:message code="help"/></span></a><em></em></li>
+		<li id="technicalTab"><a href="<%=request.getContextPath() %>/technical.action" title="Testings"><span>Testings</span></a></li>
 	</ul>
 	<div class="menu_nav_right">
 	</div>
