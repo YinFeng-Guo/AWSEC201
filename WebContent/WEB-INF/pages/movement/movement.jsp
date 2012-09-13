@@ -15,20 +15,22 @@
 <script type="text/javascript" src="/AWSEC201/js/ajax.js"></script>
 <script>
 	function onQuery() {
-		startRequest('', 'bodyDiv', 'listMovmsForm');
+		startRequest('', 'dataDive', 'listMovmsForm');
 	}
 </script>
 </head>
-<body>
+<body onload="onQuery();">
 	<div id="headerDiv">
 		<jsp:include page="../shared/header.jsp" />
 	</div>
-	<jsp:include page="movmSearch.jsp"></jsp:include>
+	
 	<div id="bodyDiv">
+	<jsp:include page="movmSearch.jsp"></jsp:include>
+	<div id="dataDive">
 	<jsp:include page="listMovms.jsp"></jsp:include>
 
 		<input type="button" value="Add Movements" onclick="window.location.href='addMovms.action'">
-		<s:debug></s:debug>
+		</div>
 	</div>
 
 	<div id="footerDiv">
@@ -40,9 +42,6 @@
 		$( "#datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
 	});
 	
-// 	document.getElementById("homeTab").className = "";
-	document.getElementById("productTab").className = "";
-// 	document.getElementById("userTab").className = "";
-	document.getElementById("movementTab").className = "current";
+	document.getElementById("movementTab2").className = "currentSelect";
 </script>
 </html>

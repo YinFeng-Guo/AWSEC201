@@ -99,9 +99,6 @@ th {
 	</div>
 </body>
 <script>
-	document.getElementById("homeTab").className = "";
-	document.getElementById("productTab").className = "current";
-	document.getElementById("userTab").className = "";
-	document.getElementById("movementTab").className = "";
+document.getElementById("productTab2").className = "currentSelect";
 </script>
 </html>
