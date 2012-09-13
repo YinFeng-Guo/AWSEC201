@@ -2,6 +2,7 @@ package com.awsec2.web.action.admin;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -178,9 +179,19 @@ public class MovementAction extends BaseAction implements Preparable {
 	 * 
 	 */
 	public String loadMovms() throws Exception {
-		getUserOrgId();
-		movements = imovementService.getMovementsByOrgId(user
-				.getOrganization_id());
+//		String fmt = "yyyy-mm-dd";
+//		getUserOrgId();
+//		getProdIdsAndBUIds();
+//		HashMap<String, Object> searchParam = new HashMap<String, Object>();
+//		searchParam.put("buIds", getList_BUIds());
+//		Movement movm = new Movement();
+//		Date date = new Date();
+//		SimpleDateFormat formatter = new SimpleDateFormat(fmt);
+//		formatter.format(date);		
+//		movm.setOper_date(date);
+//		System.out.println(date);
+//		searchParam.put("objMovm", movm);
+//		movements = imovementService.searchMovements(searchParam);
 		return SUCCESS;
 	}
 

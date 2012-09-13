@@ -13,7 +13,7 @@
 <script type="text/javascript" src="/AWSEC201/js/jquery-1.8.0.js"></script>
 <script>
 	function onQuery() {
-		startRequest('', 'bodyDiv', 'listProdForm');
+		startRequest('', 'dataDiv', 'listProdForm');
 	}
 </script>
 </head>
@@ -21,11 +21,15 @@
 	<div id="headerDiv">
 		<jsp:include page="../shared/header.jsp" />
 	</div>
-	<jsp:include page="prodSearch.jsp"></jsp:include>
+	
 	<div id="bodyDiv">
+	<jsp:include page="prodSearch.jsp"></jsp:include>
+	<div id="dataDiv">
+	
 		<jsp:include page="listProds.jsp"></jsp:include>
 		<input type="button" value="AddProd"
 			onclick="window.location.href='addProducts.action'">
+			</div>
 	</div>
 
 	<div id="footerDiv">
@@ -33,9 +37,6 @@
 	</div>
 </body>
 <script>
-	//document.getElementById("homeTab").className = "";
-	document.getElementById("productTab").className = "current";
-	//document.getElementById("userTab").className = "";
-	document.getElementById("movementTab").className = "";
+	document.getElementById("productTab2").className = "currentSelect";
 </script>
 </html>

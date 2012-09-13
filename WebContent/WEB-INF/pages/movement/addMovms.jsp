@@ -120,10 +120,6 @@ th {
 			dateFormat : 'yy-mm-dd'
 		});
 	});
-
-	document.getElementById("homeTab").className = "";
-	document.getElementById("productTab").className = "";
-	document.getElementById("userTab").className = "";
-	document.getElementById("movementTab").className = "current";
+	document.getElementById("movementTab2").className = "currentSelect";
 </script>
 </html>
