@@ -4,13 +4,13 @@
     <%@ taglib prefix="s" uri="/struts-tags"%>
 		<table id="prodsData" cellpadding="0" cellspacing="0" width="100%" class=" TF">
 			<tr>
-				<th width="5px" align="center">Actions</th>
-				<th align="center">Name</th>
-				<th align="center">Barcode</th>
-				<th align="center">Price Buy</th>
-				<th align="center">Price Sell</th>
-				<th align="center">Unit</th>
-				<th align="center">Active</th>
+				<th width="5%" align="center" nowrap="" style="cursor: pointer; " _sorttype="us">Actions<img src="<%=request.getContextPath() %>/jQuery/TableFilter/TF_Themes/blank.png" class="sort-arrow"></th>
+				<th width="10%" align="center" nowrap="" style="cursor: pointer; " _sorttype="us">Name<img src="<%=request.getContextPath() %>/jQuery/TableFilter/TF_Themes/blank.png" class="sort-arrow"></th>
+				<th width="10%" align="center" nowrap="" style="cursor: pointer; " _sorttype="us">Barcode<img src="<%=request.getContextPath() %>/jQuery/TableFilter/TF_Themes/blank.png" class="sort-arrow"></th>
+				<th width="10%" align="center" nowrap="" style="cursor: pointer; " _sorttype="us">Price Buy<img src="<%=request.getContextPath() %>/jQuery/TableFilter/TF_Themes/blank.png" class="sort-arrow"></th>
+				<th width="10%" align="center" nowrap="" style="cursor: pointer; " _sorttype="us">Price Sell<img src="<%=request.getContextPath() %>/jQuery/TableFilter/TF_Themes/blank.png" class="sort-arrow"></th>
+				<th width="10%" align="center" nowrap="" style="cursor: pointer; " _sorttype="us">Unit<img src="<%=request.getContextPath() %>/jQuery/TableFilter/TF_Themes/blank.png" class="sort-arrow"></th>
+				<th width="10%" align="center" nowrap="" style="cursor: pointer; " _sorttype="us">Active<img src="<%=request.getContextPath() %>/jQuery/TableFilter/TF_Themes/blank.png" class="sort-arrow"></th>
 
 			</tr>
 			<s:iterator value="product" var="list_prods">

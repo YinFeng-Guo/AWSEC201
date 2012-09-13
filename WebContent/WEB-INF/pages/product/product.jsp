@@ -24,9 +24,7 @@
 	<div id="bodyDiv">
 		<jsp:include page="prodSearch.jsp"></jsp:include>
 		<div id="dataDiv">
-
 			<jsp:include page="listProds.jsp"></jsp:include>
-
 		</div>
 		<input type="button" value="AddProd"
 			onclick="window.location.href='addProducts.action'">
@@ -47,7 +45,7 @@
 		base_path: "<%=request.getContextPath() %>/jQuery/TableFilter/",	
         sort: true,  
         //col_number_format: [null,null,'US','US','US','US','US','US','US'],  
-        //col_number_format: ['US','US','US','US','US','US','US','US','US'],  
+        col_number_format: [null,'US','US','US','US','US'],  
         filters_row_index: 1,  
         remember_grid_values: true,  
         alternate_rows: true,  
@@ -60,7 +58,9 @@
         col_0: "none" ,  
         //col_0: "multiple",  
         //col_1: "select",  
-        //col_2: "checklist",  
+        //col_2: "checklist", 
+        col_5: "select",  
+        col_6: "select",  
         display_all_text: "[ Clear ]",  
         enable_default_theme: true,  
         input_watermark: 'Search...',  
@@ -69,5 +69,8 @@
 		public_methods: true
 	};  
 	var tf = setFilterGrid("prodsData", tfConfig);  
+	function RefreshTable(){
+		tf = setFilterGrid("prodsData", tfConfig);  
+	}
 </script>
 </html>

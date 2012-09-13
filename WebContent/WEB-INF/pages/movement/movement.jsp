@@ -13,9 +13,8 @@
 <link
 	href="<%=request.getContextPath()%>/jQuery/DatePicker/ui-lightness/jquery-ui-1.8.23.custom.css"
 	rel="stylesheet" type="text/css" />
-<link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
-	type="text/css" media="screen" />
-<script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
+<!-- <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet" type="text/css" media="screen" /> -->
+<%-- <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script> --%>
 <script type="text/javascript" src="/AWSEC201/js/ajax.js"></script>
 <script>
 	function onQuery() {
@@ -49,7 +48,6 @@
 	});
 
 	document.getElementById("movementTab2").className = "currentSelect";
-
-	
 </script>
+
 </html>
