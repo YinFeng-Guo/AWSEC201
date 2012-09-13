@@ -1,7 +1,6 @@
 package com.awsec2.web.action.shared;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,10 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.awsec2.persistence.ResourcesMapper;
 import com.awsec2.util.CookieUtil;
 
 public class CookieCheckFilter implements Filter {
