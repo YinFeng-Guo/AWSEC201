@@ -8,8 +8,41 @@
 <title>Add products</title>
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
+	<script type="text/javascript"
+	src="<%=request.getContextPath()%>/js/jquery-1.8.0.js"></script>
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
-<script type="text/javascript" src="/AWSEC201/js/product/validateInput.js"></script>
+<link rel="stylesheet"
+	href="/AWSEC201/css/movement/validationEngine.jquery.css"
+	type="text/css" />
+<link rel="stylesheet" href="/AWSEC201/css/movement/template.css"
+	type="text/css" />
+<script type="text/javascript"
+	src="/AWSEC201/js/product/jquery.validationEngine-en.js"
+	type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"
+	src="/AWSEC201/js/product/jquery.validationEngine.js"
+	type="text/javascript" charset="utf-8"></script>
+<script>
+	jQuery(document).ready(function() {
+		// binds form submission and fields to the validation engine
+		jQuery("#formID").validationEngine();
+	});
+
+	/**
+	 *
+	 * @param {jqObject} the field where the validation applies
+	 * @param {Array[String]} validation rules for this field
+	 * @param {int} rule index
+	 * @param {Map} form options
+	 * @return an error string if validation failed
+	 */
+	function checkHELLO(field, rules, i, options) {
+		if (field.val() != "HELLO") {
+			// this allows to use i18 for the error msgs
+			return options.allrules.validate2fields.alertText;
+		}
+	}
+</script>
 <style type="text/css">
 th {
 	width: 90px;
@@ -22,24 +55,24 @@ th {
 	</div>
 
 	<div id="bodyDiv" align="center">
-		<form action="<%=request.getContextPath()%>/product/commitAdd.action"
+		<form id="formID" action="<%=request.getContextPath()%>/product/commitAdd.action"
 			method="post">
 			<table id="myTable" style="width:400px;">
 				<tr>
 					<th align="center">Name</th>
-					<td><input type="text" name="product.name" value=""></td>
+					<td><input type="text" name="product.name" class="validate[required]" value=""></td>
 				</tr>
 				<tr>
 					<th align="center">Barcode</th>
-					<td><input type="text" name="product.barcode" value=""></td>
+					<td><input type="text" name="product.barcode" class="validate[required]" value=""></td>
 				</tr>
 				<tr>
 					<th align="center">Price Buy</th>
-					<td><input type="text" name="product.price_buy" value=""></td>
+					<td><input type="text" name="product.price_buy" class="validate[required,custom[number]]" value=""></td>
 				</tr>
 				<tr>
 					<th align="center">Price Sell</th>
-					<td><input type="text" name="product.price_sell" value=""></td>
+					<td><input type="text" name="product.price_sell" class="validate[required,custom[number]]"value=""></td>
 				</tr>
 				<tr>
 					<th align="center">Unit</th>
@@ -54,7 +87,7 @@ th {
 				</tr>
 
 			</table>
-			<input type="button" value="Submit" onclick="form.submit()" />
+			<input class="submit" type="submit" value="Submit" >
 			<input onclick="history.go(-1)" type="button" value="Cancel" />
 		</form>
 		<s:debug></s:debug>

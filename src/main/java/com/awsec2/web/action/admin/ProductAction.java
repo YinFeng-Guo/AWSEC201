@@ -306,6 +306,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 		if(product != null) {
 			product.setOrganization_id(user.getOrganization_id());
 			products = productService.searchProducts(product);
+			product = null;
 		}
 		else System.out.println("Null");
 		return SUCCESS;

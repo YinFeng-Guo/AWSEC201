@@ -12,7 +12,7 @@
 <html>
 <head>
 <link rel="Shortcut Icon" href="/AWSEC201/images/ico.ico">
-<link rel="alternate" 				href="<%=request.getContextPath() %>/css/theme01/common.css" type="text/css" title="white" media="screen, projection"/> 
+<link rel="stylesheet" 				href="<%=request.getContextPath() %>/css/theme01/common.css" type="text/css" title="white" media="screen, projection"/> 
 <link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme02/common.css" type="text/css" title="green" media="screen, projection"/> 
 <link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme03/common.css" type="text/css" title="yellow" media="screen, projection"/>
 <link rel="alternate stylesheet" 	href="<%=request.getContextPath() %>/css/theme04/common.css" type="text/css" title="red" media="screen, projection"/>
@@ -40,6 +40,7 @@ a:hover{text-decoration:underline;}
 	overflow:auto;
 }
 
+
 .menu_navcc{width:100%; margin:0 auto;}
 .menu_nav{width:100%;height:48px;background:url(/AWSEC201/images/nav_bg.gif) repeat-x;float:left;margin-top:0px;}
 .menu_nav .nav_content{padding-left:25px;background:url(/AWSEC201/images/nav_l_bg.gif) no-repeat;float:left;}
@@ -54,32 +55,72 @@ a:hover{text-decoration:underline;}
 .menu_nav_right{padding-right:20px;background:url(/AWSEC201/images/nav_r_bg.gif) no-repeat right top;float:right;margin-left:50px;padding-top:13px;height:23px;padding-bottom:12px;}
 p{
 margin-bottom:15px}
+
+
 -->
 </style>
 <script>
-function setActiveStyleSheet(title) { 
-	  var i, a, main; 
-	  if (title) { 
-	  for(i=0; (a = document.getElementsByTagName('link')[i]); i++) { 
-	  if(a.getAttribute('rel').indexOf('style') != -1 && a.getAttribute('title')) { 
-	  a.disabled = true; 
-	  if(a.getAttribute('title') == title) a.disabled = false; 
-	  } 
-	  } 
-	  } 
-	  } 
-	  function getActiveStyleSheet() { 
-	  var i, a; 
-	  for(i=0; (a = document.getElementsByTagName('link')[i]); i++) { 
-	  if(a.getAttribute('rel').indexOf('style') != -1 && a.getAttribute('title') && !a.disabled) return a.getAttribute('title'); 
-	  } 
-	  return null; 
+	function setActiveStyleSheet(title) {
+		var i, a, main;
+		if (title) {
+			for (i = 0; (a = document.getElementsByTagName('link')[i]); i++) {
+				if (a.getAttribute('rel').indexOf('style') != -1
+						&& a.getAttribute('title')) {
+					a.disabled = true;
+					if (a.getAttribute('title') == title)
+						a.disabled = false;
+				}
+			}
+		}
+	}
+	function getActiveStyleSheet() {
+		var i, a;
+		for (i = 0; (a = document.getElementsByTagName('link')[i]); i++) {
+			if (a.getAttribute('rel').indexOf('style') != -1
+					&& a.getAttribute('title') && !a.disabled)
+				return a.getAttribute('title');
+		}
+		return null;
+	}
+	
+	function clickHelp(){
+		document.getElementById("help").className = "currentSelect";
+		document.getElementById("movementTab2").className = "currentNoSelect";
+		document.getElementById("productTab2").className = "currentNoSelect";
 	}
 </script>
 </head>
 <body style="text-align:center">
-
-	<div style="height:100px;text-align:left;margin-top:2px;min-width:1580px;" >
+<div id="navigation">
+	<div id="navigation_wrap">
+		<ul>
+			<% 
+				if(isSuper){
+			%> 
+			<li >
+				<a class="currentNoSelect" id="productTab2" href="<%=request.getContextPath() %>/product/loadProducts.action" title="Products"><spring:message code="products"/></a>
+			</li>
+			<% } %>
+			<li >
+				<a class="currentNoSelect" id="movementTab2" href="<%=request.getContextPath() %>/movement/loadMovms.action" title="Movements"><spring:message code="movements"/></a>
+			</li>
+			<li>
+				<a class="currentNoSelect" id="help" href="javascript:clickHelp();" title="Help"><spring:message code="help"/></a>
+			</li>
+		</ul>
+	</div>
+	<div id="navigation_right">
+		<ul>
+			<li>
+				<a class="currentNoSelect" href="<%=request.getContextPath() %>/logout.action" title="Logout"><spring:message code="logout"/></a>
+			</li>
+			<li >
+				<span><spring:message code="welcome"/>, <% out.println(session.getAttribute("username")==null?"Guest":session.getAttribute("username")); %></span>
+			</li>
+		</ul>
+	</div>
+</div>
+	<div style="height:100px;text-align:left;margin-top:2px;min-width:1580px;display: none" >
 		<div id="logo" style="text-align:right;">
 			<img width="442px" src="/AWSEC201/images/CWLogo.png" style="float:left;margin: 15px 0"/>
 			<img style="float:left;" src="/AWSEC201/images/banner.gif"/>
@@ -105,7 +146,7 @@ function setActiveStyleSheet(title) {
 
 <!-- 	<div style="clear:both"></div> -->
 	<!--nav,start-->
-	<div class="menu_navcc">
+	<div class="menu_navcc" style="display: none">
 	<div class="menu_nav clearfix">
 	<ul class="nav_content">
 		<% 
