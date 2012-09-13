@@ -21,15 +21,16 @@
 	<div id="headerDiv">
 		<jsp:include page="../shared/header.jsp" />
 	</div>
-	
+
 	<div id="bodyDiv">
-	<jsp:include page="prodSearch.jsp"></jsp:include>
-	<div id="dataDiv">
-	
-		<jsp:include page="listProds.jsp"></jsp:include>
+		<jsp:include page="prodSearch.jsp"></jsp:include>
+		<div id="dataDiv">
+
+			<jsp:include page="listProds.jsp"></jsp:include>
+
+		</div>
 		<input type="button" value="AddProd"
 			onclick="window.location.href='addProducts.action'">
-			</div>
 	</div>
 
 	<div id="footerDiv">
