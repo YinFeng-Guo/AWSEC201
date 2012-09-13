@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     <%@ taglib prefix="s" uri="/struts-tags"%>
-		<table id="prodsData">
+		<table id="prodsData" cellpadding="0" cellspacing="0" width="100%" class=" TF">
 			<tr>
 				<th width="5px" align="center">Actions</th>
 				<th align="center">Name</th>
