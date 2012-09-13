@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div id="contain">
-		<div id="systemname"> Hello ITBconsult</div>
+		<div id="systemname">Cloud Warehousing</div>
 		<div id="applesqmlogin">	
 			<div id="subbody">
 				<div id="largeLogo">

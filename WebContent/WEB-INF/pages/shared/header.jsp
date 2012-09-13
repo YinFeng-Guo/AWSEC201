@@ -107,7 +107,7 @@ margin-bottom:15px}
 			<li>
 				<a class="currentNoSelect" id="help" href="javascript:clickHelp();" title="Help"><spring:message code="help"/></a>
 			</li>
-			<li id="technicalTab"><a class="currentNoSelect" href="<%=request.getContextPath() %>/technical.action" title="Testings"><span>Testings</span></a></li>
+<%-- 			<li id="technicalTab"><a class="currentNoSelect" href="<%=request.getContextPath() %>/technical.action" title="Testings"><span>Testings</span></a></li> --%>
 		</ul>
 	</div>
 	<div id="navigation_right">
