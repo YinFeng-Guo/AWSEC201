@@ -24,7 +24,7 @@
 	<jsp:include page="prodSearch.jsp"></jsp:include>
 	<div id="bodyDiv">
 		<jsp:include page="listProds.jsp"></jsp:include>
-		<input type="button" value="addProd"
+		<input type="button" value="AddProd"
 			onclick="window.location.href='addProducts.action'">
 	</div>
 

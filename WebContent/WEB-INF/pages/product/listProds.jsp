@@ -41,5 +41,3 @@
 			</s:iterator>
 			
 		</table>
-		<input type="button" value="addProd"
-			onclick="window.location.href='addProducts.action'">
