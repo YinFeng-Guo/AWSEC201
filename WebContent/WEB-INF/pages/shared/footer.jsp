@@ -8,13 +8,13 @@
 </head>
 <body>	
 <br/>
-<div style="text-align:center;">
+<div style="text-align:center; display: none;">
 	<HR align=center style="FILTER: progid:DXImageTransform.Microsoft.Glow(color=#987cb9,strength=10)" width="100%" color=black SIZE=2>
 </div>
 <br/>
-<div class="liner bottom">
+<div class="liner bottom" style="display: none;">
     <div class="copyright">
-      <a href="//51sw.cc">Site Terms&nbsp;&nbsp;</a><a href="51sw.cc">Privacy Policy&nbsp;&nbsp;</a>©2012, Warehousing In Cloud LLC or its affiliates. All rights reserved.
+      <a href="//51sw.cc">Site Terms&nbsp;&nbsp;</a><a href="51sw.cc">Privacy Policy&nbsp;&nbsp;</a>ï¿½2012, Warehousing In Cloud LLC or its affiliates. All rights reserved.
     </div>
     <div class="logoMania">
       <img src="/AWSEC201/images/SiteLogo.gif" width="88" height="31" alt="Warehouing Welcome You">

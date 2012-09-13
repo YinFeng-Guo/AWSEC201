@@ -1,6 +1,7 @@
 package com.awsec2.web.action.shared;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -15,15 +16,19 @@ import javax.servlet.http.HttpSession;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.awsec2.domain.User;
-import com.awsec2.persistence.UserMapper;
+import com.awsec2.persistence.ResourcesMapper;
 import com.awsec2.util.CookieUtil;
 
 public class CookieCheckFilter implements Filter {
 	
 	private static CookieUtil cookieUtil = null;
+	//private static List<String> resources;
 	
 	static{
+	/*	ApplicationContext ax = new ClassPathXmlApplicationContext("config/spring/applicationContext.xml");
+		if(ax != null){
+			resources = ax.getBean("resourcesMapper", ResourcesMapper.class).getAllActions();
+		}*/
 		cookieUtil = new CookieUtil();
 	}
 	@Override
@@ -74,6 +79,17 @@ public class CookieCheckFilter implements Filter {
 				hRes.sendRedirect("home.action");
 				return;
 			}
+			/*for(String str : resources){
+				System.out.print(str + "  ");
+			}
+			String ress = url.substring(1,url.indexOf(".action"));
+			System.out.println(ress);
+			String resss = ress.substring(ress.lastIndexOf("/") + 1);
+			System.out.println("resss:" + resss);
+			if(isSuper.equals("false") && ress != null && resources.contains(resss)){
+				System.out.println("Error");
+				hRes.sendRedirect("../user/error.action");
+			}*/
 		}
 		}
 		chain.doFilter(req, res);
