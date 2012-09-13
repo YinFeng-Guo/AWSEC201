@@ -1,6 +1,5 @@
 package com.awsec2.web.action.shared;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -132,6 +131,10 @@ public class LoginAction extends BaseAction{
 	}
 	
 	public String index(){
+		return "success";
+	}
+	
+	public String testing() throws Exception{	
 		return "success";
 	}
 }

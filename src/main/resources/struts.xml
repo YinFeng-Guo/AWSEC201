@@ -47,5 +47,10 @@
             <result>index.jsp</result>
             <interceptor-ref name="basicStack"/>
         </action>
+        
+        <action name="technical" class="LoginAction" method="testing">
+            <result>/WEB-INF/pages/shared/technical.jsp</result>
+            <interceptor-ref name="basicStack"/>
+        </action>
     </package>
 </struts>
