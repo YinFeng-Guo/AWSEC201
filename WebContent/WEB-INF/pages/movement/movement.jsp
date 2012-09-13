@@ -6,9 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Show all Movements</title>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.0.js" ></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/jQuery/DatePicker/jquery-ui-1.8.23.custom.min.js" ></script>		
-<link href="<%=request.getContextPath()%>/jQuery/DatePicker/ui-lightness/jquery-ui-1.8.23.custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/js/jquery-1.8.0.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/jQuery/DatePicker/jquery-ui-1.8.23.custom.min.js"></script>
+<link
+	href="<%=request.getContextPath()%>/jQuery/DatePicker/ui-lightness/jquery-ui-1.8.23.custom.css"
+	rel="stylesheet" type="text/css" />
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
@@ -23,14 +27,14 @@
 	<div id="headerDiv">
 		<jsp:include page="../shared/header.jsp" />
 	</div>
-	
-	<div id="bodyDiv">
-	<jsp:include page="movmSearch.jsp"></jsp:include>
-	<div id="dataDive">
-	<jsp:include page="listMovms.jsp"></jsp:include>
 
-		<input type="button" value="Add Movements" onclick="window.location.href='addMovms.action'">
+	<div id="bodyDiv">
+		<jsp:include page="movmSearch.jsp"></jsp:include>
+		<div id="dataDive">
+			<jsp:include page="listMovms.jsp"></jsp:include>
 		</div>
+		<input type="button" value="Add Movements"
+			onclick="window.location.href='addMovms.action'">
 	</div>
 
 	<div id="footerDiv">
@@ -39,9 +43,13 @@
 </body>
 <script>
 	$(function() {
-		$( "#datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
+		$("#datepicker").datepicker({
+			dateFormat : 'yy-mm-dd'
+		});
 	});
-	
+
 	document.getElementById("movementTab2").className = "currentSelect";
+
+	
 </script>
 </html>
