@@ -131,6 +131,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 	public String loadProds() throws Exception {
 		getUserOrgId();
 		products = productService.getProductsByOrgId(user.getOrganization_id());
+		setProduct(null);
 		return SUCCESS;
 	}
 	
@@ -202,7 +203,9 @@ public class ProductAction  extends BaseAction implements Preparable{
 			}
 			productService.insertProducts(prods2Update);
 		}
+		
 		else System.out.println("null");
+		setProduct(null);
 		return SUCCESS;
 	}
 	
@@ -265,6 +268,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 //			System.out.println(product.getName());
 			
 		}
+		setProduct(null);
 		return SUCCESS;
 
 	}

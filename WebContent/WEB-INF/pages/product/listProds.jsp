@@ -29,8 +29,28 @@
 				<td align="center"><s:property value="#list_prods.barcode" /></td>
 				<td align="center"><s:property value="#list_prods.price_buy" /></td>
 				<td align="center"><s:property value="#list_prods.price_sell" /></td>
-				<td align="center"><s:property value="#list_prods.unit" /></td>
-				<td align="center"><s:property value="#list_prods.active" /></td>
+				<td align="center">
+					<s:if test="#list_prods.unit == 'Inch'">
+						<spring:message code="Inch" />
+					</s:if> <s:elseif test="#list_prods.unit == 'Meter'">
+						<spring:message code="Meter" />
+					</s:elseif> <s:elseif test="#list_prods.unit == 'Liter'">
+						<spring:message code="Liter" />
+					</s:elseif> <s:elseif test="#list_prods.unit == 'Kilogram'">
+						<spring:message code="Kilogram" />
+					</s:elseif> <s:elseif test="#list_prods.unit == 'Pieces'">
+						<spring:message code="Pieces" />
+					</s:elseif>
+					<%-- <s:property value="#list_prods.unit" /> --%>
+				</td>
+				<td align="center">
+					<s:if test="#list_prods.active == 'Active'">
+						<spring:message code="itemActive" />
+					</s:if> <s:else>
+						<spring:message code="itemInactive" />
+					</s:else>
+					<%-- <s:property value="#list_prods.active" /> --%>
+				</td>
 			</tr>
 		</s:iterator>
 		<s:iterator value="products" var="list_prods">

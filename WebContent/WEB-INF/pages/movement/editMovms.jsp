@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><spring:message code="title.editMovement"/></title>
+<title><spring:message code="title.editMovement" /></title>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/jquery-1.8.0.js"></script>
 <script type="text/javascript"
@@ -71,7 +71,7 @@ th {
 		<form id="formID"
 			action="<%=request.getContextPath()%>/movement/commitModify.action"
 			method="post">
-			<table id="myTable" style="width:400px;">
+			<table id="myTable" style="width: 400px;">
 				<s:iterator value="movement" var="m">
 					<tr>
 						<th align="center"><spring:message code='id' /></th>
@@ -80,8 +80,8 @@ th {
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='movementName' /></th>
-						<td><input type="text" name="movement.name" class="validate[required]"
-							value="<s:property value="#m.name"/>"></td>
+						<td><input type="text" name="movement.name"
+							class="validate[required]" value="<s:property value="#m.name"/>"></td>
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='productId4Mov' /></th>
@@ -95,43 +95,62 @@ th {
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='date' /></th>
-						<td><input type="text" name="movement.oper_date" class="validate[custom[date],required]"
-							id="datepicker" value="<s:property value='#m.oper_date'/>"></td>
+						<td><input type="text" name="movement.oper_date"
+							class="validate[custom[date],required]" id="datepicker"
+							value="<s:date name='#m.oper_date' format="yyyy-MM-dd"/>"></td>
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='type' /></th>
-						<td>
-						<select name="movement.type" >
+						<td><select name="movement.type">
 								<s:if test="movement.type == 'IN'">
-									<option value="IN" selected="selected"><spring:message code="IN"/></option>
-									<option value="OUT" ><spring:message code="OUT"/></option>
-									<option value="FAILURE" ><spring:message code="FAILURE"/></option>
+									<option value="IN" selected="selected">
+										<spring:message code="IN" />
+									</option>
+									<option value="OUT">
+										<spring:message code="OUT" />
+									</option>
+									<option value="FAILURE">
+										<spring:message code="FAILURE" />
+									</option>
 								</s:if>
 								<s:elseif test="movement.type == 'OUT'">
-									<option value="IN" ><spring:message code="IN"/></option>
-									<option value="OUT" selected="selected"><spring:message code="OUT"/></option>
-									<option value="FAILURE" ><spring:message code="FAILURE"/></option>
+									<option value="IN">
+										<spring:message code="IN" />
+									</option>
+									<option value="OUT" selected="selected">
+										<spring:message code="OUT" />
+									</option>
+									<option value="FAILURE">
+										<spring:message code="FAILURE" />
+									</option>
 								</s:elseif>
 								<s:elseif test="movement.type == 'FAILURE'">
-									<option value="IN" ><spring:message code="IN"/></option>
-									<option value="OUT" ><spring:message code="OUT"/></option>
-									<option value="FAILURE" selected="selected"><spring:message code="FAILURE"/></option>
+									<option value="IN">
+										<spring:message code="IN" />
+									</option>
+									<option value="OUT">
+										<spring:message code="OUT" />
+									</option>
+									<option value="FAILURE" selected="selected">
+										<spring:message code="FAILURE" />
+									</option>
 								</s:elseif>
-							</select>
-		<%-- 				<s:select list="{'IN','OUT','FAILURE'}"
+						</select> <%-- 				<s:select list="{'IN','OUT','FAILURE'}"
 								name="movement.type" value="<s:property value='#m.type'/>" />
-								--%>
-						</td>
-					</tr> 
+								--%></td>
+					</tr>
 					<tr>
 						<th align="center"><spring:message code='amount' /></th>
-						<td><input type="text" name="movement.amount" class="validate[required,custom[integer]]"
+						<td><input type="text" name="movement.amount"
+							class="validate[required,custom[integer]]"
 							value="<s:property value='#m.amount'/>"></td>
 					</tr>
 				</s:iterator>
 			</table>
-			<input class="submit" type="submit" value="<spring:message code='submit' />" >
-			<input onclick="history.go(-1)" type="button" value="<spring:message code='cancel' />">
+			<input class="submit" type="submit"
+				value="<spring:message code='submit' />"> <input
+				onclick="history.go(-1)" type="button"
+				value="<spring:message code='cancel' />">
 		</form>
 		<s:debug></s:debug>
 	</div>
