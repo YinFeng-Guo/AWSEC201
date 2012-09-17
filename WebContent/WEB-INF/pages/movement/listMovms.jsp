@@ -12,7 +12,7 @@
 		<th align="center"><spring:message code='productName' /></th>
 		<th align="center"><spring:message code='operateDate' /></th>
 		<th align="center"><spring:message code='type' /></th>
-		<th align="center"><spring:message code='amount' /></th>
+		<th align="center"><spring:message code='OUT' /></th>
 	</tr>
 	<s:iterator value="movements" var="list_movms">
 		<tr>
@@ -25,7 +25,15 @@
 						value="#list_movms.prodName" /></a></td>
 			<td align="center"><s:date name="#list_movms.oper_date"
 					format="yyyy-MM-dd" /></td>
-			<td align="center"><s:property value="#list_movms.type" /></td>
+			<td align="center">
+				<s:if test="#list_movms.type == 'IN'">
+					<spring:message code="IN" />
+				</s:if> <s:elseif test="#list_movms.type == 'OUT'">
+					<spring:message code="OUT" />
+				</s:elseif> <s:elseif test="#list_movms.type == 'FAILURE'">
+					<spring:message code="FAILURE" />
+				</s:elseif>
+			</td>
 			<td align="center"><s:property value="#list_movms.amount" /></td>
 
 		</tr>
