@@ -24,7 +24,7 @@ function startRequest(url,divname,formid) {
 	// loading 
 	var divObj = document.getElementById(divname);
 	if(divObj){
-		divObj.innerHTML = 'Loading......<br><img src="../images/loading.gif"/>'; 
+		divObj.innerHTML = '<br><img src="../images/loadingV2.gif"/>'; 
 	}
 	if(formid){
 		if(!url) {

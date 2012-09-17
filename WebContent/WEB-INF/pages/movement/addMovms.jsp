@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -72,39 +73,39 @@ th {
 			class="fValidator-form" method="post">
 			<table id="myTable" style="width: 400px;">
 				<tr>
-					<th align="center">Name</th>
+					<th align="center"><spring:message code='movementName'/></th>
 					<td><input type="text" name="movement.name"
 						class="validate[required]" value="" name="req" id="req"></td>
 				</tr>
 				<tr>
-					<th align="center">Product Id</th>
+					<th align="center"><spring:message code='productId4Mov'/></th>
 					<td><s:select list="list_ProdIds" name="movement.product_Id"
 							value="" /></td>
 				</tr>
 				<tr>
-					<th align="center">Business Unit Id</th>
+					<th align="center"><spring:message code='businessId'/></th>
 					<td><s:select list="list_BUIds"
 							name="movement.businessUnit_Id" value="" /></td>
 				</tr>
 				<tr>
-					<th align="center">Operate Date</th>
+					<th align="center"><spring:message code='operateDate'/></th>
 					<td><input type="text" name="movement.oper_date"
 						class="validate[custom[date],required]" id="datepicker"
 						value="<%=str_date1%>"></td>
 				</tr>
 				<tr>
-					<th align="center">Type</th>
+					<th align="center"><spring:message code='type'/></th>
 					<td><s:select list="{'IN','OUT','FAILURE'}"
 							name="movement.type" value="" /></td>
 				</tr>
 				<tr>
-					<th align="center">Amount</th>
+					<th align="center"><spring:message code='amount'/></th>
 					<td><input type="text" name="movement.amount"
 						class="validate[required,custom[integer]]" value=""></td>
 				</tr>
 			</table>
-			<input class="submit" type="submit" value="Submit" >
-			 <input onclick="history.go(-1)" type="button" value="Cancel">
+			<input class="submit" type="submit" value="<spring:message code='submit'/>" >
+			 <input onclick="history.go(-1)" type="button" value="<spring:message code='cancel'/>">
 		</form>
 
 

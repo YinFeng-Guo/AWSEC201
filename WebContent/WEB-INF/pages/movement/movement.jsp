@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,8 +33,7 @@
 		<div id="dataDive">
 			<jsp:include page="listMovms.jsp"></jsp:include>
 		</div>
-		<input type="button" value="Add Movements"
-			onclick="window.location.href='addMovms.action'">
+
 	</div>
 
 	<div id="footerDiv">

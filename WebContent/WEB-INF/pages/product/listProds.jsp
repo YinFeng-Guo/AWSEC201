@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     <%@ taglib prefix="s" uri="/struts-tags"%>
-	<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+
 		<table id="prodsData" cellpadding="0" cellspacing="0" width="100%" >
 			<thead>
 			<tr>
+
 				<th width="3%" align="center"><spring:message code="action"/></th>
 				<th width="10%" align="center" ><spring:message code="productName"/></th>
 				<th width="10%" align="center" ><spring:message code="barcode"/></th>

@@ -30,8 +30,8 @@
 		<div id="dataDiv">
 			<jsp:include page="listProds.jsp"></jsp:include>
 		</div>
-		<input type="button" value='<spring:message code="addProduct"/>'
-			onclick="window.location.href='addProducts.action'">
+
+		<input type="button" value="<spring:message code='addProduct'/>" onclick="window.location.href='addProducts.action'">
 	</div>
 
 	<div id="footerDiv">
