@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Add products</title>
+<title><spring:message code="title.addMovement"/></title>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/jquery-1.8.0.js"></script>
 <script type="text/javascript"
@@ -95,8 +95,15 @@ th {
 				</tr>
 				<tr>
 					<th align="center"><spring:message code='type'/></th>
-					<td><s:select list="{'IN','OUT','FAILURE'}"
-							name="movement.type" value="" /></td>
+					<td>
+						<select name="movement.type" >
+							<option value="IN" selected="selected"><spring:message code="IN"/></option>
+							<option value="OUT" ><spring:message code="OUT"/></option>
+							<option value="FAILURE" ><spring:message code="FAILURE"/></option>
+						</select>
+					<%-- <s:select list="{'IN','OUT','FAILURE'}"
+							name="movement.type" value="" /> --%>
+					</td>
 				</tr>
 				<tr>
 					<th align="center"><spring:message code='amount'/></th>

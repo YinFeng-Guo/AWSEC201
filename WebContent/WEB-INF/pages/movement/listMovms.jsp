@@ -35,7 +35,6 @@
 				</s:elseif>
 			</td>
 			<td align="center"><s:property value="#list_movms.amount" /></td>
-
 		</tr>
 	</s:iterator>
 </table>

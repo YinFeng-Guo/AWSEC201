@@ -6,9 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Show all products</title>
-<link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
-	type="text/css" media="screen" />
+<title><spring:message code="title.showAllProducts"/></title>
+<link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
 <script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
 <script type="text/javascript" src="/AWSEC201/js/ajax.js"></script>
 <script type="text/javascript" src="/AWSEC201/js/jquery-1.8.0.js"></script>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Edit Products</title>
+<title><spring:message code="title.editProduct"/></title>
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
 	<script type="text/javascript"
@@ -89,15 +89,69 @@ th {
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='unit' /></th>
-						<td><s:select
+						<td>
+							<select name="product.unit" >
+								<s:if test="product.unit == 'Inch'">
+									<option value="Inch" selected="selected"><spring:message code="Inch"/></option>
+									<option value="Meter" ><spring:message code="Meter"/></option>
+									<option value="Liter" ><spring:message code="Liter"/></option>
+									<option value="Kilogram" ><spring:message code="Kilogram"/></option>
+									<option value="Pieces" ><spring:message code="Pieces"/></option>
+								</s:if>
+								<s:elseif test="product.unit == 'Meter'">
+									<option value="Inch" ><spring:message code="Inch"/></option>
+									<option value="Meter" selected="selected"><spring:message code="Meter"/></option>
+									<option value="Liter" ><spring:message code="Liter"/></option>
+									<option value="Kilogram" ><spring:message code="Kilogram"/></option>
+									<option value="Pieces" ><spring:message code="Pieces"/></option>
+								</s:elseif>
+								<s:elseif test="product.unit == 'Liter'">
+									<option value="Inch" ><spring:message code="Inch"/></option>
+									<option value="Meter" ><spring:message code="Meter"/></option>
+									<option value="Liter" selected="selected"><spring:message code="Liter"/></option>
+									<option value="Kilogram" ><spring:message code="Kilogram"/></option>
+									<option value="Pieces" ><spring:message code="Pieces"/></option>
+								</s:elseif>
+								<s:elseif test="product.unit == 'Kilogram'">
+									<option value="Inch" ><spring:message code="Inch"/></option>
+									<option value="Meter" ><spring:message code="Meter"/></option>
+									<option value="Liter" ><spring:message code="Liter"/></option>
+									<option value="Kilogram" selected="selected"><spring:message code="Kilogram"/></option>
+									<option value="Pieces" ><spring:message code="Pieces"/></option>
+								</s:elseif>
+								<s:elseif test="product.unit == 'Pieces'">
+									<option value="Inch"><spring:message code="Inch"/></option>
+									<option value="Meter" ><spring:message code="Meter"/></option>
+									<option value="Liter" ><spring:message code="Liter"/></option>
+									<option value="Kilogram" ><spring:message code="Kilogram"/></option>
+									<option value="Pieces" selected="selected"><spring:message code="Pieces"/></option>
+								</s:elseif>
+								
+							</select>
+						
+<%-- 						<s:select
 								list="{'Inch','Meter','Liter','Kilogram','Pieces'}"
-								name="product.unit" value="<s:property value='#p.unit'/>" /></td>
+								name="product.unit" value="<s:property value='#p.unit'/>" /> --%>
+						</td>
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='active' /></th>
-						<td><s:select list="{'Active','Inactive'}"
-								name="product.active" value="<s:property value='#p.active'/>" /></td>
-
+						<td>
+							
+							
+						<select name="product.active">
+							<s:if test="product.active == 'Active'">
+								<option value="Active" selected="selected"><spring:message code="itemActive"/></option>
+								<option value="Inactive" ><spring:message code="itemInactive"/></option>
+							</s:if>
+							<s:else>
+								<option value="Active" ><spring:message code="itemActive"/></option>
+								<option value="Inactive" selected="selected"><spring:message code="itemInactive"/></option>
+							</s:else>
+						</select>
+					<%-- 	<s:select list="{'Active','Inactive'}"
+								name="product.active" value="<s:property value='#p.active'/>" /> --%>
+						</td>
 					</tr>
 				</s:iterator>
 			</table>

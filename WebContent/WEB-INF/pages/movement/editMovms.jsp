@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Edit Products</title>
+<title><spring:message code="title.editMovement"/></title>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/jquery-1.8.0.js"></script>
 <script type="text/javascript"
@@ -100,9 +100,29 @@ th {
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='type' /></th>
-						<td><s:select list="{'IN','OUT','FAILURE'}"
-								name="movement.type" value="<s:property value='#m.type'/>" /></td>
-					</tr>
+						<td>
+						<select name="movement.type" >
+								<s:if test="movement.type == 'IN'">
+									<option value="IN" selected="selected"><spring:message code="IN"/></option>
+									<option value="OUT" ><spring:message code="OUT"/></option>
+									<option value="FAILURE" ><spring:message code="FAILURE"/></option>
+								</s:if>
+								<s:elseif test="movement.type == 'OUT'">
+									<option value="IN" ><spring:message code="IN"/></option>
+									<option value="OUT" selected="selected"><spring:message code="OUT"/></option>
+									<option value="FAILURE" ><spring:message code="FAILURE"/></option>
+								</s:elseif>
+								<s:elseif test="movement.type == 'FAILURE'">
+									<option value="IN" ><spring:message code="IN"/></option>
+									<option value="OUT" ><spring:message code="OUT"/></option>
+									<option value="FAILURE" selected="selected"><spring:message code="FAILURE"/></option>
+								</s:elseif>
+							</select>
+		<%-- 				<s:select list="{'IN','OUT','FAILURE'}"
+								name="movement.type" value="<s:property value='#m.type'/>" />
+								--%>
+						</td>
+					</tr> 
 					<tr>
 						<th align="center"><spring:message code='amount' /></th>
 						<td><input type="text" name="movement.amount" class="validate[required,custom[integer]]"

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Show all Movements</title>
+<title><spring:message code="title.showAllMovements"/></title>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/jquery-1.8.0.js"></script>
 <script type="text/javascript"

@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -6,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Add products</title>
+<title><spring:message code="title.addProduct"/></title>
 <link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet"
 	type="text/css" media="screen" />
 	<script type="text/javascript"
@@ -77,14 +78,30 @@ th {
 				</tr>
 				<tr>
 					<th align="center"><spring:message code='unit' /></th>
-					<td><s:select
+					<td>
+						<select name="product.unit" >
+							<option value="Inch" selected="selected"><spring:message code="Inch"/></option>
+							<option value="Meter" ><spring:message code="Meter"/></option>
+							<option value="Liter" ><spring:message code="Liter"/></option>
+							<option value="Kilogram" ><spring:message code="Kilogram"/></option>
+							<option value="Pieces" ><spring:message code="Pieces"/></option>
+						</select>
+						<%-- <s:select
 							list="{'Inch','Meter','Liter','Kilogram','Pieces'}"
-							name="product.unit" value="" /></td>
+							name="product.unit" value="" /> --%>
+					</td>
 				</tr>
 				<tr>
 					<th align="center"><spring:message code='active' /></th>
-					<td><s:select list="{'Active','Inactive'}"
-							name="product.active" value="" /></td>
+					<td>
+					<select name="product.active" >
+						<option value="Active" selected="selected"><spring:message code="itemActive"/></option>
+						<option value="Inactive" ><spring:message code="itemInactive"/></option>
+					</select>
+					
+					<%-- <s:select list="{'Active','Inactive'}" 
+						 name="product.active" value="" /> --%>
+					</td>
 				</tr>
 
 			</table>
