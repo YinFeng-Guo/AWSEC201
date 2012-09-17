@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -59,36 +60,36 @@ th {
 			method="post">
 			<table id="myTable" style="width:400px;">
 				<tr>
-					<th align="center">Name</th>
+					<th align="center"><spring:message code='productName' /></th>
 					<td><input type="text" name="product.name" class="validate[required]" value=""></td>
 				</tr>
 				<tr>
-					<th align="center">Barcode</th>
+					<th align="center"><spring:message code='barcode' /></th>
 					<td><input type="text" name="product.barcode" class="validate[required]" value=""></td>
 				</tr>
 				<tr>
-					<th align="center">Price Buy</th>
+					<th align="center"><spring:message code='priceBuy' /></th>
 					<td><input type="text" name="product.price_buy" class="validate[required,custom[number]]" value=""></td>
 				</tr>
 				<tr>
-					<th align="center">Price Sell</th>
+					<th align="center"><spring:message code='priceSell' /></th>
 					<td><input type="text" name="product.price_sell" class="validate[required,custom[number]]"value=""></td>
 				</tr>
 				<tr>
-					<th align="center">Unit</th>
+					<th align="center"><spring:message code='unit' /></th>
 					<td><s:select
 							list="{'Inch','Meter','Liter','Kilogram','Pieces'}"
 							name="product.unit" value="" /></td>
 				</tr>
 				<tr>
-					<th align="center">Active</th>
+					<th align="center"><spring:message code='active' /></th>
 					<td><s:select list="{'Active','Inactive'}"
 							name="product.active" value="" /></td>
 				</tr>
 
 			</table>
-			<input class="submit" type="submit" value="Submit" >
-			<input onclick="history.go(-1)" type="button" value="Cancel" />
+			<input class="submit" type="submit" value="<spring:message code='submit' />" >
+			<input onclick="history.go(-1)" type="button" value="<spring:message code='cancel' />" />
 		</form>
 		<s:debug></s:debug>
 

@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     <%@ taglib prefix="s" uri="/struts-tags"%>
-		
+	<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 		<table id="prodsData" cellpadding="0" cellspacing="0" width="100%" >
 			<thead>
 			<tr>
-				<th width="3%" align="center">Actions</th>
-				<th width="10%" align="center" >Name</th>
-				<th width="10%" align="center" >Barcode</th>
-				<th width="10%" align="center" >Price Buy</th>
-				<th width="10%" align="center" >Price Sell</th>
-				<th width="10%" align="center" >Unit</th>
-				<th width="10%" align="center" >Active</th>
+				<th width="3%" align="center"><spring:message code="action"/></th>
+				<th width="10%" align="center" ><spring:message code="productName"/></th>
+				<th width="10%" align="center" ><spring:message code="barcode"/></th>
+				<th width="10%" align="center" ><spring:message code="priceBuy"/></th>
+				<th width="10%" align="center" ><spring:message code="priceSell"/></th>
+				<th width="10%" align="center" ><spring:message code="unit"/></th>
+				<th width="10%" align="center" ><spring:message code="active"/></th>
 			</tr>
 			</thead>
 			<tbody>
@@ -37,8 +37,35 @@
 					<td align="center"><s:property value="#list_prods.barcode" /></td>
 					<td align="center"><s:property value="#list_prods.price_buy" /></td>
 					<td align="center"><s:property value="#list_prods.price_sell" /></td>
-					<td align="center"><s:property value="#list_prods.unit" /></td>
-					<td align="center"><s:property value="#list_prods.active" /></td>
+					<td align="center">
+					<s:if test="#list_prods.unit == 'Inch'">
+						<spring:message code="Inch"/>
+					</s:if>
+					<s:elseif test="#list_prods.unit == 'Meter'">
+						<spring:message code="Meter"/>
+					</s:elseif>
+					<s:elseif test="#list_prods.unit == 'Liter'">
+						<spring:message code="Liter"/>
+					</s:elseif>
+					<s:elseif test="#list_prods.unit == 'Kilogram'">
+						<spring:message code="Kilogram"/>
+					</s:elseif>
+					<s:elseif test="#list_prods.unit == 'Pieces'">
+						<spring:message code="Pieces"/>
+					</s:elseif>
+
+					<%-- <s:property value="#list_prods.unit" /> --%>
+					</td>
+					
+					<td align="center">
+						<s:if test="#list_prods.active == 'Active'">
+							<spring:message code="itemActive"/>
+						</s:if>
+						<s:else>
+							<spring:message code="itemInactive"/>
+						</s:else>
+				<%-- 	<s:property value="#list_prods.active" /> --%>
+					</td>
 				</tr>
 			</s:iterator>
 			</tbody>

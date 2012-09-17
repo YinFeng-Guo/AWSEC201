@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,13 +26,13 @@
 		</form>
 		<table id="prodsData">
 			<tr>
-				<th width="5px" align="center">Actions</th>
-				<th align="center">Name</th>
-				<th align="center">Barcode</th>
-				<th align="center">Price Buy</th>
-				<th align="center">Price Sell</th>
-				<th align="center">Unit</th>
-				<th align="center">Active</th>
+				<th width="5px" align="center"><spring:message code='id' /></th>
+				<th align="center"><spring:message code='productName' /></th>
+				<th align="center"><spring:message code='barcode' /></th>
+				<th align="center"><spring:message code='priceBuy' /></th>
+				<th align="center"><spring:message code='priceSell' /></th>
+				<th align="center"><spring:message code='unit' /></th>
+				<th align="center"><spring:message code='active' /></th>
 
 			</tr>
 			<s:iterator value="product" var="list_prods">
