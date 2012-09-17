@@ -1,8 +1,8 @@
-
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     <%@ taglib prefix="s" uri="/struts-tags"%>
-		<table id="prodsData" cellpadding="0" cellspacing="0" width="100%" class=" TF">
+		
+		<table id="prodsData" cellpadding="0" cellspacing="0" width="100%" >
 			<thead>
 			<tr>
 				<th width="3%" align="center">Actions</th>
