@@ -95,9 +95,11 @@ th {
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='date' /></th>
-						<td><input type="text" name="movement.oper_date"
-							class="validate[custom[date],required]" id="datepicker"
-							value="<s:date name='#m.oper_date' format="yyyy-MM-dd"/>"></td>
+
+						<td><input type="text" name="movement.oper_date" class="validate[custom[date],required]"
+							id="datepicker" value="<s:date name='#m.oper_date' format="yyyy-MM-dd"/>"></td>
+
+
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='type' /></th>

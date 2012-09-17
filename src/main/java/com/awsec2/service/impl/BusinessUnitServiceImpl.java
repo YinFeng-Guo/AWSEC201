@@ -22,7 +22,14 @@ public class BusinessUnitServiceImpl implements IBusinessUnitService {
 		HashMap map = new HashMap();
 		for(int i=0; i<list.size();i++) {
 			map = (HashMap)list.get(i);
-			list2Return.add((long)map.get("id"));
+			if(map != null ) {
+				if((long)map.get("id") != 0 && map.get("id") != null) {
+					System.out.println("(long)map.get"+ (long)map.get("id"));
+					list2Return.add((long)map.get("id"));
+				}
+
+			}
+			
 		}
 		return list2Return;
 	}

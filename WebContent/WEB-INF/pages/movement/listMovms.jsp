@@ -7,7 +7,7 @@
 <table id="prodsData" cellpadding="0" cellspacing="0" width="100%"
 	class=" TF">
 	<tr>
-		<th align="center" width="5px"><spring:message code='action' /></th>
+		<th align="center" width="3%"><spring:message code='action' /></th>
 		<th align="center"><spring:message code='movementName' /></th>
 		<th align="center"><spring:message code='productName' /></th>
 		<th align="center"><spring:message code='operateDate' /></th>
