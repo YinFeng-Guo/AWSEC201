@@ -114,4 +114,10 @@ body{
 	padding-left:706px;
 	padding-top:420px;
 	color:#7F7F7F;
-}	
+}
+/*Add for login button*/
+#button_login{
+background:url(../images/btn_login.png);
+height:43px;
+width:97px;
+}

@@ -90,8 +90,7 @@
 			AND Movement.businessUnit_Id in
 			<foreach item="item" index="index" collection="buIds" open="("
 				separator="," close=")">
-				<if test="item != null" >#{item} </if>
-				
+				<if test="item != null" >#{item}</if>
 			</foreach>
 		</if>
 	</select>

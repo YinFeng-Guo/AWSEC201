@@ -339,11 +339,13 @@ public class MovementAction extends BaseAction implements Preparable {
 	 * 
 	 */
 	public String searchMovms() throws Exception {
+		System.out.println("ssssssssssss111");
 		getUserOrgId();
 		getProdIdsAndBUIds();
 		HashMap<String, Object> searchParam = new HashMap<String, Object>();
-
+		System.out.println("ssssssssssss");
 		searchParam.put("buIds", getList_BUIds());
+		System.out.println("ssssssssssss");
 		if (movement != null) {
 			if (movement.getOper_date() != null) {
 				String fmt = "yyyy-mm-dd";

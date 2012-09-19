@@ -71,13 +71,13 @@ th {
 		<form id="formID"
 			action="<%=request.getContextPath()%>/movement/commitModify.action"
 			method="post">
-			<table id="myTable" style="width: 400px;">
+			<table id="myTable1" style="width: 400px;">
 				<s:iterator value="movement" var="m">
-					<tr>
-						<th align="center"><spring:message code='id' /></th>
-						<td><input type="text" name="movement.id"
-							value="<s:property value="#m.id" />" readonly="readonly"></td>
-					</tr>
+					
+						<!-- <th align="center"><spring:message code='id' /></th> -->
+						<input type="hidden" name="movement.id"
+							value="<s:property value="#m.id" />" readonly="readonly">
+					
 					<tr>
 						<th align="center"><spring:message code='movementName' /></th>
 						<td><input type="text" name="movement.name"

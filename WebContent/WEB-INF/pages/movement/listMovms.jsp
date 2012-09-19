@@ -5,7 +5,7 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <table id="prodsData" cellpadding="0" cellspacing="0" width="100%"
-	class=" TF">
+	class="TF">
 	<tr>
 		<th align="center" width="3%"><spring:message code='action' /></th>
 		<th align="center"><spring:message code='movementName' /></th>

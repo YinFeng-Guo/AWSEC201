@@ -61,12 +61,12 @@ th {
 			method="post">
 			<table id="myTable" style="width:400px;">
 				<s:iterator value="product" var="p">
-					<tr>
-						<th align="center"><spring:message code='id' /></th>
+					
+						<!-- <th align="center"><spring:message code='id' /></th> -->
 
-						<td><input type="text" name="product.id"
-							value="<s:property value="#p.id" />" readonly="readonly"></td>
-					</tr>
+						<input type="hidden" name="product.id"
+							value="<s:property value="#p.id" />" readonly="readonly">
+					
 					<tr>
 						<th align="center"><spring:message code='productName' /></th>
 						<td><input type="text" name="product.name" class="validate[required]"
