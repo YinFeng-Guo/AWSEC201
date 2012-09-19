@@ -82,7 +82,7 @@
                 },
                 "email": {
                     // HTML5 compatible email regex ( http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#    e-mail-state-%28type=email%29 )
-                    "regex": /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                    "regex": /^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i,
                     "alertText": "* Invalid email address"
                 },
                 "integer": {
