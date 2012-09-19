@@ -30,8 +30,6 @@
 		<div id="dataDiv">
 			<jsp:include page="listProds.jsp"></jsp:include>
 		</div>
-
-
 	</div>
 
 	<div id="footerDiv">

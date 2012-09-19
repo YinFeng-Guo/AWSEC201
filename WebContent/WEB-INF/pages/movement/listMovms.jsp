@@ -42,4 +42,4 @@
 <input type="button" value="<spring:message code='addMovement'/>"
 	onclick="window.location.href='addMovms.action'">
 </s:if>
-<s:debug></s:debug>
+

@@ -86,12 +86,12 @@ th {
 					<tr>
 						<th align="center"><spring:message code='productId4Mov' /></th>
 						<td><s:select list="list_ProdIds" name="movement.product_Id" class="validate[required]"
-								emptyOption="ture"></s:select></td>
+								emptyOption="ture" ></s:select></td>
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='businessId' /></th>
 						<td><s:select list="list_BUIds" class="validate[required]"
-								name="movement.businessUnit_Id" emptyOption="true"></s:select></td>
+								name="movement.businessUnit_Id"></s:select></td>
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='date' /></th>
@@ -154,7 +154,6 @@ th {
 				onclick="history.go(-1)" type="button"
 				value="<spring:message code='cancel' />">
 		</form>
-		<s:debug></s:debug>
 	</div>
 
 	<div id="footerDiv">

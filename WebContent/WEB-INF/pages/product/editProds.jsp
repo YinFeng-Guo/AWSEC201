@@ -158,7 +158,6 @@ th {
 			<input class="submit" type="submit" value="<spring:message code='submit' />" >
 			<input onclick="history.go(-1)" type="button" value="<spring:message code='cancel' />">
 		</form>
-		<s:debug></s:debug>
 	</div>
 
 	<div id="footerDiv">
