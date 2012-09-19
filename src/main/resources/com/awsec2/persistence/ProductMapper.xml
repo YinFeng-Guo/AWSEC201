@@ -80,6 +80,7 @@
 		<if test="barcode != null">
 			AND barcode like CONCAT('%','${barcode}','%' )
 		</if>
+		Order by Product.id Desc
 	</select>
 
 	<!-- Define Insert operation here -->

@@ -23,8 +23,8 @@ import com.opensymphony.xwork2.Preparable;
 
 public class MovementAction extends BaseAction implements Preparable {
 
-	private ArrayList list_ProdIds;
-	private ArrayList list_BUIds;
+	private ArrayList list_ProdIds = null;
+	private ArrayList list_BUIds = null;
 	private List<Movement> movements;
 	private Movement movement;
 	private User user = null;
@@ -162,6 +162,7 @@ public class MovementAction extends BaseAction implements Preparable {
 					.getOrganization_id()));
 		}
 		if (list_BUIds == null) {
+			System.out.println("user.getOrganization_id())"+user.getOrganization_id());
 			setList_BUIds(iBUService.getBUIdsByOrgId(user.getOrganization_id()));
 		}
 	}
@@ -341,9 +342,9 @@ public class MovementAction extends BaseAction implements Preparable {
 		getUserOrgId();
 		getProdIdsAndBUIds();
 		HashMap<String, Object> searchParam = new HashMap<String, Object>();
+
 		searchParam.put("buIds", getList_BUIds());
 		if (movement != null) {
-			System.out.println(movement.getName());
 			if (movement.getOper_date() != null) {
 				String fmt = "yyyy-mm-dd";
 				SimpleDateFormat sdf = new SimpleDateFormat(fmt);

@@ -33,10 +33,10 @@ public class MovementServiceImpl implements IMovementService{
 	@Override
 	public List<Movement> searchMovements(HashMap<String, Object> searchMap) {
 		List<Long> list_long = (List<Long>) searchMap.get("buIds");
-				
 		if(list_long != null) {
+			System.out.println("11111111111111");
 			for(Long id: list_long) {
-				System.out.println(id);
+				System.out.println("11111111111111"+id);
 			}
 		}
 		return movementMapper.searchMovements(searchMap);
