@@ -12,7 +12,7 @@
 		<th align="center"><spring:message code='productName' /></th>
 		<th align="center"><spring:message code='operateDate' /></th>
 		<th align="center"><spring:message code='type' /></th>
-		<th align="center"><spring:message code='OUT' /></th>
+		<th align="center"><spring:message code='amount' /></th>
 	</tr>
 	<s:iterator value="movements" var="list_movms">
 		<tr>
@@ -38,5 +38,8 @@
 		</tr>
 	</s:iterator>
 </table>
+<s:if test="list_BUIdSize != 0">
 <input type="button" value="<spring:message code='addMovement'/>"
 	onclick="window.location.href='addMovms.action'">
+</s:if>
+<s:debug></s:debug>

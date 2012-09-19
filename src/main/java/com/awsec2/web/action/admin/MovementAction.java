@@ -28,6 +28,8 @@ public class MovementAction extends BaseAction implements Preparable {
 	private List<Movement> movements;
 	private Movement movement;
 	private User user = null;
+	private int list_BUIdSize;
+
 
 	@Autowired
 	private IMovementService imovementService;
@@ -80,6 +82,14 @@ public class MovementAction extends BaseAction implements Preparable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public int getList_BUIdSize() {
+		return list_BUIdSize;
+	}
+
+	public void setList_BUIdSize(int list_BUIdSize) {
+		this.list_BUIdSize = list_BUIdSize;
 	}
 
 	public String init() throws Exception {
@@ -342,8 +352,12 @@ public class MovementAction extends BaseAction implements Preparable {
 		System.out.println("ssssssssssss111");
 		getUserOrgId();
 		getProdIdsAndBUIds();
+		setList_BUIdSize(getList_BUIds().size());
 		HashMap<String, Object> searchParam = new HashMap<String, Object>();
-		System.out.println("ssssssssssss");
+		if(getList_BUIds().size() == 0) {
+			movements = null;
+			return SUCCESS;
+		}
 		searchParam.put("buIds", getList_BUIds());
 		System.out.println("ssssssssssss");
 		if (movement != null) {

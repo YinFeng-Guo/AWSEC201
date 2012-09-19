@@ -85,13 +85,13 @@ th {
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='productId4Mov' /></th>
-						<td><s:select list="list_ProdIds" name="movement.product_Id"
+						<td><s:select list="list_ProdIds" name="movement.product_Id" class="validate[required]"
 								emptyOption="ture"></s:select></td>
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='businessId' /></th>
-						<td><s:select list="list_BUIds"
-								name="movement.businessUnit_Id" emptyOption="ture"></s:select></td>
+						<td><s:select list="list_BUIds" class="validate[required]"
+								name="movement.businessUnit_Id" emptyOption="true"></s:select></td>
 					</tr>
 					<tr>
 						<th align="center"><spring:message code='date' /></th>
