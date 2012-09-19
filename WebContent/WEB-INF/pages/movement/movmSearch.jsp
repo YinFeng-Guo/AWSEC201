@@ -9,8 +9,8 @@
 	java.util.Date date = new java.util.Date();//å¾å°å½åç³»ç»æ¶é´ 
 	String str_date1 = formatter.format(date);
 %>
-	<form action="<%=request.getContextPath()%>/movement/searchMovms.action" method="post" id="listMovmsForm">
-		 <spring:message code='date'/>: <input type="text" id="datepicker" name="movement.oper_date" value="<%=str_date1%>">&nbsp;&nbsp;&nbsp;&nbsp;<input type ="button" value ="<spring:message code='search'/>" onclick="onQuery();" >
+	<form  action="<%=request.getContextPath()%>/movement/searchMovms.action" method="post" id="listMovmsForm">
+		 <spring:message code='date'/>: <input class="validate[custom[date]]" type="text" id="datepicker" name="movement.oper_date" value="<%=str_date1%>">&nbsp;&nbsp;&nbsp;&nbsp;<input type ="button" value ="<spring:message code='search'/>" class="submit" onclick="onQuery();" >
 	</form>	
 	
 	<script>

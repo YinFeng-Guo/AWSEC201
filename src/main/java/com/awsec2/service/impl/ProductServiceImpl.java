@@ -42,6 +42,7 @@ public class ProductServiceImpl implements IProductService{
 	}
 	@Override
 	public List<Product> searchProducts(Product prod) {
+		System.out.println("~~~~~~~~~~"+prod.getName());
 		return productMapper.searchProducts(prod);		
 	}
 	@Override

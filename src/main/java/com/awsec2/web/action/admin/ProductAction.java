@@ -309,6 +309,7 @@ public class ProductAction  extends BaseAction implements Preparable{
 		getUserOrgId();
 		if(product != null) {
 			product.setOrganization_id(user.getOrganization_id());
+			product.setName(new String(product.getName().getBytes("ISO-8859-1"),"UTF-8"));
 			products = productService.searchProducts(product);
 			product = null;
 		}

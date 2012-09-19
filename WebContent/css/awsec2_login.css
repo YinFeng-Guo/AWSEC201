@@ -118,6 +118,7 @@ body{
 /*Add for login button*/
 #button_login{
 background:url(../images/btn_login.png);
+cursor:pointer;
 height:43px;
 width:97px;
 }

@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Welcome ITBconsult</title>
 <link rel="Shortcut Icon" href="images/ico.ico">
 <link href="<%=request.getContextPath()%>/css/awsec2_login.css"
@@ -79,7 +79,7 @@
 							<tr>
 								<td colspan="2"
 									style="text-align: right; padding: 20px 70px 0 0"><a
-									href="#"> <input id="button_login" class="submit" type="submit" border="0" value="" ></a>
+									href="#"> <input id="button_login" class="submit" type="submit" border="0" value="" style="cursor:hand" ></a>
 										
 										</td>
 							</tr>
