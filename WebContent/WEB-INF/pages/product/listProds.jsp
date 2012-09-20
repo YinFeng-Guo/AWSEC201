@@ -3,10 +3,11 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
+<link href="/AWSEC201/css/product/tablecloth.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="/AWSEC201/js/product/tablecloth.js"></script>
 
 <table id="prodsData" cellpadding="0" cellspacing="0" width="100%">
-	<thead>
+	<!-- <thead> -->
 		<tr>
 
 			<th width="3%" align="center"><spring:message code="action" /></th>
@@ -18,8 +19,8 @@
 			<th width="10%" align="center"><spring:message code="unit" /></th>
 			<th width="10%" align="center"><spring:message code="active" /></th>
 		</tr>
-	</thead>
-	<tbody>
+	<!-- </thead> -->
+	<!-- <tbody> -->
 		<s:iterator value="product" var="list_prods">
 			<tr>
 				<td align="center"><a
@@ -81,7 +82,7 @@
 					</s:else> <%-- 	<s:property value="#list_prods.active" /> --%></td>
 			</tr>
 		</s:iterator>
-	</tbody>
+	<!-- </tbody> -->
 </table>
 <input type="button" value="<spring:message code='addProduct'/>"
 	onclick="window.location.href='addProducts.action'">
