@@ -34,12 +34,14 @@
         </action>
         -->
         <action name="home" class="LoginAction" method="home">
-            <result>/WEB-INF/pages/shared/home.jsp</result>
+             <result>/WEB-INF/pages/shared/home.jsp</result> 
+            
             <interceptor-ref name="basicStack"/>
         </action> 
         
         <action name="index" class="LoginAction" method="index">
-            <result>index.jsp</result>
+            <!-- <result>index.jsp</result> -->
+            <result>/WEB-INF/pages/shared/tempRedirect.jsp</result>
             <interceptor-ref name="basicStack"/>
         </action>
         
